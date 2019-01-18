@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{278A46D9-F477-367B-A5BA-EDCD4F953882}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>stn</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\GitHub\mars_123\mars\stn\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stn.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stn</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\GitHub\mars_123\mars\stn\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stn.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stn</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\stn\.;G:\GitHub\mars_123\mars\stn\src;G:\GitHub\mars_123\mars\stn\..;G:\GitHub\mars_123\mars\stn\..\..;G:\GitHub\mars_123\mars\stn\..\comm;G:\GitHub\mars_123\mars\stn\..\..\..;G:\GitHub\mars_123\mars\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;XLOGGER_TAG="mars::stn";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::stn\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\stn\.;G:\GitHub\mars_123\mars\stn\src;G:\GitHub\mars_123\mars\stn\..;G:\GitHub\mars_123\mars\stn\..\..;G:\GitHub\mars_123\mars\stn\..\comm;G:\GitHub\mars_123\mars\stn\..\..\..;G:\GitHub\mars_123\mars\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\stn\.;G:\GitHub\mars_123\mars\stn\src;G:\GitHub\mars_123\mars\stn\..;G:\GitHub\mars_123\mars\stn\..\..;G:\GitHub\mars_123\mars\stn\..\comm;G:\GitHub\mars_123\mars\stn\..\..\..;G:\GitHub\mars_123\mars\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\stn\.;G:\GitHub\mars_123\mars\stn\src;G:\GitHub\mars_123\mars\stn\..;G:\GitHub\mars_123\mars\stn\..\..;G:\GitHub\mars_123\mars\stn\..\comm;G:\GitHub\mars_123\mars\stn\..\..\..;G:\GitHub\mars_123\mars\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::stn";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::stn\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\stn\.;G:\GitHub\mars_123\mars\stn\src;G:\GitHub\mars_123\mars\stn\..;G:\GitHub\mars_123\mars\stn\..\..;G:\GitHub\mars_123\mars\stn\..\comm;G:\GitHub\mars_123\mars\stn\..\..\..;G:\GitHub\mars_123\mars\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\stn\.;G:\GitHub\mars_123\mars\stn\src;G:\GitHub\mars_123\mars\stn\..;G:\GitHub\mars_123\mars\stn\..\..;G:\GitHub\mars_123\mars\stn\..\comm;G:\GitHub\mars_123\mars\stn\..\..\..;G:\GitHub\mars_123\mars\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\GitHub\mars_123\mars\stn\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/GitHub/mars_123/mars/stn/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/GitHub/mars_123/mars -BG:/GitHub/mars_123/mars --check-stamp-file G:/GitHub/mars_123/mars/stn/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/GitHub/mars_123/mars/stn/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\GitHub\mars_123\mars\comm\CMakeExtraFlags.txt;G:\GitHub\mars_123\mars\comm\CMakeUtils.txt;G:\GitHub\mars_123\mars\stn\CMakeLists.txt;G:\GitHub\mars_123\mars\stn\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\GitHub\mars_123\mars\stn\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/GitHub/mars_123/mars/stn/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/GitHub/mars_123/mars -BG:/GitHub/mars_123/mars --check-stamp-file G:/GitHub/mars_123/mars/stn/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/GitHub/mars_123/mars/stn/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\GitHub\mars_123\mars\comm\CMakeExtraFlags.txt;G:\GitHub\mars_123\mars\comm\CMakeUtils.txt;G:\GitHub\mars_123\mars\stn\CMakeLists.txt;G:\GitHub\mars_123\mars\stn\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\GitHub\mars_123\mars\stn\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\anti_avalanche.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\anti_avalanche.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\dynamic_timeout.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\dynamic_timeout.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\flow_limit.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\flow_limit.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\frequency_limit.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\frequency_limit.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink_connect_monitor.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink_connect_monitor.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink_identify_checker.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink_identify_checker.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink_speed_test.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink_speed_test.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink_task_manager.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink_task_manager.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\net_channel_factory.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\net_channel_factory.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\net_check_logic.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\net_check_logic.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\net_core.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\net_core.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\net_source.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\net_source.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\netsource_timercheck.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\netsource_timercheck.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\proxy_test.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\proxy_test.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\shortlink.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\shortlink.h" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\shortlink_interface.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\shortlink_task_manager.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\shortlink_task_manager.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\signalling_keeper.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\signalling_keeper.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\simple_ipport_sort.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\simple_ipport_sort.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\smart_heartbeat.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\smart_heartbeat.h" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\special_ini.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\task_profile.cc" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\timing_sync.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\timing_sync.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\weak_network_logic.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\weak_network_logic.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\zombie_task_manager.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\zombie_task_manager.h" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\compiler_util.h" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\config.h" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\dns_profile.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\stn.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\stn.h" />
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\stn_logic.cc" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\stn_logic.h" />
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\task_profile.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:\GitHub\mars_123\mars\ZERO_CHECK.vcxproj">
+      <Project>{F2F50875-7508-3388-B75D-AC980DD8DA81}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\sdt_logic.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\sdt_core.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\basechecker.cc">
+      <Filter>src\activecheck</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\dnschecker.cc">
+      <Filter>src\activecheck</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\httpchecker.cc">
+      <Filter>src\activecheck</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\pingchecker.cc">
+      <Filter>src\activecheck</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\tcpchecker.cc">
+      <Filter>src\activecheck</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\base_netinfo_query.cc">
+      <Filter>src\checkimpl</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\dnsquery.cc">
+      <Filter>src\checkimpl</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\http_detector.cc">
+      <Filter>src\checkimpl</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\httpquery.cc">
+      <Filter>src\checkimpl</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\pingquery.cc">
+      <Filter>src\checkimpl</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\tcpquery.cc">
+      <Filter>src\checkimpl</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\sdt\src\tools\netchecker_trafficmonitor.cc">
+      <Filter>src\tools</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\compiler_util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\netchecker_profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\sdt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\sdt_logic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\sdt_core.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\basechecker.h">
+      <Filter>src\activecheck</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\dnschecker.h">
+      <Filter>src\activecheck</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\httpchecker.h">
+      <Filter>src\activecheck</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\pingchecker.h">
+      <Filter>src\activecheck</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\activecheck\tcpchecker.h">
+      <Filter>src\activecheck</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\base_netinfo_query.h">
+      <Filter>src\checkimpl</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\dnsquery.h">
+      <Filter>src\checkimpl</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\http_detector.h">
+      <Filter>src\checkimpl</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\http_url_parser.h">
+      <Filter>src\checkimpl</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\httpquery.h">
+      <Filter>src\checkimpl</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\pingquery.h">
+      <Filter>src\checkimpl</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\checkimpl\tcpquery.h">
+      <Filter>src\checkimpl</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\sdt\src\tools\netchecker_trafficmonitor.h">
+      <Filter>src\tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\GitHub\mars_123\mars\sdt\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2350FCC9-32FF-3772-B271-C598698D88F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6A6EB411-219B-3984-AFFB-4D44B3DD2AD4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{1D687FED-6297-3F31-ABBC-0375F33AFDF8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\activecheck">
+      <UniqueIdentifier>{ADDDA421-7410-3121-A2F9-B4D2B3798BFA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\checkimpl">
+      <UniqueIdentifier>{310FF2F5-65B7-3627-98DB-CA38E1FC5B1A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tools">
+      <UniqueIdentifier>{AC0DEE1D-7B6F-3BDA-94B6-D8040AB03F58}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

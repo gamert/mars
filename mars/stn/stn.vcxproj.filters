@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\anti_avalanche.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\dynamic_timeout.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\flow_limit.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\frequency_limit.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink_connect_monitor.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink_identify_checker.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink_speed_test.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\longlink_task_manager.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\net_channel_factory.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\net_check_logic.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\net_core.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\net_source.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\netsource_timercheck.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\proxy_test.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\shortlink.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\shortlink_task_manager.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\signalling_keeper.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\simple_ipport_sort.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\smart_heartbeat.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\task_profile.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\timing_sync.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\weak_network_logic.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\src\zombie_task_manager.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\stn.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\GitHub\mars_123\mars\stn\stn_logic.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\anti_avalanche.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\dynamic_timeout.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\flow_limit.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\frequency_limit.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink_connect_monitor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink_identify_checker.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink_speed_test.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\longlink_task_manager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\net_channel_factory.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\net_check_logic.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\net_core.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\net_source.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\netsource_timercheck.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\proxy_test.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\shortlink.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\shortlink_interface.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\shortlink_task_manager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\signalling_keeper.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\simple_ipport_sort.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\smart_heartbeat.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\special_ini.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\timing_sync.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\weak_network_logic.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\src\zombie_task_manager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\compiler_util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\dns_profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\stn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\stn_logic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\GitHub\mars_123\mars\stn\task_profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\GitHub\mars_123\mars\stn\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2350FCC9-32FF-3772-B271-C598698D88F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{6A6EB411-219B-3984-AFFB-4D44B3DD2AD4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{1D687FED-6297-3F31-ABBC-0375F33AFDF8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
