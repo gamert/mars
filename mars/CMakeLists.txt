@@ -5,11 +5,12 @@ message(STATUS "CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}")
 
 add_subdirectory(comm comm)
 add_subdirectory(boost boost)
-add_subdirectory(app app)
-add_subdirectory(baseevent baseevent)
+# add_subdirectory(app app)
+# add_subdirectory(baseevent baseevent)
 add_subdirectory(log xlog)
-add_subdirectory(sdt sdt)
-add_subdirectory(stn stn)
+# add_subdirectory(sdt sdt)
+# add_subdirectory(stn stn)
+add_subdirectory(raknet raknet)
 
 
 project (mars)
@@ -26,7 +27,8 @@ if(ANDROID)
     find_library(log-lib log)
     find_library(z-lib z)
 
-    link_directories(app baseevent log sdt stn comm boost)
+    # link_directories(app baseevent log sdt stn raknet comm boost)
+    link_directories(log raknet comm boost)
 
     # marsxlog
     set(SELF_LIB_NAME marsxlog)
@@ -56,40 +58,60 @@ if(ANDROID)
                                 comm)
     endif()
 
-
-    set(SELF_LIB_NAME marsstn)
-    get_filename_component(EXPORT_EXP_FILE libraries/mars_android_sdk/jni/export.exp ABSOLUTE)
-
-    file(GLOB SELF_SRC_FILES libraries/mars_android_sdk/jni/*.cc)
-
+    set(SELF_LIB_NAME 360Nt)
+    get_filename_component(EXPORT_EXP_FILE raknet/jni/export.exp ABSOLUTE)
+	file(GLOB SELF_SRC_FILES raknet/jni/*.cc)
     add_library(${SELF_LIB_NAME} SHARED ${SELF_SRC_FILES})
-
-
     install(TARGETS ${SELF_LIB_NAME} LIBRARY DESTINATION ${SELF_LIBS_OUT} ARCHIVE DESTINATION ${SELF_LIBS_OUT})
-
     link_directories(${SELF_LIBS_OUT})
-
     if(ANDROID_ABI STREQUAL "arm64-v8a")
         target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections"
                             ${log-lib}
-                            stn
-                            sdt
-                            app
-                            baseevent
+                            ${z-lib}
+                            raknet
                             comm
                             mars-boost
                             marsxlog)
     else()
         target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections -Wl,--version-script=\"${EXPORT_EXP_FILE}\""
                             ${log-lib}
-                            stn
-                            sdt
-                            app
-                            baseevent
+                            ${z-lib}
+                            raknet
                             comm
                             mars-boost
                             marsxlog)
-    endif()
+    endif()		
+
+    # set(SELF_LIB_NAME marsstn)
+    # get_filename_component(EXPORT_EXP_FILE libraries/mars_android_sdk/jni/export.exp ABSOLUTE)
+    # file(GLOB SELF_SRC_FILES libraries/mars_android_sdk/jni/*.cc)
+    # add_library(${SELF_LIB_NAME} SHARED ${SELF_SRC_FILES})
+    # install(TARGETS ${SELF_LIB_NAME} LIBRARY DESTINATION ${SELF_LIBS_OUT} ARCHIVE DESTINATION ${SELF_LIBS_OUT})
+    # link_directories(${SELF_LIBS_OUT})
+    # if(ANDROID_ABI STREQUAL "arm64-v8a")
+        # target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections"
+                            # ${log-lib}
+                            # stn
+                            # sdt
+                            # app
+                            # baseevent
+                            # comm
+                            # mars-boost
+                            # marsxlog)
+    # else()
+        # target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections -Wl,--version-script=\"${EXPORT_EXP_FILE}\""
+                            # ${log-lib}
+                            # stn
+                            # sdt
+                            # app
+                            # baseevent
+                            # comm
+                            # mars-boost
+                            # marsxlog)
+    # endif()	
+  
+
+	
 elseif(APPLE)
 
 endif()

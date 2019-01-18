@@ -1,7 +1,7 @@
 #ifndef RakNetWrapper__H
 #define RakNetWrapper__H
 
-#include "../Source/src/RakNetConnector.h"
+#include "src/RakNetConnector.h"
 
 #include <vector>
 #include <string>

@@ -484,7 +484,7 @@ int RkN_ReceiveCycle2(_Rak_Client_Info_t *pClient, unsigned char *buf, int buf_s
 {
     int handled = 0;
     int pos = 0;
-    for (pClient->lastIndex; pClient->lastIndex < pClient->count; ++pClient->lastIndex)
+    for (; pClient->lastIndex < pClient->count; ++pClient->lastIndex)
     {
         RakNet::Packet *pkg = pClient->receiveSwapPool[pClient->lastIndex];
         if (pkg)

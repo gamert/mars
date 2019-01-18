@@ -170,7 +170,7 @@ extern int g_log;
 	#ifdef WIN32
 		#define RAKNET_SUPPORT_IPV6 0
 	#else
-		#define RAKNET_SUPPORT_IPV6 1
+		#define RAKNET_SUPPORT_IPV6 0
 	#endif
 #endif
 

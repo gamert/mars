@@ -1,16 +1,11 @@
 {
 global:
-	RkN_ReceiveCycle2;
-	RkN_Initialize2;
-	RkN_Initialize;
-	RkN_ReleaseClient;
-	RkN_CreatePeer;
-	RkN_Startup;
 	Java_*;
- 	JNI_OnLoad;
+ 	JNI_OnLoad; 
+ 	RkN_*;
+	MemCopy;
 	Compress;
 	UnCompress;
-	MemCopy;
 local:
   *;
 
