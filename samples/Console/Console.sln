@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Console", "Console.vcxproj", "{B0A7C042-FCE7-4D24-A17D-D2A219BB7915}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{700CD200-24D2-484A-BD5A-A40790C2584B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "comm", "..\..\mars\cmake_build\Windows\comm\comm.vcxproj", "{1660E48A-14B8-3DFA-9A21-B5ACE401AD97}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mars-boost", "..\..\mars\cmake_build\Windows\boost\mars-boost.vcxproj", "{FACFAF15-1094-3EBC-B23B-06F2E4C86A9D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "xlog", "..\..\mars\cmake_build\Windows\xlog\xlog.vcxproj", "{559CE657-1E27-306E-8C76-DA03FDADBFD9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0A7C042-FCE7-4D24-A17D-D2A219BB7915}.Debug|x86.ActiveCfg = Debug|Win32
+		{B0A7C042-FCE7-4D24-A17D-D2A219BB7915}.Debug|x86.Build.0 = Debug|Win32
+		{B0A7C042-FCE7-4D24-A17D-D2A219BB7915}.Release|x86.ActiveCfg = Release|Win32
+		{B0A7C042-FCE7-4D24-A17D-D2A219BB7915}.Release|x86.Build.0 = Release|Win32
+		{1660E48A-14B8-3DFA-9A21-B5ACE401AD97}.Debug|x86.ActiveCfg = Debug|Win32
+		{1660E48A-14B8-3DFA-9A21-B5ACE401AD97}.Debug|x86.Build.0 = Debug|Win32
+		{1660E48A-14B8-3DFA-9A21-B5ACE401AD97}.Release|x86.ActiveCfg = Release|Win32
+		{1660E48A-14B8-3DFA-9A21-B5ACE401AD97}.Release|x86.Build.0 = Release|Win32
+		{FACFAF15-1094-3EBC-B23B-06F2E4C86A9D}.Debug|x86.ActiveCfg = Debug|Win32
+		{FACFAF15-1094-3EBC-B23B-06F2E4C86A9D}.Debug|x86.Build.0 = Debug|Win32
+		{FACFAF15-1094-3EBC-B23B-06F2E4C86A9D}.Release|x86.ActiveCfg = Release|Win32
+		{FACFAF15-1094-3EBC-B23B-06F2E4C86A9D}.Release|x86.Build.0 = Release|Win32
+		{559CE657-1E27-306E-8C76-DA03FDADBFD9}.Debug|x86.ActiveCfg = Debug|Win32
+		{559CE657-1E27-306E-8C76-DA03FDADBFD9}.Debug|x86.Build.0 = Debug|Win32
+		{559CE657-1E27-306E-8C76-DA03FDADBFD9}.Release|x86.ActiveCfg = Release|Win32
+		{559CE657-1E27-306E-8C76-DA03FDADBFD9}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1660E48A-14B8-3DFA-9A21-B5ACE401AD97} = {700CD200-24D2-484A-BD5A-A40790C2584B}
+		{FACFAF15-1094-3EBC-B23B-06F2E4C86A9D} = {700CD200-24D2-484A-BD5A-A40790C2584B}
+		{559CE657-1E27-306E-8C76-DA03FDADBFD9} = {700CD200-24D2-484A-BD5A-A40790C2584B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FFB59B8-7E1C-4952-A484-8921C5A0222A}
+	EndGlobalSection
+EndGlobal
