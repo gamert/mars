@@ -22,30 +22,42 @@ typedef std::chrono::duration<double> CTimeDuration;
 
 #define GetClock std::chrono::steady_clock::now
 
-#define LOG_DETAIL	0
-#define MAX_THREADS 4
+#define LOG_DETAIL		0
+#define MAX_THREADS		2
+#define MAX_TEST_TIME	5000
+
+inline void ThreadSleepMS(int ms)
+{
+	//::Sleep(ms);
+	//::sleep();
+	std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+}
 
 static void __GetIP() {
 	xverbose_function();
 }
 
-class TimeMeasure_t
+//时间测量
+struct TimeMeasure_t
 {
 public:
 	int m_id;
-	std::vector<CTimeDuration> m_pings;
+	std::vector<double> m_pings;	//second
 	TimeMeasure_t(int id):m_id(id)
 	{
-
+		m_pings.reserve(1024);
 	}
-	void Dump()
+	void Clear()
+	{
+		m_pings.clear();
+	}
+	//返回
+	double Dump(bool blog = false)
 	{
 		//now() 获取当前时钟
-		CTimePoint t2;// = GetClock();
-		CTimePoint t3 = GetClock();
-		CTimeDuration dmin = std::chrono::duration_cast<CTimeDuration>(t3 - t2);
-		CTimeDuration dmax; //dmax.zero();
-		CTimeDuration dd; //dd.zero();
+		double dmin = 9999999;
+		double dmax = 0; //dmax.zero();
+		double dd = 0; //dd.zero();
 		for (int i = 0; i < m_pings.size(); ++i)
 		{
 			if (dmin > m_pings[i])
@@ -57,24 +69,30 @@ public:
 			dd += m_pings[i];
 		}
 		int count = max(1, m_pings.size());
-		double d2 = dd.count() / count;
-		//计算方差
-		double err2 = 0;
+		double d2 = dd / count;
+		//计算方差:用来度量随机变量和其数学期望（即均值）之间的偏离程度
+		double Variance = 0;
 		for (int i = 0; i < m_pings.size(); ++i)
 		{
-			double dd = m_pings[i].count() - d2;
-			err2 += dd * dd;
+			double dd = m_pings[i] - d2;
+			Variance += dd * dd;
 		}
-		err2 = err2 / count;
-		printf("TimeMeasure[%d]:count=%d, avg=%llf,err2=%llf, [%llf,%llf] \n", m_id, count, d2, err2, dmin.count(), dmax.count());
+		Variance = Variance / count;
+		//标准差
+		double SD = sqrtf(Variance);
+		if(blog)
+			printf("TimeMeasure[%d]:count=%d, avg=%llf,Variance=%llf,SD=%llf, [%llf,%llf] \n", m_id, count, d2, Variance, SD, dmin, dmax);
+		return d2;
 	}
 };
+
+TimeMeasure_t s_TimeMeasure(0);
 
 class TimeMeasureGroup_t
 {
 public:
 	std::map<int, TimeMeasure_t*> m_Measures;
-	void Add(int id, CTimeDuration dura)
+	void Add(int id, double dura)
 	{
 		TimeMeasure_t* p;
 		std::map<int, TimeMeasure_t*>::iterator itr = m_Measures.find(id);
@@ -104,7 +122,9 @@ public:
 class MUdpServerImp:public IAsyncUdpServerEvent {
 public:
 	//TimeMeasureGroup_t m_TimeMeasureGroup;
-
+	~MUdpServerImp()
+	{
+	}
 
 	virtual void OnError(UdpServer* _this, int _errno)
 	{
@@ -130,7 +150,6 @@ public:
 	}
 };
 
-#define MAX_TEST_TIME 10000
 
 class CAsynUdpClient :public IAsyncUdpClientEvent
 {
@@ -138,7 +157,7 @@ public:
 	int m_id;
 	UdpClient *tc;
 
-	CTimePoint _lastTP;
+	uint64_t _lastTP;
 	int seconds;
 
 	TimeMeasure_t _tm;
@@ -146,13 +165,14 @@ public:
 	CAsynUdpClient(int id,const char *ip,int _port):m_id(id), _tm(id)
 	{
 		tc = new UdpClient(ip, _port, this);
-		_lastTP = GetClock();
+		_lastTP = gettickcount();
 		seconds = 0;
 	}
 	~CAsynUdpClient()
 	{
 		delete tc;
-		_tm.Dump();
+		double d = _tm.Dump();
+		s_TimeMeasure.m_pings.push_back(d);
 	}
 
 	bool isalive() { return true; }
@@ -177,9 +197,9 @@ public:
 	//
 	void timerloop()
 	{
-		CTimePoint t3 = GetClock();
-		CTimeDuration dmin = std::chrono::duration_cast<CTimeDuration>(t3 - _lastTP);
-		if (dmin.count() >= 1.0)
+		uint64_t t3 = gettickcount();
+		uint64_t dmin = t3 - _lastTP;
+		if (dmin >= 1000)
 		{
 			seconds++;
 			SendPing(seconds);
@@ -197,14 +217,13 @@ public:
 		int seconds = 0;
 		do
 		{
-			::sleep(1);
-			end = gettickcount();
-
+			ThreadSleepMS(1000);
 			seconds++;
 			if (seconds % 5 == 1)
 			{
 				SendPing(seconds);
 			}
+			end = gettickcount();
 		} while (end - begin < MAX_TEST_TIME);
 	}
 
@@ -224,7 +243,15 @@ public:
 
 		CTimeDuration time_span = std::chrono::duration_cast<CTimeDuration>(t3 - *t2);
 
-		_tm.m_pings.push_back(time_span);
+		double dd = time_span.count();
+		if (dd >= 0)
+		{
+			_tm.m_pings.push_back(dd);
+		}
+		else
+		{
+			printf("!!!!CAsynUdpClient:OnDataGramRead error:(%d,%d) len=%d;dd=%llf\n\n", *id, *seconds, _len, dd);
+		}
 		//m_TimeMeasureGroup.Add(*id, time_span);
 
 #if LOG_DETAIL
@@ -267,10 +294,13 @@ public:
 		}
 		_mutex.unlock();
 	}
+
+	//线程think...
 	void loop()
 	{
 		//微秒
-		std::chrono::microseconds dura(1);
+		std::chrono::microseconds dura(10);
+		//std::chrono::seconds dura(1);
 		for (; !isstop;)
 		{
 			_mutex.lock();
@@ -395,22 +425,13 @@ static void InitSocket()
 	}
 }
 
-void main(int argc, char **argv)
+void DoTest(int nClints)
 {
-	InitSocket();
-
-	AutoBuffer ab(1000);
-
-	std::string _host_name = "www.baidu.com";
-
-	static DNS s_dns;
-	std::vector<std::string> ips;
-	s_dns.GetHostByName(_host_name, ips);
 	const char *ip = "192.168.82.19";//
 
-	//const char *ip = "192.168.82.201";//127.0.0.1
-	//uint16_t _port = 6620;
-	//const char *ip = "192.168.85.11";//127.0.0.1
+									 //const char *ip = "192.168.82.201";//127.0.0.1
+									 //uint16_t _port = 6620;
+									 //const char *ip = "192.168.85.11";//127.0.0.1
 	uint16_t _port = 8001;
 	//timeMs();
 	//xdebug2(TSF"curtime:%_ , @%_", gettickcount(), &s_dns);
@@ -422,21 +443,31 @@ void main(int argc, char **argv)
 	uint64_t end;
 	do
 	{
-		::sleep(1);
+		ThreadSleepMS(100);
 		end = gettickcount();
 	} while (end - begin < 1000);
 #endif
 
 	ClientHandler<CAsynUdpClient> ch;
 	ch.init();
-	ch.CreateClients(64, ip, _port);
+	//1 Thread 16 ,avg:0.00645 0.009595 0.002736
+	//1 Thread 64 ,avg:0.00408 0.003893
+	//1 Thread 256 ,avg:0.00534 0.004753
+	//1 Thread 512 ,avg:0.004194 0.004234
+	//1 Thread 1024 ,avg:0.003456 0.003636
+
+	//2 Thread 128 ,avg:0.012 0.006771 0.009470
+	//2 Thread 256 ,avg:0.033 0.006492 0.00777
+
+	//4 Thread 128 ,avg:0.01068 0.01554
+	ch.CreateClients(nClints, ip, _port);
 
 	{
 		uint64_t begin = gettickcount();
 		uint64_t end;
 		do
 		{
-			::sleep(1);
+			ThreadSleepMS(1000);
 			end = gettickcount();
 		} while (end - begin < MAX_TEST_TIME);
 	}
@@ -446,7 +477,40 @@ void main(int argc, char **argv)
 	//Thread thread(&CreateAsynUdpClient, 1, ip, _port);
 	//int startRet = thread.start();
 
-	printf("main::end\n");
+	double ddd = s_TimeMeasure.Dump();
+	s_TimeMeasure.Clear();
+
+	printf("main::end ....MAX_THREADS=%d,nClints=%d, TimeMeasure avg = %llf\n", MAX_THREADS, nClints, ddd);
+
+#if USE_LOOP_SERVER
+	delete ts;
+	delete tsi;
+#endif
+	ThreadSleepMS(1000);
+}
+
+void main(int argc, char **argv)
+{
+	InitSocket();
+
+	AutoBuffer ab(1000);
+
+	std::string _host_name = "www.baidu.com";
+
+	static DNS s_dns;
+	std::vector<std::string> ips;
+	s_dns.GetHostByName(_host_name, ips);
+
+	const int round = 4;
+	for (int i = 0; i < round; ++i)
+	{
+		DoTest(16);
+		DoTest(32);
+		DoTest(64);
+		DoTest(128);
+		DoTest(256);
+		DoTest(512);
+	}
 
 	exit(0);
 }
