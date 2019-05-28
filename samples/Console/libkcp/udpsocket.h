@@ -98,7 +98,7 @@ public:
 		return ::recvfrom(udpsock, buf, len, 0, from, fromlen);
 	}
 
-	int sendto(const char  * buf, int len)
+	int SendTo(const char  * buf, int len)
 	{
 		return ::sendto(udpsock, buf, len, 0, (const struct sockaddr  *)&sockaddr, sizeof(sockaddr));
 	}

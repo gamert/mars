@@ -53,7 +53,7 @@ public:
 	int send(const char *buf, int size)
 	{
 		_mutex.lock();
-		int ret = utask->send(buf, size);
+		int ret = utask->tcp_send(buf, size);
 		_mutex.unlock();
 		return ret;
 	}
@@ -104,7 +104,7 @@ public:
 			time_measure_t::MarkTime("recvfrom");
 
 			_mutex.lock();
-			utask->recv(buff, size);
+			utask->tcp_recv(buff, size);
 			_mutex.unlock();
 		}
 	}

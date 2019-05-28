@@ -211,7 +211,7 @@ public:
 private:
 	static int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)
 	{
-		time_measure_t::MarkTime("udp_output");
+		//time_measure_t::MarkTime("udp_output");
 
 		return ((TSocket*)user)->SendTo(buf, len);
 	}

@@ -87,7 +87,7 @@ public:
 		{
 			pclient = iter->second;
 		}
-		pclient->recv(buff, size);
+		pclient->tcp_recv(buff, size);
 		_mutex.unlock();
 	}
 public:

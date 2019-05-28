@@ -47,14 +47,14 @@ public:
 	{
 		char buf[256];
 		sprintf(buf, "kcpclient::OnError(0x%x,%d)", _this, _errno);
-		time_measure_t::MarkTime(buf);
+		//time_measure_t::MarkTime(buf);
 	};
 	
 	virtual void OnDataGramRead(UdpClient* _this, void* _buf, size_t _len)
 	{
 		char buf[256];
 		sprintf(buf,"kcpclient::OnDataGramRead(0x%x,,%d)", _this, _len);
-		time_measure_t::MarkTime(buf);
+		//time_measure_t::MarkTime(buf);
 		//要判断是否为普通UDP?
 
 		_mutex.lock();
@@ -66,7 +66,7 @@ public:
 	{
 		char buf[256];
 		sprintf(buf, "kcpclient::OnDataSent(0x%x)", _this);
-		time_measure_t::MarkTime(buf);
+		//time_measure_t::MarkTime(buf);
 	};
 
 
