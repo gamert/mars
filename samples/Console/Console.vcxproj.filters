@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="TestUdp.cpp" />
+    <ClCompile Include="TestTcp.cpp" />
+    <ClCompile Include="libkcp\ikcp.c">
+      <Filter>libkcp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="libkcp">
+      <UniqueIdentifier>{4c289242-4ecd-49e2-b562-23221d951277}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libkcp\common.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="libkcp\ikcp.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="libkcp\udpclient.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="libkcp\udpserver.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="libkcp\udpsocket.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="libkcp\udptask.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="kcpclient.h" />
+  </ItemGroup>
+</Project>

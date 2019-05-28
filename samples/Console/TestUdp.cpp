@@ -23,7 +23,7 @@ typedef std::chrono::duration<double> CTimeDuration;
 #define GetClock std::chrono::steady_clock::now
 
 #define LOG_DETAIL		0
-#define MAX_THREADS		2
+#define MAX_THREADS		1
 #define MAX_TEST_TIME	5000
 
 inline void ThreadSleepMS(int ms)
@@ -172,7 +172,12 @@ public:
 	{
 		delete tc;
 		double d = _tm.Dump();
-		s_TimeMeasure.m_pings.push_back(d);
+		if(d>0)
+			s_TimeMeasure.m_pings.push_back(d);
+		else
+		{
+			printf("~CAsynUdpClient[%d]: no valid ping \n", m_id);
+		}
 	}
 
 	bool isalive() { return true; }
@@ -207,29 +212,29 @@ public:
 		}
 	}
 
-	void loop()
-	{
-		//tc->Connect();
+	//void loop()
+	//{
+	//	//tc->Connect();
 
-		//UdpClient::TUdpStatus status = tc->GetUdpStatus();
-		uint64_t begin = gettickcount();
-		uint64_t end;
-		int seconds = 0;
-		do
-		{
-			ThreadSleepMS(1000);
-			seconds++;
-			if (seconds % 5 == 1)
-			{
-				SendPing(seconds);
-			}
-			end = gettickcount();
-		} while (end - begin < MAX_TEST_TIME);
-	}
+	//	//UdpClient::TUdpStatus status = tc->GetUdpStatus();
+	//	uint64_t begin = gettickcount();
+	//	uint64_t end;
+	//	int seconds = 0;
+	//	do
+	//	{
+	//		ThreadSleepMS(1000);
+	//		seconds++;
+	//		if (seconds % 5 == 1)
+	//		{
+	//			SendPing(seconds);
+	//		}
+	//		end = gettickcount();
+	//	} while (end - begin < MAX_TEST_TIME);
+	//}
 
 	virtual void OnError(UdpClient* _this, int _errno)
 	{
-		printf("CAsynUdpClient:OnError[%d]\n", _errno);
+		printf("CAsynUdpClient:OnError[%d] :_errno=%d,pings = %d\n", m_id, _errno, _tm.m_pings.size());
 	};
 	virtual void OnDataGramRead(UdpClient* _this, void* _buf, size_t _len)
 	{
@@ -489,27 +494,30 @@ void DoTest(int nClints)
 	ThreadSleepMS(1000);
 }
 
-void main(int argc, char **argv)
+///
+void udp_main(int argc, char **argv)
 {
 	InitSocket();
 
 	AutoBuffer ab(1000);
 
-	std::string _host_name = "www.baidu.com";
+	//std::string _host_name = "www.baidu.com";
 
-	static DNS s_dns;
-	std::vector<std::string> ips;
-	s_dns.GetHostByName(_host_name, ips);
+	//static DNS s_dns;
+	//std::vector<std::string> ips;
+	//s_dns.GetHostByName(_host_name, ips);
 
-	const int round = 4;
+	//随着线程数的增多，pingpong明显增加
+	const int round = 2;
 	for (int i = 0; i < round; ++i)
 	{
-		DoTest(16);
-		DoTest(32);
-		DoTest(64);
-		DoTest(128);
-		DoTest(256);
-		DoTest(512);
+		DoTest(1);
+		DoTest(4);
+		DoTest(8);
+		//DoTest(16);
+		//DoTest(64);
+		//DoTest(256);
+		//DoTest(512);
 	}
 
 	exit(0);
