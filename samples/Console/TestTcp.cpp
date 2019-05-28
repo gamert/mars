@@ -109,7 +109,7 @@ public:
 	};
 };
 
-void InitSocket()
+static void InitSocket()
 {
 
 	WSADATA Data;
@@ -129,7 +129,7 @@ void InitSocket()
 	}
 }
 
-void main(int argc, char **argv)
+void tcp_main(int argc, char **argv)
 {
 	InitSocket();
 

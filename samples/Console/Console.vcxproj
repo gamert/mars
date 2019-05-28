@@ -168,7 +168,8 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TestUdp.cpp" />
+    <ClCompile Include="TestTcp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\mars\cmake_build\Windows\boost\mars-boost.vcxproj">
