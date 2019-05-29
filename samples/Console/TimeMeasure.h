@@ -36,38 +36,61 @@ public:
 	{
 		m_pings.clear();
 	}
-	//返回
-	double Dump(bool blog = false)
+
+	//返回avg
+	double Dump(const char *prefix, bool blog = false)
+	{
+		std::vector<double> jitters;
+		double avg = CaclQos(prefix, m_id, m_pings, jitters, blog);
+
+		if (jitters.size() && blog)
+		{
+			std::vector<double> jitters2;
+			double avg2 = CaclQos("		Jitter", m_id, jitters, jitters2, blog);
+		}
+
+		return avg;
+	}
+
+	//计算网络质量QOS:
+	static double CaclQos(const char *prefix, int m_id,std::vector<double> &_pings, std::vector<double> &jitters, bool blog = false)
 	{
 		//now() 获取当前时钟
 		double dmin = 9999999;
 		double dmax = 0; //dmax.zero();
 		double dd = 0; //dd.zero();
-		for (int i = 0; i < m_pings.size(); ++i)
+		for (int i = 0; i < _pings.size(); ++i)
 		{
-			if (dmin > m_pings[i])
-				dmin = m_pings[i];
+			if (dmin > _pings[i])
+				dmin = _pings[i];
 
-			if (dmax < m_pings[i])
-				dmax = m_pings[i];
+			if (dmax < _pings[i])
+				dmax = _pings[i];
 
-			dd += m_pings[i];
+			if (i > 0)
+			{
+				double dd = fabs(_pings[i] - _pings[i - 1]);
+				jitters.push_back(dd);
+			}
+
+			dd += _pings[i];
 		}
-		int count = max(1, m_pings.size());
-		double d2 = dd / count;
+		int count = max(1, _pings.size());
+		//均值
+		double avg = dd / count;
 		//计算方差:用来度量随机变量和其数学期望（即均值）之间的偏离程度
 		double Variance = 0;
-		for (int i = 0; i < m_pings.size(); ++i)
+		for (int i = 0; i < _pings.size(); ++i)
 		{
-			double dd = m_pings[i] - d2;
+			double dd = _pings[i] - avg;
 			Variance += dd * dd;
 		}
 		Variance = Variance / count;
 		//标准差
 		double SD = sqrtf(Variance);
 		if (blog)
-			printf("TimeMeasure[%d]:count=%d, avg=%llf,Variance=%llf,SD=%llf, [%llf,%llf] \n", m_id, count, d2, Variance, SD, dmin, dmax);
-		return d2;
+			printf("%s[%d]:count=%d, avg=%llf,Variance=%llf,SD=%llf, [%llf,%llf] \n", prefix, m_id, count, avg, Variance, SD, dmin, dmax);
+		return avg;
 	}
 };
 
@@ -95,7 +118,7 @@ public:
 	{
 		for each (auto var in m_Measures)
 		{
-			var.second->Dump();
+			var.second->Dump("TimeMeasureGroup");
 		}
 	}
 

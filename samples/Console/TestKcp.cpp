@@ -16,7 +16,8 @@
 class clitask :public kcptask
 {
 public:
-	clitask()
+	TimeMeasure_t m_TimeMeasure;
+	clitask(): m_TimeMeasure(0)
 	{
 
 	}
@@ -32,8 +33,14 @@ public:
 			std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
 			std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
 			//if (time_span.count() >= 1)
-			printf("收到PONG[%d] %llf\n", ping_index, time_span.count());
+			double dd = time_span.count();
+			printf("收到PONG[%d] %llf\n", ping_index, dd);
 
+			m_TimeMeasure.m_pings.push_back(dd);
+			if ((m_TimeMeasure.m_pings.size() % 10) == 9)
+			{
+				m_TimeMeasure.Dump("clitask ping",true);
+			}
 
 			//auto now = get_tick_count();
 			//if (preTCPRecvTime == 0)
@@ -111,7 +118,7 @@ int main(int argc, char *argv[])
 	{
 		std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
 		std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
-		if (time_span.count() >= 10)
+		if (time_span.count() >= 2)
 		{
 			send_ping(c, ping_index++);
 

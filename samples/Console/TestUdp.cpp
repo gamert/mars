@@ -93,7 +93,7 @@ public:
 	~CAsynUdpClient()
 	{
 		delete tc;
-		double d = _tm.Dump();
+		double d = _tm.Dump("CAsynUdpClient");
 		if(d>0)
 			s_TimeMeasure.m_pings.push_back(d);
 		else
@@ -404,7 +404,7 @@ void DoTest(int nClints)
 	//Thread thread(&CreateAsynUdpClient, 1, ip, _port);
 	//int startRet = thread.start();
 
-	double ddd = s_TimeMeasure.Dump();
+	double ddd = s_TimeMeasure.Dump("All Clients");
 	s_TimeMeasure.Clear();
 
 	printf("main::end ....MAX_THREADS=%d,nClints=%d, TimeMeasure avg = %llf\n", MAX_THREADS, nClints, ddd);
