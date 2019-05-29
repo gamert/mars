@@ -38,15 +38,15 @@ public:
 #endif
 	}
 
-	static void MarkTime(const char *prefix,char *buf = NULL)
+	static void MarkTime(const char *prefix, char *buf = NULL)
 	{
 #if TIME_MEASURE
 		static 	std::chrono::steady_clock::time_point last_t1 = std::chrono::steady_clock::now();
 		std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
 		//std::time_t tt;
 		//tt = system_clock::to_time_t(today);
-		std::chrono::duration<double> dt  = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - last_t1);
-		if(buf)
+		std::chrono::duration<double> dt = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - last_t1);
+		if (buf)
 			sprintf(buf, "MarkTime:%s: %lld,  dt = %llf\n", prefix, t2, dt);
 		else
 			printf("%s:MarkTime: %lld,  dt = %llf\n", prefix, t2, dt);
@@ -163,6 +163,7 @@ public:
 			nexttime = iclock();
 			alivetime = nexttime + TIMEOUT_INTERVAL;
 		}
+		ikcp_flush(kcp);
 		//printf("·¢ËÍÊý¾Ý %d,%d,%d\n", conv, len, nret);
 		return nret;
 	}

@@ -60,4 +60,6 @@ static inline IUINT32 iclock()
 	return (IUINT32)(iclock64() & 0xfffffffful);
 }
 
+
+
 #endif

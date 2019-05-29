@@ -6,6 +6,7 @@
     <ClCompile Include="libkcp\ikcp.c">
       <Filter>libkcp</Filter>
     </ClCompile>
+    <ClCompile Include="TestKcp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="libkcp">
@@ -32,5 +33,6 @@
       <Filter>libkcp</Filter>
     </ClInclude>
     <ClInclude Include="kcpclient.h" />
+    <ClInclude Include="TimeMeasure.h" />
   </ItemGroup>
 </Project>
