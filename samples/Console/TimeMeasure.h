@@ -116,10 +116,10 @@ public:
 	}
 	void Dump()
 	{
-		for each (auto var in m_Measures)
-		{
-			var.second->Dump("TimeMeasureGroup");
-		}
+		//for each (auto var in m_Measures)
+		//{
+		//	var.second->Dump("TimeMeasureGroup");
+		//}
 	}
 
 

@@ -50,12 +50,22 @@ public:
 		return true;
 	}
 
-	int send(const char *buf, int size)
+	int sendtcp(const char *buf, int size)
 	{
 		_mutex.lock();
 		int ret = utask->tcp_send(buf, size);
 		_mutex.unlock();
 		return ret;
+	}
+
+	//send udp msg
+	int sendUdp(const char  *buf, int len)
+	{
+		TUdpDatagram_t ab(false);
+		IUINT32 conv = utask->GetConv();
+		ab.Append(conv);
+		ab.Append(buf, len);
+		return udpsock.SendTo(ab.data(), ab.size());
 	}
 
 	void shutdown()
@@ -101,11 +111,30 @@ public:
 				printf("½ÓÊÕÊ§°Ü %d,%d \n", udpsock.getsocket(), size);
 				continue;
 			}
-			time_measure_t::MarkTime("recvfrom");
+			//time_measure_t::MarkTime("recvfrom");
 
-			_mutex.lock();
-			utask->tcp_recv(buff, size);
-			_mutex.unlock();
+			const char *pBuf = (const char *)buff;
+			if (pBuf[0] == 'U' && pBuf[1] == 'D' && pBuf[2] == 'G')
+			{
+				if (pBuf[3] == '1')
+				{
+					_mutex.lock();
+					utask->tcp_recv(pBuf + 4, size - 4);
+					_mutex.unlock();
+
+				}
+				else if (pBuf[3] == '0')
+				{
+					//_mutex_udp.lock();
+					//_udpqueue.push_back(std::string(pBuf+4, _len-4));
+					//_mutex_udp.unlock();
+					utask->udp_recv(pBuf + 4, size - 4);
+				}
+				else
+				{
+					assert(false);
+				}
+			}
 		}
 	}
 

@@ -167,7 +167,7 @@ public:
 				continue;
 			}
 			
-			time_measure_t::MarkTime("recvfrom");
+			//time_measure_t::MarkTime("recvfrom");
 
 			const char *pBuf = (const char *)buff;
 			if (pBuf[0] == 'U' && pBuf[1] == 'D' && pBuf[2] == 'G')

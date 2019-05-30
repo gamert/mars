@@ -54,7 +54,7 @@ public:
 		{
 			case TF_TYPE_PING:
 			{
-				time_measure_t::MarkTime("TF_TYPE_PING");
+				//time_measure_t::MarkTime("==udp_recv TF_TYPE_PING");
 
 				char buf2[64];
 				memcpy(buf2, buf, len);
@@ -131,7 +131,7 @@ public:
 			break;
 		case TF_TYPE_PING:
 			{
-				time_measure_t::MarkTime("TF_TYPE_PING");
+				//time_measure_t::MarkTime("==tcp_recv TF_TYPE_PING");
 
 				char buf2[64];
 				memcpy(buf2, buf, len);

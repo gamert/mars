@@ -2,6 +2,7 @@
 #include "../../client_helper.h"
 
 #include "../../udpclient.h"
+#include "../../../TimeMeasure.h"
 #include <timeapi.h>
 
 #define TF_TYPE_BEGIN	1
@@ -16,22 +17,55 @@
 class clitask :public udptask
 {
 public:
-	clitask()
+	TimeMeasure_t m_TimeMeasure;
+	clitask():m_TimeMeasure(0)
 	{
 
 	}
+
+	virtual int udp_recv(const char  *buf, int len)
+	{
+		buf += 4;
+		len -= 4;
+		if (buf[0] == TF_TYPE_PONG)
+		{
+			int ping_index;
+			std::chrono::steady_clock::time_point t1;
+			memcpy(&ping_index, buf + 1, sizeof(int));
+			memcpy(&t1, buf + 5, sizeof(t1));
+			std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+			std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
+			//if (time_span.count() >= 1)
+			double dd = time_span.count();
+			printf("[UDP]收到PONG[%d] %llf\n", ping_index, dd);
+		}
+
+		return len;
+	};
+	virtual int udp_send(const char  * buf, int len)
+	{
+		return 0;
+	};
 
 	virtual int parsemsg(const char *buf, int len)
 	{
 		if (buf[0] == TF_TYPE_PONG)
 		{
+			int ping_index;
 			std::chrono::steady_clock::time_point t1;
-			memcpy(&t1, buf + 1, sizeof(t1));
+			memcpy(&ping_index, buf + 1, sizeof(int));
+			memcpy(&t1, buf + 5, sizeof(t1));
 			std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
 			std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
 			//if (time_span.count() >= 1)
-			printf("收到PONG %llf\n", time_span.count());
+			double dd = time_span.count();
+			printf("[TCP]收到PONG[%d] %llf\n", ping_index, dd);
 
+			m_TimeMeasure.m_pings.push_back(dd);
+			if ((m_TimeMeasure.m_pings.size() % 10) == 9)
+			{
+				m_TimeMeasure.Dump("clitask ping", true);
+			}
 
 			//auto now = get_tick_count();
 			//if (preTCPRecvTime == 0)
@@ -77,7 +111,7 @@ int test_send_file(char *filename, udpclient<clitask> &c)
 	buf[0] = TF_TYPE_BEGIN;
 	strncpy(buf + 1, filename, strlen(filename));
 
-	c.send(buf, strlen(filename) + 1);
+	c.sendtcp(buf, strlen(filename) + 1);
 
 	buf[0] = TF_TYPE_DATA;
 	for (;;)
@@ -87,7 +121,7 @@ int test_send_file(char *filename, udpclient<clitask> &c)
 		{
 			break;
 		}
-		int nret = c.send(buf, rc + 1);
+		int nret = c.sendtcp(buf, rc + 1);
 		if (nret < 0)
 		{
 			printf("发送失败 %d\n", nret);
@@ -97,20 +131,26 @@ int test_send_file(char *filename, udpclient<clitask> &c)
 	fclose(fp);
 
 	buf[0] = TF_TYPE_END;
-	c.send(buf, 1);
+	c.sendtcp(buf, 1);
 
 	return 0;
 }
 
 
-void send_ping(udpclient<clitask> &c)
+static void send_ping(udpclient<clitask> &c, int index, bool bTcp = true)
 {
-	std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+	printf("\n");
 
+	std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
 	char buf[64] = { 0 };
 	buf[0] = TF_TYPE_PING;
-	memcpy(buf + 1, &t2, sizeof(t2));
-	c.send(buf, sizeof(t2) + 1);
+	memcpy(buf + 1, &index, sizeof(index));
+	memcpy(buf + 5, &t2, sizeof(t2));
+
+	if (bTcp)
+		c.sendtcp(buf, sizeof(t2) + 10);
+	else
+		c.sendUdp(buf, sizeof(t2) + 10);
 }
 
 int main(int argc, char *argv[])
@@ -139,7 +179,8 @@ int main(int argc, char *argv[])
 	//int res = test_send_file(argv[2],c);
 	//if (res == -1)
 	//	return -1;
-	send_ping(c);
+	int ping_index = 1;
+	send_ping(c, ping_index++);
 
 	std::chrono::steady_clock::time_point t1 = std::chrono::steady_clock::now();
 	std::chrono::milliseconds dura(1);
@@ -147,9 +188,9 @@ int main(int argc, char *argv[])
 	{
 		std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
 		std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
-		if (time_span.count() >= 10)
+		if (time_span.count() >= 2)
 		{
-			send_ping(c);
+			send_ping(c, ping_index++, (ping_index % 2) == 0);
 
 			t1 = t2;
 		}
