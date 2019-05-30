@@ -73,7 +73,7 @@ public:
 	@buff:
 	@size:
 	*/
-	void recv(SOCKET udpsock, struct sockaddr_in *paddr, IUINT32 conv, const char *buff, int size)
+	void recv(SOCKET udpsock, struct sockaddr_in *paddr, IUINT32 conv, const char *buff, int size, bool bTcp)
 	{
 		udptask *pclient = NULL;
 		_mutex.lock();
@@ -87,7 +87,11 @@ public:
 		{
 			pclient = iter->second;
 		}
-		pclient->tcp_recv(buff, size);
+		if(bTcp)
+			pclient->tcp_recv(buff, size);
+		else
+			pclient->udp_recv(buff, size);
+
 		_mutex.unlock();
 	}
 public:
@@ -165,8 +169,18 @@ public:
 			
 			time_measure_t::MarkTime("recvfrom");
 
-			IUINT32 conv = ikcp_getconv(buff);
-			timerthreads[conv % maxtdnum]->recv(udpsock.getsocket(), &cliaddr, conv, buff, size);
+			const char *pBuf = (const char *)buff;
+			if (pBuf[0] == 'U' && pBuf[1] == 'D' && pBuf[2] == 'G')
+			{
+				char *ppbuff = (char *)(pBuf + 4);
+				size -= 4;
+				IUINT32 conv = ikcp_getconv(ppbuff);
+				bool bTcp = pBuf[3] == '1';
+				timerthreads[conv % maxtdnum]->recv(udpsock.getsocket(), &cliaddr, conv, ppbuff, size, bTcp);
+				{
+	//				assert(false);
+				}
+			}
 		}
 	}
 

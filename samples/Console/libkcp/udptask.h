@@ -6,6 +6,8 @@
 #include "common.h"
 #include "udpsocket.h"
 
+#include "MyAutoBuffer.h"
+
 #define TIME_MEASURE 1
 
 
@@ -56,6 +58,20 @@ public:
 
 };
 
+/*
+	inner proxy :
+*/
+struct TUdpDatagram_t:AutoBuffer_t
+{
+	TUdpDatagram_t(bool tcp = false)
+	{
+		if(tcp)
+			Append("UDG1",4);
+		else 
+			Append("UDG0", 4);
+	}
+};
+
 
 /*
 	a control session:
@@ -84,6 +100,10 @@ public:
 			ikcp_release(kcp);
 		}
 		printf("关闭连接 %d\n", conv);
+	}
+
+	IUINT32 GetConv() {
+		return conv;
 	}
 
 	/*
@@ -155,6 +175,7 @@ public:
 		return nret;
 	}
 
+	//可靠报文...
 	int tcp_send(const char  * buf, int len)
 	{
 		int nret = ikcp_send(kcp, buf, len);
@@ -209,12 +230,17 @@ public:
 	}
 	virtual int parsemsg(const char *buf, int len) = 0;
 
+	//
+	virtual int udp_recv(const char  * buf, int len) = 0;
+	virtual int udp_send(const char  * buf, int len) = 0;
+	
 private:
 	static int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)
 	{
 		//time_measure_t::MarkTime("udp_output");
-
-		return ((TSocket*)user)->SendTo(buf, len);
+		TUdpDatagram_t ab(true);
+		ab.Append(buf, len);
+		return ((TSocket*)user)->SendTo(ab.data(), ab.size());
 	}
 
 	static void writelog(const char *log, struct IKCPCB *kcp, void *user)
@@ -222,7 +248,7 @@ private:
 		printf("%s\n", log);
 	}
 
-private:
+protected:
 	IUINT32 conv;
 	ikcpcb *kcp;
 	IUINT32 nexttime;

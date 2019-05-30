@@ -3,6 +3,7 @@
 */
 
 #include "kcpclient.h"
+#include "TimeMeasure.h"
 
 #define TF_TYPE_BEGIN	1
 #define TF_TYPE_DATA	2
@@ -21,6 +22,29 @@ public:
 	{
 
 	}
+	virtual int udp_recv(const char  *buf, int len)
+	{
+		buf += 4;
+		len -= 4;
+		if (buf[0] == TF_TYPE_PONG)
+		{
+			int ping_index;
+			std::chrono::steady_clock::time_point t1;
+			memcpy(&ping_index, buf + 1, sizeof(int));
+			memcpy(&t1, buf + 5, sizeof(t1));
+			std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+			std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
+			//if (time_span.count() >= 1)
+			double dd = time_span.count();
+			printf("[UDP]收到PONG[%d] %llf\n", ping_index, dd);
+		}
+
+		return len;
+	};
+	virtual int udp_send(const char  * buf, int len)
+	{
+		return 0;
+	};
 
 	virtual int parsemsg(const char *buf, int len)
 	{
@@ -34,7 +58,7 @@ public:
 			std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
 			//if (time_span.count() >= 1)
 			double dd = time_span.count();
-			printf("收到PONG[%d] %llf\n", ping_index, dd);
+			printf("[TCP]收到PONG[%d] %llf\n", ping_index, dd);
 
 			m_TimeMeasure.m_pings.push_back(dd);
 			if ((m_TimeMeasure.m_pings.size() % 10) == 9)
@@ -71,7 +95,7 @@ public:
 };
 
 
-void send_ping(kcpclient<clitask> &c,int index)
+void send_ping(kcpclient<clitask> &c,int index,bool bTcp = true)
 {
 	printf("\n");
 
@@ -80,7 +104,11 @@ void send_ping(kcpclient<clitask> &c,int index)
 	buf[0] = TF_TYPE_PING;
 	memcpy(buf + 1, &index, sizeof(index));
 	memcpy(buf + 5, &t2, sizeof(t2));
-	c.sendtcp(buf, sizeof(t2) + 10);
+
+	if(bTcp)
+		c.sendtcp(buf, sizeof(t2) + 10);
+	else
+		c.sendUdp(buf, sizeof(t2) + 10);
 }
 
 int main(int argc, char *argv[])
@@ -120,7 +148,7 @@ int main(int argc, char *argv[])
 		std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
 		if (time_span.count() >= 2)
 		{
-			send_ping(c, ping_index++);
+			send_ping(c, ping_index++, (ping_index % 2) == 0);
 
 			t1 = t2;
 		}

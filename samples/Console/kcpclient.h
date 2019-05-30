@@ -50,16 +50,36 @@ public:
 		//time_measure_t::MarkTime(buf);
 	};
 	
+	//raw message:
 	virtual void OnDataGramRead(UdpClient* _this, void* _buf, size_t _len)
 	{
+		const char *pBuf = (const char *)_buf;
+
 		char buf[256];
-		sprintf(buf,"kcpclient::OnDataGramRead(0x%x,,%d)", _this, _len);
+		sprintf(buf,"kcpclient::OnDataGramRead(0x%x,,%d),bTcp=%d", _this, _len, pBuf[3]);
 		//time_measure_t::MarkTime(buf);
 		//要判断是否为普通UDP?
+		if (pBuf[0] == 'U' && pBuf[1] == 'D' && pBuf[2] == 'G')
+		{
+			if (pBuf[3] == '1')
+			{
+				_mutex.lock();
+				utask->tcp_recv(pBuf + 4, _len - 4);
+				_mutex.unlock();
 
-		_mutex.lock();
-		utask->tcp_recv((const char *)_buf, _len);
-		_mutex.unlock();
+			}
+			else if (pBuf[3] == '0')
+			{
+				//_mutex_udp.lock();
+				//_udpqueue.push_back(std::string(pBuf+4, _len-4));
+				//_mutex_udp.unlock();
+				utask->udp_recv(pBuf + 4, _len - 4);
+			}
+			else
+			{
+				assert(false);
+			}
+		}
 	};
 
 	virtual void OnDataSent(UdpClient* _this)
@@ -103,6 +123,16 @@ public:
 		int ret = utask->tcp_send(buf, size);
 		_mutex.unlock();
 		return ret;
+	}
+	
+	//send udp msg
+	int sendUdp(const char  *buf, int len)
+	{
+		TUdpDatagram_t ab(false);
+		IUINT32 conv = utask->GetConv();
+		ab.Append(conv);
+		ab.Append(buf, len);
+		return udpsock->SendTo(ab.data(), ab.size());
 	}
 
 	void shutdown()
@@ -179,13 +209,17 @@ public:
 		printf("收到数据 %s,%d\n", buf, len);
 		return 0;
 	}
-private:
+protected:
 	UdpClient *udpsock;
 	kcptask* utask;		//keep thread safe
 	//std::thread _thread;
 	std::thread _threadtm;
 	std::mutex _mutex;
 	volatile bool isstop;
+
+	//
+	std::mutex _mutex_udp;
+	std::list<std::string> _udpqueue;	//
 
 	time_measure_t _time_measure;
 };

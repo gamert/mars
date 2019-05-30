@@ -44,9 +44,39 @@ public:
 		}
 		return udptask::isalive();
 	}
-	
+
+	//
+	virtual int udp_recv(const char  *buf, int len)
+	{
+		buf += 4;
+		len -= 4;
+		switch (buf[0])
+		{
+			case TF_TYPE_PING:
+			{
+				time_measure_t::MarkTime("TF_TYPE_PING");
+
+				char buf2[64];
+				memcpy(buf2, buf, len);
+				buf2[0] = TF_TYPE_PONG;
+				this->udp_send(buf2, len);
+				//printf("接收文件完成 \n");
+			}
+		}
+		return len;
+	};
+
+	virtual int udp_send(const char  * buf, int len)
+	{
+		TUdpDatagram_t ab(false);
+		IUINT32 conv = this->GetConv();
+		ab.Append(conv);
+		ab.Append(buf, len);
+		return udpsock->SendTo(ab.data(), ab.size());
+	};
+
 	/*
-		...
+		tcp message
 	*/
 	virtual int parsemsg(const char *buf, int len)
 	{

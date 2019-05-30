@@ -188,6 +188,7 @@
     <ClInclude Include="kcpclient.h" />
     <ClInclude Include="libkcp\common.h" />
     <ClInclude Include="libkcp\ikcp.h" />
+    <ClInclude Include="libkcp\MyAutoBuffer.h" />
     <ClInclude Include="libkcp\udpclient.h" />
     <ClInclude Include="libkcp\udpserver.h" />
     <ClInclude Include="libkcp\udpsocket.h" />
