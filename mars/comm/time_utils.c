@@ -180,3 +180,9 @@ uint64_t timeMs() {
    gettimeofday(&tv,NULL);
    return (uint64_t)tv.tv_sec * 1000 + (uint64_t)tv.tv_usec / 1000;
 }
+
+uint64_t timeUs() {
+	struct timeval tv;
+	gettimeofday(&tv, NULL);
+	return (uint64_t)tv.tv_sec * 1000000 + (uint64_t)tv.tv_usec;
+}

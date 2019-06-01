@@ -114,9 +114,9 @@
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)WTL;$(ProjectDir)../../;$(ProjectDir)../../mars;$(ProjectDir)../../mars/comm/windows;$(ProjectDir)../../mars/comm;$(ProjectDir)proto/protobuf;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Winmm.lib;comsuppw.lib;ws2_32.lib;ssleay32.lib;libeay32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(ProjectDir)/../../mars/openssl/openssl_lib_windows/x86;</AdditionalLibraryDirectories>
     </Link>
     <ResourceCompile>
@@ -168,7 +168,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="libkcp\ikcp.c" />
+    <ClCompile Include="..\libknet\ikcp.c" />
     <ClCompile Include="TestKcp.cpp" />
     <ClCompile Include="TestUdp.cpp" />
     <ClCompile Include="TestTcp.cpp" />
@@ -185,15 +185,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="kcpclient.h" />
-    <ClInclude Include="libkcp\common.h" />
-    <ClInclude Include="libkcp\ikcp.h" />
-    <ClInclude Include="libkcp\MyAutoBuffer.h" />
-    <ClInclude Include="libkcp\udpclient.h" />
-    <ClInclude Include="libkcp\udpserver.h" />
-    <ClInclude Include="libkcp\udpsocket.h" />
-    <ClInclude Include="libkcp\udptask.h" />
-    <ClInclude Include="TimeMeasure.h" />
+    <ClInclude Include="..\libknet\common.h" />
+    <ClInclude Include="..\libknet\ikcp.h" />
+    <ClInclude Include="..\libknet\kcpclient.h" />
+    <ClInclude Include="..\libknet\kcpclient_task.h" />
+    <ClInclude Include="..\libknet\MyAutoBuffer.h" />
+    <ClInclude Include="..\libknet\TimeMeasure.h" />
+    <ClInclude Include="..\libknet\udpclient.h" />
+    <ClInclude Include="..\libknet\udpserver.h" />
+    <ClInclude Include="..\libknet\udpsocket.h" />
+    <ClInclude Include="..\libknet\udptask.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

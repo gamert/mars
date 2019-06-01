@@ -3,10 +3,10 @@
   <ItemGroup>
     <ClCompile Include="TestUdp.cpp" />
     <ClCompile Include="TestTcp.cpp" />
-    <ClCompile Include="libkcp\ikcp.c">
+    <ClCompile Include="TestKcp.cpp" />
+    <ClCompile Include="..\libknet\ikcp.c">
       <Filter>libkcp</Filter>
     </ClCompile>
-    <ClCompile Include="TestKcp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="libkcp">
@@ -14,25 +14,35 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="libkcp\common.h">
+    <ClInclude Include="..\libknet\common.h">
       <Filter>libkcp</Filter>
     </ClInclude>
-    <ClInclude Include="libkcp\ikcp.h">
+    <ClInclude Include="..\libknet\ikcp.h">
       <Filter>libkcp</Filter>
     </ClInclude>
-    <ClInclude Include="libkcp\udpclient.h">
+    <ClInclude Include="..\libknet\kcpclient.h">
       <Filter>libkcp</Filter>
     </ClInclude>
-    <ClInclude Include="libkcp\udpserver.h">
+    <ClInclude Include="..\libknet\kcpclient_task.h">
       <Filter>libkcp</Filter>
     </ClInclude>
-    <ClInclude Include="libkcp\udpsocket.h">
+    <ClInclude Include="..\libknet\MyAutoBuffer.h">
       <Filter>libkcp</Filter>
     </ClInclude>
-    <ClInclude Include="libkcp\udptask.h">
+    <ClInclude Include="..\libknet\TimeMeasure.h">
       <Filter>libkcp</Filter>
     </ClInclude>
-    <ClInclude Include="kcpclient.h" />
-    <ClInclude Include="TimeMeasure.h" />
+    <ClInclude Include="..\libknet\udpclient.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\udpserver.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\udpsocket.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\udptask.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
