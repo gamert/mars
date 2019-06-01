@@ -12,6 +12,7 @@
 #define TF_TYPE_PING 	127
 #define TF_TYPE_PONG 	126
 
+
 //client-server session:
 class clitask :public kcptask
 {
@@ -22,18 +23,20 @@ public:
 
 	}
 
-	uint64_t handlePong(const char  *buf, int len,const char *prompt)
+	KTimeDiff handlePong(const char  *buf, int len,const char *prompt)
 	{
 		int ping_index;
-		uint64_t t1;
+		KTime t1;
 		memcpy(&ping_index, buf + 1, sizeof(int));
 		memcpy(&t1, buf + 5, sizeof(t1));
-		uint64_t t2 = timeUs();
+		KTime t2 = GetKTime();
+
+		KTimeDiff dt = GetKTimeDiffSecond(t2, t1);
 		//std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
 		//if (time_span.count() >= 1)
 		//double dd = time_span.count();
-		printf("[%s]收到PONG[%d] %lld\n", prompt, ping_index, t2 - t1);
-		return t2 - t1;
+		printf("[%s]收到PONG[%d] %llf\n", prompt, ping_index, dt);
+		return dt;
 	}
 
 	virtual int udp_recv(const char  *buf, int len)
@@ -56,8 +59,8 @@ public:
 	{
 		if (buf[0] == TF_TYPE_PONG)
 		{
-			uint64_t dd = handlePong(buf, len, "TCP");
-			m_TimeMeasure.m_pings.push_back(dd*0.000001);
+			KTimeDiff dd = handlePong(buf, len, "TCP");
+			m_TimeMeasure.m_pings.push_back(dd);
 			if ((m_TimeMeasure.m_pings.size() % 10) == 9)
 			{
 				m_TimeMeasure.Dump("clitask ping", true);

@@ -164,10 +164,12 @@ namespace KNET
         public static extern int Net_Send(IntPtr handle, byte[] data, int length, int sendType);
 
         [DllImport(VERSION.dll)]
-        public static extern int Net_GetConnectionState(int handle, ulong guid);
+        public static extern int Net_GetConnectionState(IntPtr handle);
 
         [DllImport(VERSION.dll)]
-        public static extern int Net_GetAveragePing(int handle, ulong guid);
+        public static extern int Net_GetAveragePing(IntPtr handle);
+        [DllImport(VERSION.dll)]
+        public static extern int Net_SendPing(IntPtr handle, int index, bool bTcp = true);
 
         [DllImport(VERSION.dll)]
         public static extern UInt64 Net_GetTimeUs();

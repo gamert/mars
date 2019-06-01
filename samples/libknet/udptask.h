@@ -10,6 +10,21 @@
 
 #define TIME_MEASURE 1
 
+//#define USE_chrono
+
+#ifdef USE_chrono
+	#define KTime		std::chrono::steady_clock::time_point
+	#define GetKTime	std::chrono::steady_clock::now
+	#define KTimeDiff	double
+	#define GetKTimeDiffSecond(t2,t1) std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1).count()
+#else
+	#define KTime		uint64_t
+	#define GetKTime	timeUs
+	#define KTimeDiff	double
+	#define GetKTimeDiffSecond(t2,t1) (t2-t1)*0.000001
+
+#endif
+
 
 class time_measure_t
 {

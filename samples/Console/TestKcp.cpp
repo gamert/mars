@@ -9,8 +9,7 @@ void send_ping(kcpclient<clitask> &c,int index,bool bTcp = true)
 {
 	printf("\n");
 
-	uint64_t t2 = timeUs();
-	//std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+	KTime t2 = GetKTime();
 	char buf[64] = { 0 };
 	buf[0] = TF_TYPE_PING;
 	memcpy(buf + 1, &index, sizeof(index));

@@ -291,9 +291,26 @@ extern "C"
 		return p->GetAveragePing();
 	}
 
+	T_DLL int STDCALL Net_SendPing(IntPtr handle, int index, bool bTcp = true)
+	{
+		//printf("send_ping \n");
+		//在 windows 下 和 linux 下 取到的 时间精度 很不一样啊, windows下 居然 位数都不对, 比linux 下 少两位数
+		KTime t2 = GetKTime();
+		char buf[64] = { 0 };
+		buf[0] = TF_TYPE_PING;
+		memcpy(buf + 1, &index, sizeof(index));
+		memcpy(buf + 5, &t2, sizeof(t2));
+
+		Net_Send(handle, buf, 1 + 4 + 8, bTcp ? 0 : 1);
+		return 0;
+	}
+
+
 	T_DLL uint64_t STDCALL Net_GetTimeUs()
 	{
-		return timeUs();
+		KTime t1 = GetKTime();
+		uint64_t t2 = *(uint64_t*)&t1;
+		return t2;
 	}
 
 	//新加的。。。

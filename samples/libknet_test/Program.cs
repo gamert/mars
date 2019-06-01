@@ -64,7 +64,7 @@ namespace libknet_test
 
             IntPtr handle = KNet.Net_CreateSession("kcp");
 
-            int res = KNet.Net_Connect(handle, "127.0.0.1", 9001, 14);
+            int res = KNet.Net_Connect(handle, "127.0.0.1", 9001, 4);
             byte[] data = new byte[128];
 
             //Thread.Sleep(1000);
@@ -79,9 +79,9 @@ namespace libknet_test
                 if(length > 0)
                 {
                     //int bytes = KNet.Net_Send(handle, data, length, (index++)%2);
-                    send_ping(handle, ping_index++, (ping_index % 2) == 0);
+                    KNet.Net_SendPing(handle, ping_index++, (ping_index % 2) == 0);
                 }
-                Thread.Sleep(1000);
+                Thread.Sleep(3000);
             }
 
 
