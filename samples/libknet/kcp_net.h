@@ -116,9 +116,9 @@ extern "C"
 	T_DLL void STDCALL MemCopy(void *dst, void *src, int size);
 	//T_DLL int STDCALL Compress(Bytef *dest, uLongf *destLen,const Bytef *source, uint64_t sourceLen);
 	//T_DLL int STDCALL UnCompress(Bytef *dest, uLongf *destLen, const Bytef *source, uint64_t sourceLen);
-	T_DLL void STDCALL Net_xLog(int level, const char* host);
-	T_DLL void STDCALL Net_xLogFlush(int param);
-
+	T_DLL void STDCALL _std_xlog(int level, const char* host);
+	T_DLL void STDCALL _std_xlog_flush(int param);
+	T_DLL int STDCALL  _std_event(int param);
 }
 
 #endif

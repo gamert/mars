@@ -187,14 +187,14 @@ namespace KNET
 
         //for xLog
         [DllImport(VERSION.dll)]
-        public static extern void Net_xLog(int level, string content);
+        public static extern void _std_xlog(int level, string content);
 
         [DllImport(VERSION.dll)]
-        public static extern void Net_xLogFlush(int param);
+        public static extern void _std_xlog_flush(int param);
 
         //2019/1/18: 增加网络事件通知，用于更新IPStack
-        //        [DllImport(VERSION.dll)]
-        //        public static extern int Net_NetEvent(int param);
+        [DllImport(VERSION.dll)]
+        public static extern int _std_event(int param);
 
     }
 }

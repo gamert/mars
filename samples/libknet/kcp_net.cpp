@@ -346,18 +346,18 @@ extern "C"
 	//	kLevelNone,     // Special level used to disable all log messages.
 	//} TLogLevel;
 	//0722add: log
-	T_DLL void STDCALL Net_xLog(int level, const char* host)
+	T_DLL void STDCALL _std_xlog(int level, const char* host)
 	{
 		xlog2((TLogLevel)level, TSF"%_\n", host);
 	}
 	//1012add: flush log
-	T_DLL void STDCALL Net_xLogFlush(int param)
+	T_DLL void STDCALL _std_xlog_flush(int param)
 	{
 		appender_flush_sync();
 	}
 
 	//2019/1/18: 增加网络事件通知，用于更新IPStack
-	T_DLL int STDCALL Net_NetEvent(int param)
+	T_DLL int STDCALL _std_event(int param)
 	{
 #if RAKNET_SUPPORT_IPV6 == 1
 		FlushLocalIPStack();
