@@ -30,12 +30,8 @@ public:
 		memcpy(&ping_index, buf + 1, sizeof(int));
 		memcpy(&t1, buf + 5, sizeof(t1));
 		KTime t2 = GetKTime();
-
 		KTimeDiff dt = GetKTimeDiffSecond(t2, t1);
-		//std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
-		//if (time_span.count() >= 1)
-		//double dd = time_span.count();
-		printf("[%s]收到PONG[%d] %llf\n", prompt, ping_index, dt);
+		printf("[%s]收到PONG[%d] %llf = %lld - %lld\n", prompt, ping_index, dt, t2, t1);
 		return dt;
 	}
 

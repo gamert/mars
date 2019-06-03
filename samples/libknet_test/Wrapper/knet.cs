@@ -21,19 +21,19 @@ namespace KNET
 #if (UNITY_IPHONE || UNITY_TVOS) && !UNITY_EDITOR
         public const string dll    = "__Internal";
 #elif (UNITY_PS4) && !UNITY_EDITOR
-        public const string dll    = "libknet";
+        public const string dll    = "libkstd";
 #elif (UNITY_PSP2) && !UNITY_EDITOR
-        public const string dll    = "libknetstudio";
+        public const string dll    = "libkstdstudio";
 #elif (UNITY_WIIU) && !UNITY_EDITOR
-        public const string dll    = "libknetstudio";
+        public const string dll    = "libkstdstudio";
 #elif (UNITY_EDITOR_WIN) || (UNITY_STANDALONE_WIN && DEVELOPMENT_BUILD)
-        public const string dll    = "knetstudiol";
+        public const string dll    = "kstdstudiol";
 #elif (UNITY_STANDALONE_WIN)
-        public const string dll    = "knetstudio";
+        public const string dll    = "kstdstudio";
 #elif UNITY_EDITOR_OSX || (UNITY_STANDALONE_OSX && DEVELOPMENT_BUILD)
-        public const string dll    = "knetl";
+        public const string dll    = "kstdl";
 #else
-        public const string dll    = "knet";
+        public const string dll    = "kstd";
 #endif
     }
 
@@ -143,36 +143,36 @@ namespace KNET
     {
 
         [DllImport(VERSION.dll)]
-        public static extern void Net_Initialize(string dataPath, string persistentDataPath);
+        public static extern void _std_initialize(string dataPath, string persistentDataPath);
         [DllImport(VERSION.dll)]
-        public static extern void Net_Uninitialize();
+        public static extern void _std_uninitialize();
 
         [DllImport(VERSION.dll)]
-        public static extern IntPtr Net_CreateSession(string session_type);
+        public static extern IntPtr _std_create_session(string session_type);
         [DllImport(VERSION.dll)]
-        public static extern void Net_ReleaseSession(IntPtr handle);
+        public static extern void _std_release_session(IntPtr handle);
 
         [DllImport(VERSION.dll)]
-        public static extern int Net_Connect(IntPtr handle, string ip, ushort port, uint uuid);
+        public static extern int _std_connect(IntPtr handle, string ip, ushort port, uint uuid);
         [DllImport(VERSION.dll)]
-        public static extern void Net_CloseConnect(IntPtr handle);
+        public static extern void _std_close_connect(IntPtr handle);
 
         [DllImport(VERSION.dll)]
-        public unsafe static extern void* Net_ReceiveCycle2(IntPtr handle, out int result);
+        public unsafe static extern void* _std_receive_cycle(IntPtr handle, out int result);
 
         [DllImport(VERSION.dll)]
-        public static extern int Net_Send(IntPtr handle, byte[] data, int length, int sendType);
+        public static extern int _std_send(IntPtr handle, byte[] data, int length, int sendType);
 
         [DllImport(VERSION.dll)]
-        public static extern int Net_GetConnectionState(IntPtr handle);
+        public static extern int _std_get_connection_state(IntPtr handle);
 
         [DllImport(VERSION.dll)]
-        public static extern int Net_GetAveragePing(IntPtr handle);
+        public static extern int _std_get_average_ping(IntPtr handle);
         [DllImport(VERSION.dll)]
-        public static extern int Net_SendPing(IntPtr handle, int index, bool bTcp = true);
+        public static extern int _std_send_ping(IntPtr handle, int index, bool bTcp = true);
 
         [DllImport(VERSION.dll)]
-        public static extern UInt64 Net_GetTimeUs();
+        public static extern UInt64 _std_get_timeUs();
 
         //for fast MemCopy
         [DllImport(VERSION.dll)]

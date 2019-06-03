@@ -111,7 +111,7 @@ public:
 				printf("Ω” ’ ß∞‹ %d,%d \n", udpsock.getsocket(), size);
 				continue;
 			}
-			//time_measure_t::MarkTime("recvfrom");
+			time_measure_t::MarkTime("udpsock.recvfrom");
 
 			const char *pBuf = (const char *)buff;
 			if (pBuf[0] == 'U' && pBuf[1] == 'D' && pBuf[2] == 'G')

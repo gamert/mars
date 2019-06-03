@@ -68,49 +68,49 @@ enum class kNetResult
 extern "C"
 {
 	//初始化:
-	T_DLL void STDCALL Net_Initialize(const char *dataPath, const char *persistentDataPath);
+	T_DLL void STDCALL _std_initialize(const char *dataPath, const char *persistentDataPath);
 	//退出、清理系统
-	T_DLL void STDCALL Net_Uninitialize();
+	T_DLL void STDCALL _std_uninitialize();
 	
 	/*
 		创建Peer,type为udp|tcp|kcp
 	*/
-	T_DLL IntPtr STDCALL Net_CreateSession(const char *type);
-	T_DLL void STDCALL Net_ReleaseSession(IntPtr handle);
+	T_DLL IntPtr STDCALL _std_create_session(const char *type);
+	T_DLL void STDCALL _std_release_session(IntPtr handle);
 
 	/*
 		连接,-1失败,0 成功
 	*/
-	T_DLL int STDCALL Net_Connect(IntPtr handle, const char* host, unsigned short port, uint uuid);
+	T_DLL int STDCALL _std_connect(IntPtr handle, const char* host, unsigned short port, uint uuid);
 	/*
 		关闭连接（不销毁）
 	*/
-	T_DLL void STDCALL Net_CloseConnect(IntPtr handle);
+	T_DLL void STDCALL _std_close_connect(IntPtr handle);
 
 	/*
 	接收数据，以分割、组合报文的形式，返回多个报文，降低call
 	*/
-	T_DLL void* STDCALL Net_ReceiveCycle2(IntPtr handle, int *result);
+	T_DLL void* STDCALL _std_receive_cycle(IntPtr handle, int *result);
 
 	/*
 	发送数据，返回字节数; -1表示发送失败...
 	*/
-	T_DLL int STDCALL Net_Send(IntPtr handle, const char *data, const int length, int sendType);
+	T_DLL int STDCALL _std_send(IntPtr handle, const char *data, const int length, int sendType);
 
 	/*
 	取得连接状态
 	*/
-	T_DLL int STDCALL Net_GetConnectionState(IntPtr handle);
+	T_DLL int STDCALL _std_get_connection_state(IntPtr handle);
 
 	/*
 	取得Ping，ms
 	*/
-	T_DLL int STDCALL Net_GetAveragePing(IntPtr handle);
+	T_DLL int STDCALL _std_get_average_ping(IntPtr handle);
 
 	/*
 	取得当前时刻，us
 	*/
-	T_DLL uint64_t STDCALL Net_GetTimeUs();
+	T_DLL uint64_t STDCALL _std_get_timeUs();
 
 	//helper
 	T_DLL void STDCALL MemCopy(void *dst, void *src, int size);

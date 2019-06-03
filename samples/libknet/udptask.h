@@ -10,7 +10,7 @@
 
 #define TIME_MEASURE 1
 
-//#define USE_chrono
+#define USE_chrono
 
 #ifdef USE_chrono
 	#define KTime		std::chrono::steady_clock::time_point
@@ -58,16 +58,16 @@ public:
 	static void MarkTime(const char *prefix, char *buf = NULL)
 	{
 #if TIME_MEASURE
-		//static 	std::chrono::steady_clock::time_point last_t1 = std::chrono::steady_clock::now();
-		//std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
-		////std::time_t tt;
-		////tt = system_clock::to_time_t(today);
-		//std::chrono::duration<double> dt = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - last_t1);
-		//if (buf)
-		//	sprintf(buf, "MarkTime:%s: %lld,  dt = %llf\n", prefix, t2, dt);
-		//else
-		//	printf("%s:MarkTime: %lld,  dt = %llf\n", prefix, t2, dt);
-		//last_t1 = t2;
+		static 	std::chrono::steady_clock::time_point last_t1 = std::chrono::steady_clock::now();
+		std::chrono::steady_clock::time_point t2 = std::chrono::steady_clock::now();
+		//std::time_t tt;
+		//tt = system_clock::to_time_t(today);
+		std::chrono::duration<double> dt = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - last_t1);
+		if (buf)
+			sprintf(buf, "MarkTime:%s: %lld,  dt = %llf\n", prefix, t2, dt);
+		else
+			printf("%s:MarkTime: %lld,  dt = %llf\n", prefix, t2, dt);
+		last_t1 = t2;
 		//printf("%s:MarkTime:", prefix);
 #endif
 	}
@@ -185,8 +185,7 @@ public:
 		int nret = ikcp_input(kcp, buf, len);
 		if (nret == 0)
 		{
-			nexttime = iclock();
-			alivetime = nexttime + TIMEOUT_INTERVAL;
+			mark_alivetime();
 		}
 		return nret;
 	}
@@ -197,8 +196,7 @@ public:
 		int nret = ikcp_send(kcp, buf, len);
 		if (nret == 0)
 		{
-			nexttime = iclock();
-			alivetime = nexttime + TIMEOUT_INTERVAL;
+			mark_alivetime();
 		}
 		ikcp_flush(kcp);
 		//printf("发送数据 %d,%d,%d\n", conv, len, nret);
@@ -253,7 +251,7 @@ public:
 private:
 	static int udp_output(const char *buf, int len, ikcpcb *kcp, void *user)
 	{
-		//time_measure_t::MarkTime("udp_output");
+		time_measure_t::MarkTime("udp_output");
 		TUdpDatagram_t ab(true);
 		ab.Append(buf, len);
 		return ((TSocket*)user)->SendTo(ab.data(), ab.size());
@@ -267,10 +265,17 @@ private:
 protected:
 	IUINT32 conv;
 	ikcpcb *kcp;
-	IUINT32 nexttime;
-	IUINT32 current;
-	IUINT32 alivetime;
-	char buffer[65536];
+	IUINT32 nexttime;	//下一个思考的时间
+	IUINT32 current;	//
+	IUINT32 alivetime;	//标记为活跃时间，当alivetime<current时，超时...
+	char buffer[32*1024];
+
+	void mark_alivetime()
+	{
+		//修改活跃
+		nexttime = iclock();	//
+		alivetime = nexttime + TIMEOUT_INTERVAL;
+	}
 };
 
 

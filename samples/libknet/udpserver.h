@@ -116,7 +116,9 @@ public:
 		if(bTcp)
 			pclient->tcp_recv(buff, size);
 		else
+		{
 			pclient->udp_recv(buff, size);
+		}
 
 		_mutex.unlock();
 	}
@@ -194,7 +196,8 @@ public:
 			}
 			if (size < 0)
 			{
-				printf("接收失败 %d,%d \n", udpsock.getsocket(), size);
+				//可能是worldblock?
+				printf("接收失败 getsocket=%d,%d \n", udpsock.getsocket(), size);
 				continue;
 			}
 			

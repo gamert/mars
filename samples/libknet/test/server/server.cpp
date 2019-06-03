@@ -10,7 +10,7 @@
 
 
 //server-client session:
-class sertask :public udptask
+class CServerClientSession :public udptask
 {
 public:
 	/*
@@ -18,7 +18,7 @@ public:
 		@usocket:client sock
 		@paddr: client addr
 	*/
-	sertask(IUINT32 conv, SOCKET usocket, struct sockaddr_in *paddr)
+	CServerClientSession(IUINT32 conv, SOCKET usocket, struct sockaddr_in *paddr)
 	{
 		udpsock = new udpsocket(usocket, paddr);
 		udptask::init(conv, udpsock);
@@ -27,7 +27,7 @@ public:
 		nexttime = 0;
 		recvsize = 0;
 	}
-	~sertask()
+	~CServerClientSession()
 	{
 		if (udpsock != NULL){
 			delete udpsock;
@@ -54,7 +54,14 @@ public:
 		{
 			case TF_TYPE_PING:
 			{
-				time_measure_t::MarkTime("==udp_recv TF_TYPE_PING");
+				//time_measure_t::MarkTime("==udp_recv TF_TYPE_PING");
+				int ping_index;
+				KTime t1;
+				memcpy(&ping_index, buf + 1, sizeof(int));
+				memcpy(&t1, buf + 5, sizeof(t1));
+				KTime t2 = GetKTime();
+				KTimeDiff dt = GetKTimeDiffSecond(t2, t1);
+				printf("[%s]收到PING[%d] %llf = %lld - %lld\n", "udp_recv", ping_index, dt, t2, t1);
 
 				char buf2[64];
 				memcpy(buf2, buf, len);
@@ -63,11 +70,16 @@ public:
 				//printf("接收文件完成 \n");
 			}
 		}
+		
+		mark_alivetime();
+
 		return len;
 	};
 
 	virtual int udp_send(const char  * buf, int len)
 	{
+		//time_measure_t::MarkTime("==udp_send ");
+
 		TUdpDatagram_t ab(false);
 		IUINT32 conv = this->GetConv();
 		ab.Append(conv);
@@ -163,7 +175,7 @@ int main(int argc, char *argv[])
 	const char *ip = "0.0.0.0";
 	int port = 9001;
 
-	udpserver<sertask> s;
+	udpserver<CServerClientSession> s;
 	s.bind(ip, port);
 
 	printf("server: %s, %d\n",ip,port);

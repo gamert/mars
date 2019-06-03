@@ -49,9 +49,6 @@ public:
 	{
 		const char *pBuf = (const char *)_buf;
 
-		char buf[256];
-		sprintf(buf,"kcpclient::OnDataGramRead(0x%x,,%d),bTcp=%d", _this, _len, pBuf[3]);
-		//time_measure_t::MarkTime(buf);
 		//要判断是否为普通UDP?
 		if (pBuf[0] == 'U' && pBuf[1] == 'D' && pBuf[2] == 'G')
 		{
@@ -122,6 +119,10 @@ public:
 	//send udp msg
 	int sendUdp(const char  *buf, int len)
 	{
+		char tb[256];
+		sprintf(tb, "kcpclient::sendUdp(0x%x,,%d)", this, len);
+		time_measure_t::MarkTime(tb);
+
 		TUdpDatagram_t ab(false);
 		IUINT32 conv = utask->GetConv();
 		ab.Append(conv);

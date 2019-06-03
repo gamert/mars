@@ -35,5 +35,8 @@
     <ClInclude Include="..\..\udpclient.h">
       <Filter>libs</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\TimeMeasure.h">
+      <Filter>libs</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -46,25 +46,25 @@ namespace libknet_test
         {
             //printf("send_ping \n");
             //在 windows 下 和 linux 下 取到的 时间精度 很不一样啊, windows下 居然 位数都不对, 比linux 下 少两位数
-            UInt64 t2 = KNet.Net_GetTimeUs();// (DateTime.Now.Ticks - 621355968000000000)/100;//
+            UInt64 t2 = KNet._std_get_timeUs();// (DateTime.Now.Ticks - 621355968000000000)/100;//
             byte[] buf = new byte[128];
             buf[0] = TF_TYPE_PING;
 
             intToBytes(index, buf, 1);
             longToBytes(t2, buf, 5);
 
-            KNet.Net_Send(handle, buf, 1+4+8, bTcp?0:1);
+            KNet._std_send(handle, buf, 1+4+8, bTcp?0:1);
         }
 
 
         static void Main(string[] args)
         {
             //
-            KNet.Net_Initialize("","");
+            KNet._std_initialize("","");
 
-            IntPtr handle = KNet.Net_CreateSession("kcp");
+            IntPtr handle = KNet._std_create_session("kcp");
 
-            int res = KNet.Net_Connect(handle, "127.0.0.1", 9001, 4);
+            int res = KNet._std_connect(handle, "127.0.0.1", 9001, 11);
             byte[] data = new byte[128];
 
             //Thread.Sleep(1000);
@@ -78,18 +78,19 @@ namespace libknet_test
                 int length = (rr.Next() % 128) ;
                 if(length > 0)
                 {
-                    //int bytes = KNet.Net_Send(handle, data, length, (index++)%2);
-                    KNet.Net_SendPing(handle, ping_index++, (ping_index % 2) == 0);
+                    //(ping_index % 2) == 0
+                    //int bytes = KNet._std_send(handle, data, length, (index++)%2);
+                    KNet._std_send_ping(handle, ping_index++, false);
                 }
-                Thread.Sleep(3000);
+                Thread.Sleep(2000);
             }
 
 
-            KNet.Net_CloseConnect(handle);
+            KNet._std_close_connect(handle);
 
-            KNet.Net_ReleaseSession(handle);
+            KNet._std_release_session(handle);
 
-            KNet.Net_Uninitialize();
+            KNet._std_uninitialize();
 
         }
     }

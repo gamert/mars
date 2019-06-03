@@ -133,7 +133,7 @@ bool g_initialized = false;
 extern "C"
 {
 	//
-	T_DLL void STDCALL Net_Initialize(const char *dataPath, const char *persistentDataPath)
+	T_DLL void STDCALL _std_initialize(const char *dataPath, const char *persistentDataPath)
 	{
 		if (!g_initialized)
 		{
@@ -162,7 +162,7 @@ extern "C"
 		}
 	}
 
-	T_DLL void STDCALL Net_Uninitialize()
+	T_DLL void STDCALL _std_uninitialize()
 	{
 		if (g_initialized)
 		{
@@ -171,7 +171,7 @@ extern "C"
 		appender_flush();
 	}
 
-	T_DLL IntPtr STDCALL Net_CreateSession(const char *type)
+	T_DLL IntPtr STDCALL _std_create_session(const char *type)
 	{
 		if (stricmp(type, "kcp") == 0)
 		{
@@ -183,7 +183,7 @@ extern "C"
 		return NULL;
 	}
 
-	T_DLL void STDCALL Net_ReleaseSession(IntPtr handle)
+	T_DLL void STDCALL _std_release_session(IntPtr handle)
 	{
 		CKcpClientImp *p = (CKcpClientImp *)handle;
 		delete p;
@@ -191,7 +191,7 @@ extern "C"
 	
 
 	//
-	T_DLL int STDCALL Net_Connect(IntPtr handle, const char* ip, unsigned short port, unsigned uuid)
+	T_DLL int STDCALL _std_connect(IntPtr handle, const char* ip, unsigned short port, unsigned uuid)
 	{
 		// auto ping/pong
 		//peer->SetOccasionalPing(true);
@@ -210,7 +210,7 @@ extern "C"
 		return bres == true ? 0 : -1;
 	}
 
-	T_DLL void STDCALL Net_CloseConnect(IntPtr handle)
+	T_DLL void STDCALL _std_close_connect(IntPtr handle)
 	{
 		CKcpClientImp *p = (CKcpClientImp *)handle;
 		p->CloseConnect();
@@ -218,7 +218,7 @@ extern "C"
 
 
 	//返回一个整数，高16位表示，剩余报文，低16位表示已经处理的报文
-	T_DLL void* STDCALL Net_ReceiveCycle2(IntPtr handle, int *result)
+	T_DLL void* STDCALL _std_receive_cycle(IntPtr handle, int *result)
 	{
 
 #if EDITOR_CONSOLE==1
@@ -239,12 +239,12 @@ extern "C"
 		//			if (pClient->guard == nGuad && pClient->lastIndex < limit && pClient->count <= limit)
 		//			{
 		//				//返回0，则c#退出循环
-		//				*result = Net_ReceiveCycle2(pClient, g_rbuf, RBUF_SIZE);	//+104 （4	DW-Normal Net_ReceiveCycle2 (RakNetConnector.cpp:590）
+		//				*result = _std_receive_cycle(pClient, g_rbuf, RBUF_SIZE);	//+104 （4	DW-Normal _std_receive_cycle (RakNetConnector.cpp:590）
 		//				return g_rbuf;
 		//			}
 		//			else
 		//			{
-		//				xerror2(TSF"Net_ReceiveCycle2: check guard(%_/%_) lastIndex(%_/%_) count(%_/%_) pClient(%_) peer(%_)\n", pClient->guard, nGuad, pClient->lastIndex, limit, pClient->count, limit, pClient, peer);
+		//				xerror2(TSF"_std_receive_cycle: check guard(%_/%_) lastIndex(%_/%_) count(%_/%_) pClient(%_) peer(%_)\n", pClient->guard, nGuad, pClient->lastIndex, limit, pClient->count, limit, pClient, peer);
 		//			}
 		//		}
 		//		//一轮新的开始...
@@ -255,10 +255,10 @@ extern "C"
 		//		{
 		//			if (g_max_count<pClient->count)
 		//			{
-		//				xinfo2(TSF"Net_ReceiveCycle2: g_max_count(%_)<pClient->count(%_) \n", g_max_count, pClient->count);
+		//				xinfo2(TSF"_std_receive_cycle: g_max_count(%_)<pClient->count(%_) \n", g_max_count, pClient->count);
 		//				g_max_count = pClient->count;
 		//			}
-		//			*result = Net_ReceiveCycle2(pClient, g_rbuf, RBUF_SIZE);	//
+		//			*result = _std_receive_cycle(pClient, g_rbuf, RBUF_SIZE);	//
 		//		}
 		//		else
 		//		{
@@ -273,25 +273,25 @@ extern "C"
 		return 0;
 	}
 
-	T_DLL int STDCALL Net_Send(IntPtr handle, const char *data, const int length, int sendType)
+	T_DLL int STDCALL _std_send(IntPtr handle, const char *data, const int length, int sendType)
 	{
 		CKcpClientImp *p = (CKcpClientImp *)handle;
 		return p->Send(data, length, sendType);
 	}
 
-	T_DLL int STDCALL Net_GetConnectionState(IntPtr handle)
+	T_DLL int STDCALL _std_get_connection_state(IntPtr handle)
 	{
 		CKcpClientImp *p = (CKcpClientImp *)handle;
 		return p->GetConnectionState();
 	}
 
-	T_DLL int STDCALL Net_GetAveragePing(IntPtr handle)
+	T_DLL int STDCALL _std_get_average_ping(IntPtr handle)
 	{
 		CKcpClientImp *p = (CKcpClientImp *)handle;
 		return p->GetAveragePing();
 	}
 
-	T_DLL int STDCALL Net_SendPing(IntPtr handle, int index, bool bTcp = true)
+	T_DLL int STDCALL _std_send_ping(IntPtr handle, int index, bool bTcp = true)
 	{
 		//printf("send_ping \n");
 		//在 windows 下 和 linux 下 取到的 时间精度 很不一样啊, windows下 居然 位数都不对, 比linux 下 少两位数
@@ -301,12 +301,12 @@ extern "C"
 		memcpy(buf + 1, &index, sizeof(index));
 		memcpy(buf + 5, &t2, sizeof(t2));
 
-		Net_Send(handle, buf, 1 + 4 + 8, bTcp ? 0 : 1);
+		_std_send(handle, buf, 1 + 4 + 8, bTcp ? 0 : 1);
 		return 0;
 	}
 
 
-	T_DLL uint64_t STDCALL Net_GetTimeUs()
+	T_DLL uint64_t STDCALL _std_get_timeUs()
 	{
 		KTime t1 = GetKTime();
 		uint64_t t2 = *(uint64_t*)&t1;
