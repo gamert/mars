@@ -2,7 +2,7 @@
 #include "kcpclient_task.h"
 
 
-class CKcpClientImp : public kcpclient<clitask>
+class CKcpClientImp : public kcpclient
 {
 public:
 	//

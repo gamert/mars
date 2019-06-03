@@ -89,6 +89,22 @@ struct TUdpDatagram_t:AutoBuffer_t
 };
 
 
+
+/*
+	a control proxy:
+*/
+
+#define TF_TYPE_BEGIN	1
+#define TF_TYPE_DATA	2
+#define TF_TYPE_END 	3
+
+//º∆À„ping-pong
+#define TF_TYPE_PING 	127
+#define TF_TYPE_PONG 	126
+
+#define TF_TYPE_CONNECT_AUTH 		125
+#define TF_TYPE_CONNECT_AUTH_RES 	124
+
 /*
 	a control session:
 */

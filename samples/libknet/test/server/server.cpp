@@ -1,12 +1,5 @@
 #include "../../udpserver.h"
 
-#define TF_TYPE_BEGIN	1
-#define TF_TYPE_DATA	2
-#define TF_TYPE_END 	3
-
-//计算ping-pong
-#define TF_TYPE_PING 	127
-#define TF_TYPE_PONG 	126
 
 
 //server-client session:
@@ -149,6 +142,22 @@ public:
 				memcpy(buf2, buf, len);
 				buf2[0] = TF_TYPE_PONG;
 				this->tcp_send(buf2, len);
+				//printf("接收文件完成 \n");
+			}
+			break;
+		case TF_TYPE_CONNECT_AUTH:
+			{
+				//time_measure_t::MarkTime("==tcp_recv TF_TYPE_PING");
+				IUINT32 conv;
+				memcpy(&conv, buf + 1, sizeof(IUINT32));
+
+				KTime t2 = GetKTime();
+				char buf2[64];
+				//memcpy(buf2, buf, len);
+				buf2[0] = TF_TYPE_CONNECT_AUTH_RES;
+				memcpy(buf2 + 1, &conv, sizeof(conv));
+				memcpy(buf2 + 5, &t2, sizeof(t2));
+				this->tcp_send(buf2, 1+ sizeof(conv)+ sizeof(t2));
 				//printf("接收文件完成 \n");
 			}
 			break;

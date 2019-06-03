@@ -5,7 +5,7 @@
 #include "../libknet/kcpclient_task.h"
 
 
-void send_ping(kcpclient<clitask> &c,int index,bool bTcp = true)
+void send_ping(kcpclient &c,int index,bool bTcp = true)
 {
 	printf("\n");
 
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 	//std::shared_ptr<AsioClient> asioClient = InitAsioClient(io_context, "127.0.0.1", "3333");
 
 	//rand
-	kcpclient<clitask> c;
+	kcpclient c;
 	c.connect(argv[1], 9001, rand());
 
 	int ping_index = 1;
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 		std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
 		if (time_span.count() >= 2)
 		{
-			send_ping(c, ping_index++, (ping_index % 2) == 0);
+			//send_ping(c, ping_index++, (ping_index % 2) == 0);
 
 			t1 = t2;
 		}
