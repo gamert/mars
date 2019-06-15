@@ -136,8 +136,8 @@
   <ItemGroup>
     <ClInclude Include="common.h" />
     <ClInclude Include="ikcp.h" />
+    <ClInclude Include="INetSession.h" />
     <ClInclude Include="kcpclient.h" />
-    <ClInclude Include="KcpClientImp.h" />
     <ClInclude Include="kcpclient_task.h" />
     <ClInclude Include="kcp_net.h" />
     <ClInclude Include="MyAutoBuffer.h" />
@@ -149,7 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ikcp.c" />
+    <ClCompile Include="NetSessionKcp.cpp" />
     <ClCompile Include="kcp_net.cpp" />
+    <ClCompile Include="NetSessionTcp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\mars\cmake_build\Windows\boost\mars-boost.vcxproj">

@@ -11,9 +11,10 @@ void send_ping(kcpclient &c,int index,bool bTcp = true)
 
 	KTime t2 = GetKTime();
 	char buf[64] = { 0 };
-	buf[0] = TF_TYPE_PING;
-	memcpy(buf + 1, &index, sizeof(index));
-	memcpy(buf + 5, &t2, sizeof(t2));
+	buf[0] = 0;
+	buf[1] = TF_TYPE_PING;
+	memcpy(buf + 2, &index, sizeof(index));
+	memcpy(buf + 6, &t2, sizeof(t2));
 
 	if(bTcp)
 		c.sendtcp(buf, sizeof(t2) + 10);
@@ -21,7 +22,7 @@ void send_ping(kcpclient &c,int index,bool bTcp = true)
 		c.sendUdp(buf, sizeof(t2) + 10);
 }
 
-int main(int argc, char *argv[])
+int kcp_main(int argc, char *argv[])
 {
 	if (argc < 3)
 	{
@@ -58,7 +59,7 @@ int main(int argc, char *argv[])
 		std::chrono::duration<double> time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
 		if (time_span.count() >= 2)
 		{
-			//send_ping(c, ping_index++, (ping_index % 2) == 0);
+			send_ping(c, ping_index++, (ping_index % 2) == 0);
 
 			t1 = t2;
 		}

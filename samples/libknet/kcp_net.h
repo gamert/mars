@@ -1,30 +1,18 @@
 #ifndef KCP_NET_H
 #define KCP_NET_H
-
 #pragma once
 
-#include <stdint.h>
+#include "INetSession.h"
 
 #ifdef _WIN32
-
-#define STDCALL __stdcall
+	#define STDCALL __stdcall
+	#define T_DLL	__declspec(dllexport)
 #else
-#define STDCALL
-#endif
-
-#ifdef _WIN32
-#define T_DLL	__declspec(dllexport)
-#else
-#define T_DLL	extern 
+	#define STDCALL
+	#define T_DLL	extern 
 #endif
 
 //CallingConvention = CallingConvention.Cdecl)
-
-
-//
-typedef uint32_t OBJ_T;	//
-typedef uint32_t uint;
-typedef void*	IntPtr;
 
 
 typedef void(*NettySendMessageDelegate)(OBJ_T objectId, const char *function, const char *param);
@@ -77,6 +65,11 @@ extern "C"
 	*/
 	T_DLL IntPtr STDCALL _std_create_session(const char *type);
 	T_DLL void STDCALL _std_release_session(IntPtr handle);
+
+	/*
+	设置回调...
+	*/
+	T_DLL void STDCALL _std_set_session_callback(IntPtr handle, int user, NS_OnConnect _OnConnect, NS_OnDisConnect _OnDisConnect, NS_OnError _OnError, NS_OnData _OnData);
 
 	/*
 		连接,-1失败,0 成功

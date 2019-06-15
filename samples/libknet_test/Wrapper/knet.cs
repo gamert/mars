@@ -7,6 +7,16 @@ using System;
 using System.Text;
 using System.Runtime.InteropServices;
 
+/*
+    object和IntPtr互转:
+    var obj1 = new test1("abc");
+    GCHandle handle1 = GCHandle.Alloc(obj1);
+    IntPtr ptr = GCHandle.ToIntPtr(handle1);
+    GCHandle handle2 = GCHandle.FromIntPtr(ptr);
+    var obj2 = (test1)handle2.Target;
+    handle2.Free();
+    handle1.Free();
+*/
 
 
 namespace KNET
@@ -17,23 +27,23 @@ namespace KNET
     */
     public class VERSION
     {
-        public const int    number = 0x00010814;
+        public const int number = 0x00010814;
 #if (UNITY_IPHONE || UNITY_TVOS) && !UNITY_EDITOR
         public const string dll    = "__Internal";
 #elif (UNITY_PS4) && !UNITY_EDITOR
         public const string dll    = "libkstd";
 #elif (UNITY_PSP2) && !UNITY_EDITOR
-        public const string dll    = "libkstdstudio";
+        public const string dll    = "libkstd";
 #elif (UNITY_WIIU) && !UNITY_EDITOR
-        public const string dll    = "libkstdstudio";
+        public const string dll    = "libkstd";
 #elif (UNITY_EDITOR_WIN) || (UNITY_STANDALONE_WIN && DEVELOPMENT_BUILD)
-        public const string dll    = "kstdstudiol";
+        public const string dll    = "kstd";
 #elif (UNITY_STANDALONE_WIN)
-        public const string dll    = "kstdstudio";
+        public const string dll    = "kstd";
 #elif UNITY_EDITOR_OSX || (UNITY_STANDALONE_OSX && DEVELOPMENT_BUILD)
         public const string dll    = "kstdl";
 #else
-        public const string dll    = "kstd";
+        public const string dll = "kstd";
 #endif
     }
 
@@ -130,14 +140,42 @@ namespace KNET
         {
             byte[] bytes = new byte[builder.Capacity];
             Marshal.Copy(nativeMem, bytes, 0, builder.Capacity);
-			int strlen = Array.IndexOf(bytes, (byte)0);
-			if (strlen > 0)
-			{
-				String str = Encoding.UTF8.GetString(bytes, 0, strlen);
-				builder.Append(str);
-			}
+            int strlen = Array.IndexOf(bytes, (byte)0);
+            if (strlen > 0)
+            {
+                String str = Encoding.UTF8.GetString(bytes, 0, strlen);
+                builder.Append(str);
+            }
         }
     }
+
+    //Note: Unity3d use MonoPInvokeCallback to static func
+    //消息和通知:
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void NS_OnConnect(int handle);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void NS_OnDisConnect(int handle, int _isremote);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void NS_OnError(int handle, int _status, int _errcode);
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    public delegate void NS_OnData(int handle, byte[] buf, int len);
+
+    //for tcp link...
+    public enum TTcpStatus
+    {
+        kTcpInit = 0,
+        kTcpInitErr,
+        kSocketThreadStart,
+        kSocketThreadStartErr,
+        kTcpConnecting,
+        kTcpConnectIpErr,
+        kTcpConnectingErr,
+        kTcpConnectTimeoutErr,
+        kTcpConnected,
+        kTcpIOErr,
+        kTcpDisConnectedbyRemote,
+        kTcpDisConnected,
+    };
 
     public static class KNet
     {
@@ -151,6 +189,10 @@ namespace KNET
         public static extern IntPtr _std_create_session(string session_type);
         [DllImport(VERSION.dll)]
         public static extern void _std_release_session(IntPtr handle);
+
+        [DllImport(VERSION.dll)]
+        public static extern int _std_set_session_callback(IntPtr handle, int user, NS_OnConnect _OnConnect, NS_OnDisConnect _OnDisConnect, NS_OnError _OnError, NS_OnData _OnData);
+
 
         [DllImport(VERSION.dll)]
         public static extern int _std_connect(IntPtr handle, string ip, ushort port, uint uuid);

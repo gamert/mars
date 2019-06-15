@@ -43,25 +43,10 @@ public:
 	{
 		buf += 4;
 		len -= 4;
-		switch (buf[0])
-		{
-			case TF_TYPE_PING:
-			{
-				//time_measure_t::MarkTime("==udp_recv TF_TYPE_PING");
-				int ping_index;
-				KTime t1;
-				memcpy(&ping_index, buf + 1, sizeof(int));
-				memcpy(&t1, buf + 5, sizeof(t1));
-				KTime t2 = GetKTime();
-				KTimeDiff dt = GetKTimeDiffSecond(t2, t1);
-				printf("[%s]收到PING[%d] %llf = %lld - %lld\n", "udp_recv", ping_index, dt, t2, t1);
 
-				char buf2[64];
-				memcpy(buf2, buf, len);
-				buf2[0] = TF_TYPE_PONG;
-				this->udp_send(buf2, len);
-				//printf("接收文件完成 \n");
-			}
+		if (buf[0] == 0)
+		{
+			on_get_control_udp(buf, len);
 		}
 		
 		mark_alivetime();
@@ -85,87 +70,129 @@ public:
 	*/
 	virtual int parsemsg(const char *buf, int len)
 	{
-		if (len < 1)
+		if (len < 2)
 		{
 			printf("数据错误 %s,%d\n", buf, len);
 			return -1;
 		}
-		switch (buf[0])
+		if (buf[0] == 0)
+		{
+			return on_get_control_tcp(buf, len);
+		}
+		else
+		{
+
+		}
+
+		return 0;
+	}
+
+	//
+	int on_get_control_tcp(const char *buf, int len)
+	{
+		switch (buf[1])
 		{
 		case TF_TYPE_BEGIN:
+		{
+			const char *filename = buf + 2;
+			fp = fopen(filename, "wb");
+			if (fp == NULL)
 			{
-				const char *filename = buf + 1;
-				fp = fopen(filename, "wb");
-				if (fp == NULL)
-				{
-					printf("创建文件失败 %s \n", filename);
-					return -1;
-				}
-				printf("创建文件 %s \n", filename);
+				printf("创建文件失败 %s \n", filename);
+				return -1;
 			}
-			break;
+			printf("创建文件 %s \n", filename);
+		}
+		break;
 		case TF_TYPE_DATA:
+		{
+			if (fp == NULL)
 			{
-				if (fp == NULL)
-				{
-					printf("未创建文件 %d \n", len);
-					return -1;
-				}
-				while (fwrite(buf + 1, len - 1, 1, fp) != 1)
-				{
-				}
-				recvsize += len;
-				IUINT32 current = iclock();
-				if (nexttime < current)
-				{
-					printf("%.2f M/S\r", float(recvsize)/(1024*1024));
-					recvsize = 0;
-					nexttime = current + 1000;
-				}
+				printf("未创建文件 %d \n", len);
+				return -1;
 			}
-			break;
+			while (fwrite(buf + 2, len - 2, 1, fp) != 1)
+			{
+			}
+			recvsize += len;
+			IUINT32 current = iclock();
+			if (nexttime < current)
+			{
+				printf("%.2f M/S\r", float(recvsize) / (1024 * 1024));
+				recvsize = 0;
+				nexttime = current + 1000;
+			}
+		}
+		break;
 		case TF_TYPE_END:
+		{
+			if (fp != NULL)
 			{
-				if (fp != NULL)
-				{
-					fclose(fp);
-				}
-				printf("接收文件完成 \n");
-				closeit = true;
+				fclose(fp);
 			}
-			break;
+			printf("接收文件完成 \n");
+			closeit = true;
+		}
+		break;
 		case TF_TYPE_PING:
-			{
-				//time_measure_t::MarkTime("==tcp_recv TF_TYPE_PING");
+		{
+			//time_measure_t::MarkTime("==tcp_recv TF_TYPE_PING");
 
-				char buf2[64];
-				memcpy(buf2, buf, len);
-				buf2[0] = TF_TYPE_PONG;
-				this->tcp_send(buf2, len);
-				//printf("接收文件完成 \n");
-			}
-			break;
+			char buf2[64];
+			memcpy(buf2, buf, len);
+			buf2[1] = TF_TYPE_PONG;
+			this->tcp_send(buf2, len);
+			//printf("接收文件完成 \n");
+		}
+		break;
 		case TF_TYPE_CONNECT_AUTH:
-			{
-				//time_measure_t::MarkTime("==tcp_recv TF_TYPE_PING");
-				IUINT32 conv;
-				memcpy(&conv, buf + 1, sizeof(IUINT32));
+		{
+			//time_measure_t::MarkTime("==tcp_recv TF_TYPE_PING");
+			IUINT32 conv;
+			memcpy(&conv, buf + 2, sizeof(IUINT32));
 
-				KTime t2 = GetKTime();
-				char buf2[64];
-				//memcpy(buf2, buf, len);
-				buf2[0] = TF_TYPE_CONNECT_AUTH_RES;
-				memcpy(buf2 + 1, &conv, sizeof(conv));
-				memcpy(buf2 + 5, &t2, sizeof(t2));
-				this->tcp_send(buf2, 1+ sizeof(conv)+ sizeof(t2));
-				//printf("接收文件完成 \n");
-			}
-			break;
+			KTime t2 = GetKTime();
+			char buf2[64];
+			//memcpy(buf2, buf, len);
+			buf2[0] = 0;
+			buf2[1] = TF_TYPE_CONNECT_AUTH_RES;
+			memcpy(buf2 + 2, &conv, sizeof(conv));
+			memcpy(buf2 + 6, &t2, sizeof(t2));
+			this->tcp_send(buf2, 1 + sizeof(conv) + sizeof(t2));
+			//printf("接收文件完成 \n");
+		}
+		break;
 		default:
 			printf("指令错误 %s,%d\n", buf, len);
 		}
 		return 0;
 	}
+
+	void on_get_control_udp(const char *buf, int len)
+	{
+		switch (buf[1])
+		{
+			case TF_TYPE_PING:
+			{
+				//time_measure_t::MarkTime("==udp_recv TF_TYPE_PING");
+				int ping_index;
+				KTime t1;
+				memcpy(&ping_index, buf + 2, sizeof(int));
+				memcpy(&t1, buf + 6, sizeof(t1));
+				KTime t2 = GetKTime();
+				KTimeDiff dt = GetKTimeDiffSecond(t2, t1);
+				printf("[%s]收到PING[%d] %llf = %lld - %lld\n", "udp_recv", ping_index, dt, t2, t1);
+
+				char buf2[64];
+				memcpy(buf2, buf, len);
+				buf2[1] = TF_TYPE_PONG;
+				this->udp_send(buf2, len);
+				//printf("接收文件完成 \n");
+			}
+		}
+
+	}
+
 private:
 	udpsocket *udpsock;
 	bool closeit;

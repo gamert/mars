@@ -14,6 +14,7 @@
 
 #include "mars/comm/socket/tcpclient.h"
 #include "mars/comm/socket/tcpserver.h"
+#include "../libknet/INetSession.h"
 
 #define USE_LOOP_SERVER 1
 
@@ -38,19 +39,7 @@ public:
 	};
 };
 
-const char *tcp_status_str[] = {
-	"kTcpInit",
-	"kTcpInitErr",
-	"kSocketThreadStart",
-	"kSocketThreadStartErr",
-	"kTcpConnecting",
-	"kTcpConnectIpErr",
-	"kTcpConnectingErr",
-	"kTcpConnectTimeoutErr",
-	"kTcpConnected",
-	"kTcpIOErr",
-	"kTcpDisConnectedbyRemote",
-	"kTcpDisConnected", };
+
 
 class CTcpEvent :public MTcpEvent
 {
@@ -107,7 +96,7 @@ public:
 
 	virtual void OnRead() 
 	{
-		char buf[128];
+		char buf[MAX_TCP_BUFF];
 		unsigned int _len = tc->Read(buf, sizeof(buf));
 		printf("CTcpEvent::OnRead = %d\n", _len);
 	};
@@ -133,7 +122,7 @@ static void InitSocket()
 	}
 }
 
-void tcp_main(int argc, char **argv)
+void main(int argc, char **argv)
 {
 	InitSocket();
 
@@ -145,11 +134,13 @@ void tcp_main(int argc, char **argv)
 	//std::vector<std::string> ips;
 	//s_dns.GetHostByName(_host_name, ips);
 	const char *ip = "192.168.82.19";//
+	ip = "127.0.0.1";//
 
 	//const char *ip = "192.168.82.201";//127.0.0.1
 	//uint16_t _port = 6620;
 	//const char *ip = "192.168.85.11";//127.0.0.1
 	uint16_t _port = 8001;
+	_port = 9001;
 	//timeMs();
 	//xdebug2(TSF"curtime:%_ , @%_", gettickcount(), &s_dns);
 #if USE_LOOP_SERVER
@@ -164,13 +155,29 @@ void tcp_main(int argc, char **argv)
 	do
 	{
 		end = gettickcount();
-	} while (end - begin < 5000 || ts->Socket()== INVALID_SOCKET);
+		if (ts->Socket() != INVALID_SOCKET)
+		{
+			break;
+		}
+	} while (end - begin < 5000);
+
+	printf("Server(%d)(%s,%d): init time = %lld\n", ts->Socket(), ip, _port, end - begin);
 #endif
+	const uint64_t dura = 50000;
+	do
+	{
+		end = gettickcount();
+		if (ts->Socket() == INVALID_SOCKET)
+		{
+			break;
+		}
+	} while (end - begin < dura);
+	printf("Server(%d): running time = %lld/%lld\n", ts->Socket(), end - begin, dura);
 
 	//Thread thread(&__GetIP, _host_name.c_str());
 	//int startRet = thread.start();
-	CTcpEvent *event = new CTcpEvent();
-	event->Loop(ip, _port);
+	//CTcpEvent *event = new CTcpEvent();
+	//event->Loop(ip, _port);
 
 
 	printf("main::end\n");

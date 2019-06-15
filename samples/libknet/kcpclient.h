@@ -18,6 +18,9 @@ typedef TUdpTask<UdpClient> kcptask;
 
 /*
 	派生kcp client
+	1. ctrl proxy: 直接使用cb函数...
+	2. data proxy: 直接使用cb函数...
+
 */
 //template<typename T /*UdpClient*/>
 class kcpclient :public kcptask, IAsyncUdpClientEvent
@@ -35,7 +38,6 @@ public:
 			udpsock = NULL;
 		}
 	}
-
 
 	/*
 	@addr: ipv4? dns?
@@ -66,19 +68,8 @@ public:
 		return true;
 	}
 
-	void send_connect_auth()
-	{
-		IUINT32 conv = kcptask::GetConv();
 
-		KTime t2 = GetKTime();
-		char buf[64] = { 0 };
-		buf[0] = TF_TYPE_CONNECT_AUTH;
-		memcpy(buf + 1, &conv, sizeof(conv));
-		memcpy(buf + 5, &t2, sizeof(t2));
-		sendtcp(buf, 1 + sizeof(conv)+ sizeof(t2));
-	}
-
-	//send tcp msg
+	//send tcp msg : control_code
 	int sendtcp(const char *buf, int size)
 	{
 		_mutex.lock();
@@ -90,6 +81,12 @@ public:
 	//send udp msg
 	int sendUdp(const char  *buf, int len)
 	{
+		//未连接成功，不发送..
+		if (connect_state != 1)
+		{
+			return -1;
+		};
+
 		char tb[256];
 		sprintf(tb, "kcpclient::sendUdp(0x%x,,%d)", this, len);
 		time_measure_t::MarkTime(tb);
@@ -176,6 +173,19 @@ public:
 	//	return 0;
 	//}
 protected:
+	void send_connect_auth()
+	{
+		IUINT32 conv = kcptask::GetConv();
+
+		KTime t2 = GetKTime();
+		char buf[64] = { 0 };
+		buf[0] = 0;						//main..
+		buf[1] = TF_TYPE_CONNECT_AUTH;	//sub
+		memcpy(buf + 2, &conv, sizeof(conv));
+		memcpy(buf + 6, &t2, sizeof(t2));
+		sendtcp(buf, 2+sizeof(conv) + sizeof(t2));
+	}
+
 	//implement: TUdpTask
 	KTimeDiff handlePong(const char  *buf, int len, const char *prompt)
 	{
@@ -192,9 +202,9 @@ protected:
 	{
 		buf += 4;
 		len -= 4;
-		if (buf[0] == TF_TYPE_PONG)
+		if (buf[0] == 0 && buf[1] == TF_TYPE_PONG)
 		{
-			handlePong(buf, len, "UDP");
+			handlePong(buf+1, len-1, "UDP");
 		}
 
 		return len;
@@ -206,6 +216,47 @@ protected:
 
 	//处理控制层协议...
 	virtual int parsemsg(const char *buf, int len)
+	{
+		if (buf[0] == 0)
+		{
+			on_get_control(buf + 1, len - 1);
+		}
+		else
+		{
+			//处理数据协议..
+			on_get_data(buf, len);
+		}
+		//if (buf[0] == TF_TYPE_PONG)
+		//{
+
+		//	//auto now = get_tick_count();
+		//	//if (preTCPRecvTime == 0)
+		//	//{
+		//	//	preTCPRecvTime = now;
+		//	//}
+		//	//auto detal = now - preTCPRecvTime;
+		//	//preTCPRecvTime = now;
+		//	//char temp[256];
+		//	//snprintf(temp, sizeof(temp), "1_%d;", detal);
+		//	//asioClient->Write(temp);
+
+		//	//logs.push_back(detal);
+		//	//if (logs.size() % 200 == 0) {
+		//	//	for (size_t i = 0; i < logs.size(); i++)
+		//	//	{
+		//	//		printf("%d ", logs[i]);
+		//	//	}
+		//	//	printf("\n");
+		//	//}
+		//}
+		//else
+		//{
+		//	printf("收到未知数据 %s,%d\n", buf, len);
+		//}
+		return 0;
+	}
+
+	void on_get_control(const char *buf, int len)
 	{
 		switch (buf[0])
 		{
@@ -250,36 +301,14 @@ protected:
 		default:
 			break;
 		}
-		//if (buf[0] == TF_TYPE_PONG)
-		//{
-
-		//	//auto now = get_tick_count();
-		//	//if (preTCPRecvTime == 0)
-		//	//{
-		//	//	preTCPRecvTime = now;
-		//	//}
-		//	//auto detal = now - preTCPRecvTime;
-		//	//preTCPRecvTime = now;
-		//	//char temp[256];
-		//	//snprintf(temp, sizeof(temp), "1_%d;", detal);
-		//	//asioClient->Write(temp);
-
-		//	//logs.push_back(detal);
-		//	//if (logs.size() % 200 == 0) {
-		//	//	for (size_t i = 0; i < logs.size(); i++)
-		//	//	{
-		//	//		printf("%d ", logs[i]);
-		//	//	}
-		//	//	printf("\n");
-		//	//}
-		//}
-		//else
-		//{
-		//	printf("收到未知数据 %s,%d\n", buf, len);
-		//}
-		return 0;
 	}
 
+	void on_get_data(const char *buf, int len)
+	{
+		_mutex_udp.lock();
+		_udpqueue.push_back(std::string(buf, len));
+		_mutex_udp.unlock();
+	}
 
 protected:
 	//
@@ -307,9 +336,6 @@ protected:
 			}
 			else if (pBuf[3] == '0')
 			{
-				//_mutex_udp.lock();
-				//_udpqueue.push_back(std::string(pBuf+4, _len-4));
-				//_mutex_udp.unlock();
 				udp_recv(pBuf + 4, _len - 4);
 			}
 			else

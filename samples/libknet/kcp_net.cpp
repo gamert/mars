@@ -1,14 +1,24 @@
 /*
 	
 */
-#include "KcpClientImp.h"
 #include "kcp_net.h"
 
-//#include "comm/xlogger/xlogger.h"
+#include "comm/xlogger/xlogger.h"
 #include "mars/log/appender.h"
 #include "mars/comm/verinfo.h"
 #include "mars/comm/socket/local_ipstack.h"
 
+#include "mars/comm/thread/lock.h"
+#include "mars/comm/xlogger/xlogger.h"
+#include "mars/comm/bootrun.h"
+#include "mars/comm/time_utils.h"
+#include "mars/comm/dns/dns.h"
+//#include "udptask.h"
+#ifdef _WIN32
+	#include "mars/comm/windows/zlib/zlib.h"
+#else
+	#include <zlib.h>
+#endif
 
 //BOOST_NO_EXCEPTIONS
 //namespace mars_boost {} namespace boost = mars_boost; namespace mars_boost
@@ -26,50 +36,48 @@
 #include <string>
 #endif
 
-
-#ifdef _WIN32
-#include "mars/comm/windows/zlib/zlib.h"
-
-#include <Wininet.h>  
-#include <Sensapi.h>  
-#include <iostream>
-#pragma comment(lib, "Sensapi.lib") 
-//#pragma comment(lib,"boost.lib")
-//#pragma comment(lib,"comm.lib")
-//#pragma comment(lib,"log.lib")
-
-
-void Fun_IsNetworkAlive()
-{
-	DWORD   flags;//上网方式  
-	BOOL   m_bOnline = TRUE;//是否在线    
-	m_bOnline = IsNetworkAlive(&flags);
-	if (m_bOnline)//在线    
-	{
-		if ((flags & NETWORK_ALIVE_LAN) == NETWORK_ALIVE_LAN)
-		{
-			std::cout << "在线：NETWORK_ALIVE_LAN\n";
-		}
-
-		if ((flags & NETWORK_ALIVE_WAN) == NETWORK_ALIVE_WAN)
-		{
-			std::cout << "在线：NETWORK_ALIVE_WAN\n";
-		}
-
-		if ((flags & NETWORK_ALIVE_AOL) == NETWORK_ALIVE_AOL)
-		{
-			std::cout << "在线：NETWORK_ALIVE_AOL\n";
-		}
-	}
-	else
-	{
-		std::cout << "不在线\n";
-	}
-}
-
-#else
-	#include <zlib.h>
-#endif
+//
+//#ifdef _WIN32
+//#include "mars/comm/windows/zlib/zlib.h"
+//
+//#include <Wininet.h>  
+//#include <Sensapi.h>  
+//#include <iostream>
+//#pragma comment(lib, "Sensapi.lib") 
+////#pragma comment(lib,"boost.lib")
+////#pragma comment(lib,"comm.lib")
+////#pragma comment(lib,"log.lib")
+//
+//
+//void Fun_IsNetworkAlive()
+//{
+//	DWORD   flags;//上网方式  
+//	BOOL   m_bOnline = TRUE;//是否在线    
+//	m_bOnline = IsNetworkAlive(&flags);
+//	if (m_bOnline)//在线    
+//	{
+//		if ((flags & NETWORK_ALIVE_LAN) == NETWORK_ALIVE_LAN)
+//		{
+//			std::cout << "在线：NETWORK_ALIVE_LAN\n";
+//		}
+//
+//		if ((flags & NETWORK_ALIVE_WAN) == NETWORK_ALIVE_WAN)
+//		{
+//			std::cout << "在线：NETWORK_ALIVE_WAN\n";
+//		}
+//
+//		if ((flags & NETWORK_ALIVE_AOL) == NETWORK_ALIVE_AOL)
+//		{
+//			std::cout << "在线：NETWORK_ALIVE_AOL\n";
+//		}
+//	}
+//	else
+//	{
+//		std::cout << "不在线\n";
+//	}
+//}
+//
+//#endif
 
 
 std::string g_dataPath;
@@ -175,20 +183,26 @@ extern "C"
 	{
 		if (stricmp(type, "kcp") == 0)
 		{
-			return new CKcpClientImp();
+			return CreateSessionKCP();
 		}
 		else if (stricmp(type, "tcp") == 0)
 		{
+			return CreateSessionTCP();
 		}
 		return NULL;
 	}
 
 	T_DLL void STDCALL _std_release_session(IntPtr handle)
 	{
-		CKcpClientImp *p = (CKcpClientImp *)handle;
+		INetSession *p = (INetSession *)handle;
 		delete p;
 	};
-	
+
+	T_DLL void STDCALL _std_set_session_callback(IntPtr handle, int userPtr, NS_OnConnect _OnConnect, NS_OnDisConnect _OnDisConnect, NS_OnError _OnError, NS_OnData _OnData)
+	{
+		INetSession *p = (INetSession *)handle;
+		p->SetCallBack(userPtr, _OnConnect, _OnDisConnect, _OnError, _OnData);
+	};
 
 	//
 	T_DLL int STDCALL _std_connect(IntPtr handle, const char* ip, unsigned short port, unsigned uuid)
@@ -205,14 +219,14 @@ extern "C"
 		if (ipv6)
 			ip = "";
 
-		CKcpClientImp *p = (CKcpClientImp *)handle;
-		bool bres = p->connect(ip, port, uuid);
+		INetSession *p = (INetSession *)handle;
+		bool bres = p->Connect(ip, port, uuid);
 		return bres == true ? 0 : -1;
 	}
 
 	T_DLL void STDCALL _std_close_connect(IntPtr handle)
 	{
-		CKcpClientImp *p = (CKcpClientImp *)handle;
+		INetSession *p = (INetSession *)handle;
 		p->CloseConnect();
 	}
 
@@ -275,19 +289,19 @@ extern "C"
 
 	T_DLL int STDCALL _std_send(IntPtr handle, const char *data, const int length, int sendType)
 	{
-		CKcpClientImp *p = (CKcpClientImp *)handle;
+		INetSession *p = (INetSession *)handle;
 		return p->Send(data, length, sendType);
 	}
 
 	T_DLL int STDCALL _std_get_connection_state(IntPtr handle)
 	{
-		CKcpClientImp *p = (CKcpClientImp *)handle;
+		INetSession *p = (INetSession *)handle;
 		return p->GetConnectionState();
 	}
 
 	T_DLL int STDCALL _std_get_average_ping(IntPtr handle)
 	{
-		CKcpClientImp *p = (CKcpClientImp *)handle;
+		INetSession *p = (INetSession *)handle;
 		return p->GetAveragePing();
 	}
 
@@ -295,22 +309,23 @@ extern "C"
 	{
 		//printf("send_ping \n");
 		//在 windows 下 和 linux 下 取到的 时间精度 很不一样啊, windows下 居然 位数都不对, 比linux 下 少两位数
-		KTime t2 = GetKTime();
-		char buf[64] = { 0 };
-		buf[0] = TF_TYPE_PING;
-		memcpy(buf + 1, &index, sizeof(index));
-		memcpy(buf + 5, &t2, sizeof(t2));
+		//KTime t2 = GetKTime();
+		//char buf[64] = { 0 };
+		//buf[0] = TF_TYPE_PING;
+		//memcpy(buf + 1, &index, sizeof(index));
+		//memcpy(buf + 5, &t2, sizeof(t2));
 
-		_std_send(handle, buf, 1 + 4 + 8, bTcp ? 0 : 1);
+		//_std_send(handle, buf, 1 + 4 + 8, bTcp ? 0 : 1);
 		return 0;
 	}
 
 
 	T_DLL uint64_t STDCALL _std_get_timeUs()
 	{
-		KTime t1 = GetKTime();
-		uint64_t t2 = *(uint64_t*)&t1;
-		return t2;
+		//KTime t1 = GetKTime();
+		//uint64_t t2 = *(uint64_t*)&t1;
+		//return t2;
+		return 0;
 	}
 
 	//新加的。。。
