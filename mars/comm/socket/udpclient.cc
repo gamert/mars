@@ -100,11 +100,11 @@ bool UdpClient::HasBuuferToSend()
     return !list_buffer_.empty();
 }
 
-void UdpClient::SendAsync(void* _buf, size_t _len)
+int UdpClient::SendAsync(void* _buf, size_t _len)
 {
     xassert2((fd_socket_ != INVALID_SOCKET && event_ != NULL), "socket invalid");
     if (fd_socket_ == INVALID_SOCKET || event_ == NULL)
-        return;
+        return 0;
     
     ScopedLock lock(mutex_);
     list_buffer_.push_back(UdpSendData());
@@ -113,6 +113,7 @@ void UdpClient::SendAsync(void* _buf, size_t _len)
     if (!thread_->isruning())
         thread_->start();
     breaker_.Break();
+	return _len;
 }
 
 void UdpClient::SetIpPort(const std::string& _ip, int _port)

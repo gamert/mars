@@ -347,6 +347,16 @@ void ShortLink::__RunReadWrite(SOCKET _socket, int& _err_type, int& _err_code, C
         free(dstbuf);
 	}
 
+    //add user headers
+    if(task_.headers.size() > 0) {
+        auto iter = task_.headers.begin();
+        while(iter != task_.headers.end()) {
+            headers[iter->first] = iter->second;
+            xinfo2(TSF"user headers:(%_, %_)", iter->first, iter->second);
+            iter++;
+        }
+    }
+
 	AutoBuffer out_buff;
 
     shortlink_pack(url, headers, send_body_, send_extend_, out_buff, tracker_.get());

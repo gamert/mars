@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="TestUdp.cpp" />
+    <ClCompile Include="TestTcp.cpp" />
+    <ClCompile Include="TestKcp.cpp" />
+    <ClCompile Include="..\libknet\ikcp.c">
+      <Filter>libkcp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="libkcp">
+      <UniqueIdentifier>{4c289242-4ecd-49e2-b562-23221d951277}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\libknet\common.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\ikcp.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\kcpclient.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\kcpclient_task.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\MyAutoBuffer.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\TimeMeasure.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\udpclient.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\udpserver.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\udpsocket.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\libknet\udptask.h">
+      <Filter>libkcp</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

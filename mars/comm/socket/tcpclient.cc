@@ -185,12 +185,16 @@ void TcpClient::__Run() {
 
     xinfo2(TSF"sock:%_, local_ip:%_, local_port:%_, svr_ip:%_, svr_port:%_", socket_, local_ip, local_port, ip_, port_);
 
-    if (0 > ret && !IS_NOBLOCK_CONNECT_ERRNO(socket_errno)) {
-        xerror2("connect errno=%d", socket_errno);
-        status_ = kTcpConnectingErr;
-        event_.OnError(status_, socket_errno);
-        return;
-    }
+	if (0 > ret) {
+		int err = socket_errno;
+		if (!IS_NOBLOCK_CONNECT_ERRNO(err) && err != 0)
+		{
+			xerror2("connect errno=%d", err);
+			status_ = kTcpConnectingErr;
+			event_.OnError(status_, err);
+			return;
+		}
+	}
 
     SocketSelect select_connect(pipe_, true);
     select_connect.PreSelect();

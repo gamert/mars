@@ -44,12 +44,12 @@ namespace COMPLEX_CONNECT_NAMESPACE {
     
 ComplexConnect::ComplexConnect(unsigned int _timeout, unsigned int _interval)
     : timeout_(_timeout), interval_(_interval), error_interval_(_interval), max_connect_(3), trycount_(0), index_(-1), errcode_(0)
-    , index_conn_rtt_(0), index_conn_totalcost_(0), totalcost_(0)
+    , index_conn_rtt_(0), index_conn_totalcost_(0), totalcost_(0), is_interrupted_(false)
 {}
 
 ComplexConnect::ComplexConnect(unsigned int _timeout /*ms*/, unsigned int _interval /*ms*/, unsigned int _error_interval /*ms*/, unsigned int _max_connect)
     : timeout_(_timeout), interval_(_interval), error_interval_(_error_interval), max_connect_(_max_connect),  trycount_(0), index_(-1), errcode_(0)
-    , index_conn_rtt_(0), index_conn_totalcost_(0), totalcost_(0)
+    , index_conn_rtt_(0), index_conn_totalcost_(0), totalcost_(0), is_interrupted_(false)
 {}
 
 ComplexConnect::~ComplexConnect()
@@ -437,15 +437,20 @@ private:
 static bool __isconnecting(const ConnectCheckFSM* _ref) { return NULL != _ref && INVALID_SOCKET != _ref->Socket(); }
 }
 
-SOCKET ComplexConnect::ConnectImpatient(const std::vector<socket_address>& _vecaddr, SocketBreaker& _breaker, MComplexConnect* _observer,
-                                            mars::comm::ProxyType _proxy_type, const socket_address* _proxy_addr,
-                                            const std::string& _proxy_username, const std::string& _proxy_pwd) {
+SOCKET ComplexConnect::ConnectImpatient(const std::vector<socket_address>& _vecaddr,
+                                        SocketBreaker& _breaker,
+                                        MComplexConnect* _observer,
+                                        mars::comm::ProxyType _proxy_type,
+                                        const socket_address* _proxy_addr,
+                                        const std::string& _proxy_username,
+                                        const std::string& _proxy_pwd) {
     trycount_ = 0;
     index_ = -1;
     errcode_ = 0;
     index_conn_rtt_ = 0;
     index_conn_totalcost_ = 0;
     totalcost_ = 0;
+    is_interrupted_ = false;
 
     if (_vecaddr.empty()) {
         xwarn2(TSF"_vecaddr size:%_, m_timeout:%_, m_interval:%_, m_error_interval:%_, m_max_connect:%_, @%_", _vecaddr.size(), timeout_, interval_, error_interval_, max_connect_, this);
@@ -544,6 +549,7 @@ SOCKET ComplexConnect::ConnectImpatient(const std::vector<socket_address>& _veca
         }
 
         if (sel.IsBreak()) {
+            is_interrupted_ = true;
             xinfo2(TSF"sel breaker @%_", this);
             break;
         }

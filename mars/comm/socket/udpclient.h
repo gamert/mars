@@ -58,7 +58,12 @@ class UdpClient {
     void Break() { breaker_.Break(); }
 
     bool HasBuuferToSend();
-    void SendAsync(void* _buf, size_t _len);
+    int SendAsync(void* _buf, size_t _len);
+	inline int  SendTo(const char *buf, int len)
+	{
+		return SendAsync((void*)buf, len);
+		//return len;
+	}
 
     void SetIpPort(const std::string& _ip, int _port);
 
