@@ -367,7 +367,7 @@ inline void CalcStatistics(RakNetStatistics *rns)
 
 
 
-//dump Õâ¸ö±¨ÎÄ...
+//dump è¿™ä¸ªæŠ¥æ–‡...
 int s_local_id = 1;
 inline void outputQueue_Push(DataStructures::Queue<InternalPacket*> &outputQueue, InternalPacket *internalPacket, const char *file, unsigned int line)
 {
@@ -381,10 +381,10 @@ inline void outputQueue_Push(DataStructures::Queue<InternalPacket*> &outputQueue
 
 void ReliabilityLayer::doStatistics()
 {
-	//Ê×ÏÈÍ³¼Æ...
+	//é¦–å…ˆç»Ÿè®¡...
 	GetStatistics(NULL);
 
-	//Èç¹ûÊÕµ½ÁË±¨ÎÄ...
+	//å¦‚æœæ”¶åˆ°äº†æŠ¥æ–‡...
 	if(statistics.runningTotal[ACTUAL_BYTES_RECEIVED])
 	{
 		char text[4096]; text[0] = 0;
@@ -411,7 +411,7 @@ ReliabilityLayer::~ReliabilityLayer()
 //-------------------------------------------------------------------------------------------------------
 void ReliabilityLayer::Reset( bool resetVariables, int MTUSize, bool _useSecurity )
 {
-	////Èç¹ûÊÕµ½ÁË±¨ÎÄ...
+	////å¦‚æœæ”¶åˆ°äº†æŠ¥æ–‡...
 	//doStatistics();
 	////===
 
@@ -734,7 +734,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 		return true;
 	}
 
-	//10s Ã»ÓĞ±¨ÎÄ£¬Ôò
+	//10s æ²¡æœ‰æŠ¥æ–‡ï¼Œåˆ™
 	timeLastDatagramArrived=RakNet::GetTimeMS();
 
 	//	CCTimeType time;
@@ -763,7 +763,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 	// Set to the current time if it is not zero, and we get incoming data
 	// 	if (timeResendQueueNonEmpty!=0)
 	// 		timeResendQueueNonEmpty=timeRead;
-	//TODO: ¸ÉÂïÓÃµÄ£¿
+	//TODO: å¹²å˜›ç”¨çš„ï¼Ÿ
 #if _MODULE_FIX_ACK_NAK_DOS == 1
 	const uint32_t acks_limit_threshold = 50;
 	const uint32_t nacks_limit_threshold = 50;
@@ -780,7 +780,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 		return true;
 	}
 
-	//´¦ÀíÈ·ÈÏ±¨ÎÄ...
+	//å¤„ç†ç¡®è®¤æŠ¥æ–‡...
 	if (dhf.isACK)
 	{
 		DatagramSequenceNumberType datagramNumber;
@@ -822,7 +822,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 			return false;
 		}
 
-		//´¦ÀíÊäÈëÈ·ÈÏ±¨ÎÄ
+		//å¤„ç†è¾“å…¥ç¡®è®¤æŠ¥æ–‡
 		for (i=0; i<incomingAcks.ranges.Size();i++)
 		{
             if (incomingAcks.ranges[i].minIndex>incomingAcks.ranges[i].maxIndex || (incomingAcks.ranges[i].maxIndex == (uint24_t)(0xFFFFFFFF)))
@@ -873,7 +873,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 					unreliableWithAckReceiptHistory_lock.Unlock();
 				}
 
-				//¸ù¾İdatagramNumberÕÒµ½¿É¿¿ÏûÏ¢½Úµã...¶ÔÓÚ·Çreliable±¨ÎÄ£¬ÕâÀïÊÇ²»»áÓĞÈÎºÎµÄack·¢Éú¡£¡£¡£
+				//æ ¹æ®datagramNumberæ‰¾åˆ°å¯é æ¶ˆæ¯èŠ‚ç‚¹...å¯¹äºéreliableæŠ¥æ–‡ï¼Œè¿™é‡Œæ˜¯ä¸ä¼šæœ‰ä»»ä½•çš„ackå‘ç”Ÿã€‚ã€‚ã€‚
 				MessageNumberNode *messageNumberNode = GetMessageNumberNodeByDatagramIndex(datagramNumber, &whenSent);
 				if (messageNumberNode)
 				{
@@ -884,16 +884,16 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 					congestionManager.OnAck(timeRead, rtt, dhf.hasBAndAS, 0, dhf.AS, totalUserDataBytesAcked, bandwidthExceededStatistic, datagramNumber );
 #else
 					CCTimeType ping;
-					if (timeRead>whenSent)	//zz: ÕâÀï¼ÆËãÒ»´ÎRTT
+					if (timeRead>whenSent)	//zz: è¿™é‡Œè®¡ç®—ä¸€æ¬¡RTT
 						ping=timeRead-whenSent;
 					else
 						ping=0;
 
-					//totalUserDataBytesAcked: ×ÜÈ·ÈÏ×Ö½Ú?
-					//isContinuousSend: bandwidthExceededStatistic ,Õâ¸öÔÚupdateÀïÃæÉèÖÃ£¬Ïàµ±ÓÚ£¬Èç¹û Ã»ÓĞ·¢ËÍÍêÈ«£¬ÔòÈÏÎªÊÇÁ¬Ğø·¢ËÍ...
+					//totalUserDataBytesAcked: æ€»ç¡®è®¤å­—èŠ‚?
+					//isContinuousSend: bandwidthExceededStatistic ,è¿™ä¸ªåœ¨updateé‡Œé¢è®¾ç½®ï¼Œç›¸å½“äºï¼Œå¦‚æœ æ²¡æœ‰å‘é€å®Œå…¨ï¼Œåˆ™è®¤ä¸ºæ˜¯è¿ç»­å‘é€...
 					congestionManager.OnAck(timeRead, ping, dhf.hasBAndAS, 0, dhf.AS, totalUserDataBytesAcked, bandwidthExceededStatistic, datagramNumber );
 #endif
-					//´Óresend¶ÓÁĞÖĞÉ¾³ı...
+					//ä»resendé˜Ÿåˆ—ä¸­åˆ é™¤...
 					while (messageNumberNode)
 					{
 						// TESTING1
@@ -904,7 +904,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 						messageNumberNode=messageNumberNode->next;
 					}
 
-					//´Ó±¨ÎÄÀúÊ·ÖĞÉ¾³ı...
+					//ä»æŠ¥æ–‡å†å²ä¸­åˆ é™¤...
 					RemoveFromDatagramHistory(datagramNumber);
 				}
 // 				else if (isReliable)
@@ -952,16 +952,16 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 			if (gap > nacks_limit_threshold)
 				maxIndex = minIndex + nacks_limit_threshold;
 
-			//zzAdd: Í³¼ÆNAK
+			//zzAdd: ç»Ÿè®¡NAK
 			this->statistics.NAK_RECEIVED += gap + 1;
 			//bpsMetrics[(int)NAK_RECEIVED].Push1(timeRead, gap + 1);
 #endif
 			for (messageNumber = minIndex; messageNumber >= minIndex && messageNumber <= maxIndex; messageNumber++)
 			{
-				//ÓĞ°üÎ´ÊÕµ½£¬´¦ÀíÓµÈû...¼òµ¥µÄ
+				//æœ‰åŒ…æœªæ”¶åˆ°ï¼Œå¤„ç†æ‹¥å¡...ç®€å•çš„
 				congestionManager.OnNAK(timeRead, messageNumber);
 
-				// REMOVEME : TODO: serverĞèÒª¼ì²éNAK?
+				// REMOVEME : TODO: serveréœ€è¦æ£€æŸ¥NAK?
 #ifdef RAKNET_LOG_ZZ				
 //				xinfo2(TSF"%_ NAK %_\n", this, dhf.datagramNumber.val); //FFFFFFFFCCCCCCCC=-858993460
 #endif
@@ -988,7 +988,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 	{
 		uint32_t skippedMessageCount;
 
-		//zz:È¡µÃÈ±ÉÙµÄ±¨ÎÄÊı: 
+		//zz:å–å¾—ç¼ºå°‘çš„æŠ¥æ–‡æ•°: 
 		if (!congestionManager.OnGotPacket(dhf.datagramNumber, dhf.isContinuousSend, timeRead, length, &skippedMessageCount))
 		{
 			for (unsigned int messageHandlerIndex=0; messageHandlerIndex < messageHandlerList.Size(); messageHandlerIndex++)
@@ -1001,7 +1001,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 
 		//DatagramHeaderFormat dhfNAK;
 		//dhfNAK.isNAK=true;
-		//zz: Î´È·ÈÏ±¨ÎÄ...(±»ÂÒĞò»òÕßÆäËûÔ­Òòµ¼ÖÂ)
+		//zz: æœªç¡®è®¤æŠ¥æ–‡...(è¢«ä¹±åºæˆ–è€…å…¶ä»–åŸå› å¯¼è‡´)
 		uint32_t skippedMessageOffset;
 		for (skippedMessageOffset=skippedMessageCount; skippedMessageOffset > 0; skippedMessageOffset--)
 		{
@@ -1024,7 +1024,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 
 		// Ack dhf.datagramNumber
 		// Ack even unreliable messages for congestion control, just don't resend them on no ack
-		//zzModi: ²»¿É¿¿µÄ±¨ÎÄ²»ÔÙ·¢ËÍ...
+		//zzModi: ä¸å¯é çš„æŠ¥æ–‡ä¸å†å‘é€...
 		if (internalPacket->reliability != UNRELIABLE)
 		{
 #if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
@@ -1645,7 +1645,7 @@ CONTINUE_SOCKET_DATA_PARSE_LOOP:
 			internalPacket = CreateInternalPacketFromBitStream( &socketData, timeRead );
 		}//end of while ( internalPacket )
 
-	}//´¦ÀíÊäÈë±¨ÎÄ..
+	}//å¤„ç†è¾“å…¥æŠ¥æ–‡..
 
 
 	receivePacketCount++;
@@ -1938,14 +1938,14 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 //#ifdef RAKNET_LOG_ZZ
 //						if (cur->reliability != UNRELIABLE)
 //						{
-//							//¿É¿¿±¨ÎÄ±»´íÎóµÄÉ¾³ıÁË??
+//							//å¯é æŠ¥æ–‡è¢«é”™è¯¯çš„åˆ é™¤äº†??
 //							RAKNET_LOG("	ERROR: unreliableTimeout:FreeInternalPacketData %d \n", cur->reliableMessageNumber);
 //						}
 //#endif
 						FreeInternalPacketData(cur, _FILE_AND_LINE_);
 						cur->data=0;
 						InternalPacket *next = cur->unreliableNext;
-						RemoveFromUnreliableLinkedList(cur);		//½ö½ö´¦Àí²»¿É¿¿±¨ÎÄ...				
+						RemoveFromUnreliableLinkedList(cur);		//ä»…ä»…å¤„ç†ä¸å¯é æŠ¥æ–‡...				
 
 						if (cur==end)
 							break;
@@ -1973,7 +1973,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 		}
 	}
 
-	// Èç¹û³¬¹ı10sÃ»ÓĞÊÕµ½±¨ÎÄ£¬ÉèÖÃ deadConnection
+	// å¦‚æœè¶…è¿‡10sæ²¡æœ‰æ”¶åˆ°æŠ¥æ–‡ï¼Œè®¾ç½® deadConnection
 	// Due to thread vagarities and the way I store the time to avoid slow calls to RakNet::GetTime
 	// time may be less than lastAck
 #if CC_TIME_TYPE_BYTES==4
@@ -1990,7 +1990,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 		return;
 	}
 
-	//´¦ÀíÑÓ³ÙACK
+	//å¤„ç†å»¶è¿ŸACK
 	if (congestionManager.ShouldSendACKs(time,timeSinceLastTick))
 	{
 		SendACKs(s, systemAddress, time, rnr, updateBitStream);
@@ -2010,7 +2010,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 
 	DatagramHeaderFormat dhf;
 	dhf.needsBAndAs=congestionManager.GetIsInSlowStart();
-	dhf.isContinuousSend=bandwidthExceededStatistic;			//Èç¹ûÇ°Ò»´ÎÃ»ÓĞ·¢ËÍÍêÈ«?
+	dhf.isContinuousSend=bandwidthExceededStatistic;			//å¦‚æœå‰ä¸€æ¬¡æ²¡æœ‰å‘é€å®Œå…¨?
 	// 	bandwidthExceededStatistic=sendPacketSet[0].IsEmpty()==false ||
 	// 		sendPacketSet[1].IsEmpty()==false ||
 	// 		sendPacketSet[2].IsEmpty()==false ||
@@ -2066,7 +2066,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 		unreliableWithAckReceiptHistory_lock.Unlock();
 	}
 
-	//Ê×ÏÈ´¦ÀíÖØ·¢±¨ÎÄ£»ÔÙ´¦Àíµ±Ç°±¨ÎÄ...
+	//é¦–å…ˆå¤„ç†é‡å‘æŠ¥æ–‡ï¼›å†å¤„ç†å½“å‰æŠ¥æ–‡...
 	if (hasDataToSendOrResend==true)
 	{
 		InternalPacket *internalPacket;
@@ -2078,7 +2078,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 		dhf.hasBAndAS=false;
 		ResetPacketsAndDatagrams();
 
-		//×Ü´ø¿í = ÖØ´«+·ÇÖØ´«
+		//æ€»å¸¦å®½ = é‡ä¼ +éé‡ä¼ 
 		int transmissionBandwidth = congestionManager.GetTransmissionBandwidth(time, timeSinceLastTick, unacknowledgedBytes,dhf.isContinuousSend);
 		int retransmissionBandwidth = congestionManager.GetRetransmissionBandwidth(time, timeSinceLastTick, unacknowledgedBytes,dhf.isContinuousSend);
 
@@ -2105,16 +2105,16 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 
                     CCTimeType dt = time - internalPacket->nextActionTime;
 #ifdef RAKNET_LOG_ZZ
-//                    RAKNET_LOG("ÖØ·¢°ü:%d;time=%u, dt=%u\n", (uint32_t)internalPacket->reliableMessageNumber, time, dt);
+//                    RAKNET_LOG("é‡å‘åŒ…:%d;time=%u, dt=%u\n", (uint32_t)internalPacket->reliableMessageNumber, time, dt);
 #endif
 					//if ( internalPacket->nextActionTime < time )
 					if (dt < (((CCTimeType)-1)/2) )
 					{
 						//
-						//³¬´ó£¿£¿ Ä³¸ö±¨ÎÄÒ»Ö±·¢²»³É¹¦£¿ 
-						//1. ³¬´ó±¨ÎÄ10sºó£¬Ã»ÓĞ±»ÕıÈ··¢³ö£¿
-						//2. 10s ºóÊı¾İ±»Çå³ıÁË£¿
-						//3. ´òÁË¼¸·ÖÖÓºó£¬ÍêÈ«ÓµÈûÁË£¿
+						//è¶…å¤§ï¼Ÿï¼Ÿ æŸä¸ªæŠ¥æ–‡ä¸€ç›´å‘ä¸æˆåŠŸï¼Ÿ 
+						//1. è¶…å¤§æŠ¥æ–‡10såï¼Œæ²¡æœ‰è¢«æ­£ç¡®å‘å‡ºï¼Ÿ
+						//2. 10s åæ•°æ®è¢«æ¸…é™¤äº†ï¼Ÿ
+						//3. æ‰“äº†å‡ åˆ†é’Ÿåï¼Œå®Œå…¨æ‹¥å¡äº†ï¼Ÿ
 
 						//	nextPacketBitLength	11584 = 1448 * 8			
 						//	internalPacket->headerLength	128 = 16*8		
@@ -2131,7 +2131,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 							break;
 						}
 
-						//Ê×ÏÈ´Óresend listÖĞÈ¡³öÀ´
+						//é¦–å…ˆä»resend listä¸­å–å‡ºæ¥
 						PopListHead(false);
 
 						CC_DEBUG_PRINTF_2("Rs %i ", internalPacket->reliableMessageNumber.val);
@@ -2145,10 +2145,10 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 						PushPacket(time,internalPacket,true); // Affects GetNewTransmissionBandwidth()
 						internalPacket->timesSent++;
 						
-						//ÓµÈûÁË£¿
+						//æ‹¥å¡äº†ï¼Ÿ
 						congestionManager.OnResend(time, internalPacket->nextActionTime);
 
-						//zz: µ±ÇÒ½öµ±retransmissionTime·Ç³£´ó£¿ ÕâÒ²ÊÇÒ»ÖÖ¿ÉÄÜ??
+						//zz: å½“ä¸”ä»…å½“retransmissionTimeéå¸¸å¤§ï¼Ÿ è¿™ä¹Ÿæ˜¯ä¸€ç§å¯èƒ½??
 						internalPacket->retransmissionTime = congestionManager.GetRTOForRetransmission(internalPacket->timesSent);
 						internalPacket->nextActionTime = internalPacket->retransmissionTime+time;
 
@@ -2175,7 +2175,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 					else
 					{
 //#ifdef RAKNET_LOG_ZZ
-//						RAKNET_LOG("µÈ´ı·¢ËÍ[%d]: time=%lld, nextActionTime=%lld", internalPacket->reliableMessageNumber ,time, internalPacket->nextActionTime);
+//						RAKNET_LOG("ç­‰å¾…å‘é€[%d]: time=%lld, nextActionTime=%lld", internalPacket->reliableMessageNumber ,time, internalPacket->nextActionTime);
 //#endif
 						// Filled one datagram.
 						// If the 2nd and it's time to send a datagram pair, will be marked as a pair
@@ -2303,7 +2303,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 						statistics.messagesInResendBuffer++;
 						statistics.bytesInResendBuffer+=BITS_TO_BYTES(internalPacket->dataBitLength);
 
-						int unPre = unacknowledgedBytes;
+//						int unPre = unacknowledgedBytes;
 						InsertPacketIntoResendList( internalPacket, time, true, isReliable);
 #ifdef RAKNET_LOG_ZZ
 //						RAKNET_LOG("unacknowledgedBytes: %d -> %d ;sendReliableMessageNumberIndex=%d\n", unPre, unacknowledgedBytes, (int)sendReliableMessageNumberIndex);
@@ -2365,7 +2365,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 			if (datagramIndex>0)
 				dhf.isContinuousSend=true;
 			MessageNumberNode* messageNumberNode = 0;
-			dhf.datagramNumber=congestionManager.GetAndIncrementNextDatagramSequenceNumber();	//ÉèÖÃÊı¾İ±¨ÎÄ++
+			dhf.datagramNumber=congestionManager.GetAndIncrementNextDatagramSequenceNumber();	//è®¾ç½®æ•°æ®æŠ¥æ–‡++
 			dhf.isPacketPair=datagramsToSendThisUpdateIsPair[datagramIndex];
 
 			bool isSecondOfPacketPair=dhf.isPacketPair && datagramIndex>0 &&  datagramsToSendThisUpdateIsPair[datagramIndex-1];
@@ -2452,7 +2452,7 @@ void ReliabilityLayer::Update( RakNetSocket2 *s, SystemAddress &systemAddress, i
 				timeOfLastContinualSend=0;
 		}
 
-		//ÇåÀí±¾FrameÄÚÒÑ¾­·¢ËÍÁËµÄ[²»¿É¿¿±¨ÎÄ]Êı¾İ..
+		//æ¸…ç†æœ¬Frameå†…å·²ç»å‘é€äº†çš„[ä¸å¯é æŠ¥æ–‡]æ•°æ®..
 		ClearPacketsAndDatagrams();
 
 		// Any data waiting to send after attempting to send, then bandwidth is exceeded
@@ -2703,7 +2703,7 @@ unsigned ReliabilityLayer::RemovePacketFromResendListAndDeleteOlderReliableSeque
 	if (internalPacket && internalPacket->reliableMessageNumber==messageNumber)
 	{
 	//	ValidateResendList();
-		resendBuffer[messageNumber & RESEND_BUFFER_ARRAY_MASK]=0;	//zz: Ã¿´ÎÈ·ÈÏÒ»¸ö£¬Á¢¼´ÇåÀíµô£¬±ÜÃâ
+		resendBuffer[messageNumber & RESEND_BUFFER_ARRAY_MASK]=0;	//zz: æ¯æ¬¡ç¡®è®¤ä¸€ä¸ªï¼Œç«‹å³æ¸…ç†æ‰ï¼Œé¿å…
 		CC_DEBUG_PRINTF_2("AckRcv %i ", messageNumber);
 
 		statistics.messagesInResendBuffer--;
@@ -3185,7 +3185,7 @@ void ReliabilityLayer::SplitPacket( InternalPacket *internalPacket )
 	int i;
 	InternalPacket **internalPacketArray;
 
-	//×î´óµÄ·¢ËÍ×Ö½Ú:
+	//æœ€å¤§çš„å‘é€å­—èŠ‚:
 	//1464 - 9 = 1455
 	//1455-BITS_TO_BYTES((184) = 1432
 	maximumSendBlockBytes = GetMaxDatagramSizeExcludingMessageHeaderBytes() - BITS_TO_BYTES(GetMaxMessageHeaderLengthBits());
@@ -3712,7 +3712,7 @@ void ReliabilityLayer::PushPacket(CCTimeType time, InternalPacket *internalPacke
 	allDatagramSizesSoFar+=bitsForThisPacket;
 	packetsToSendThisUpdate.Push(internalPacket, _FILE_AND_LINE_ );
 
-	//·Ç¿É¿¿°ü£¬±¾FrameÄÚÉ¾³ı...
+	//éå¯é åŒ…ï¼Œæœ¬Frameå†…åˆ é™¤...
 	packetsToDeallocThisUpdate.Push(isReliable==false, _FILE_AND_LINE_ );
 	RakAssert(internalPacket->headerLength==GetMessageHeaderLengthBits(internalPacket));
 
@@ -3763,7 +3763,7 @@ bool ReliabilityLayer::TagMostRecentPushAsSecondOfPacketPair(void)
 	return false;
 }
 //-------------------------------------------------------------------------------------------------------
-// ÇåÀí±¾FrameÄÚÒÑ¾­·¢ËÍÁËµÄ[²»¿É¿¿±¨ÎÄ]Êı¾İ...
+// æ¸…ç†æœ¬Frameå†…å·²ç»å‘é€äº†çš„[ä¸å¯é æŠ¥æ–‡]æ•°æ®...
 void ReliabilityLayer::ClearPacketsAndDatagrams(void)
 {
 	unsigned int i;
@@ -3903,7 +3903,7 @@ void ReliabilityLayer::SendACKs(RakNetSocket2 *s, SystemAddress &systemAddress, 
 		acknowlegements.Serialize(&updateBitStream, maxDatagramPayload, true);
 		SendBitStream( s, systemAddress, &updateBitStream, rnr, time );
 
-		//Ã¿·¢ËÍÒ»¸öACK?
+		//æ¯å‘é€ä¸€ä¸ªACK?
 		congestionManager.OnSendAck(time,updateBitStream.GetNumberOfBytesUsed());
 
 		// I think this is causing a bug where if the estimated bandwidth is very low for the recipient, only acks ever get sent
@@ -3950,7 +3950,7 @@ void ReliabilityLayer::ReleaseToInternalPacketPool(InternalPacket *ip)
 //-------------------------------------------------------------------------------------------------------
 void ReliabilityLayer::RemoveFromUnreliableLinkedList(InternalPacket *internalPacket)
 {
-	//½ö½ö´¦Àí²»¿É¿¿±¨ÎÄ:
+	//ä»…ä»…å¤„ç†ä¸å¯é æŠ¥æ–‡:
 	if (internalPacket->reliability==UNRELIABLE ||
 		internalPacket->reliability==UNRELIABLE_SEQUENCED ||
 		internalPacket->reliability==UNRELIABLE_WITH_ACK_RECEIPT
@@ -3969,7 +3969,7 @@ void ReliabilityLayer::RemoveFromUnreliableLinkedList(InternalPacket *internalPa
 	}
 }
 //-------------------------------------------------------------------------------------------------------
-//zz: ·Ç¿É¿¿±¨ÎÄ£¬¼ÓÈëunreliableNext...
+//zz: éå¯é æŠ¥æ–‡ï¼ŒåŠ å…¥unreliableNext...
 void ReliabilityLayer::AddToUnreliableLinkedList(InternalPacket *internalPacket)
 {
 	if (internalPacket->reliability==UNRELIABLE ||
@@ -4052,7 +4052,7 @@ void ReliabilityLayer::RemoveFromDatagramHistory(DatagramSequenceNumberType inde
 	datagramHistory[offsetIntoList].head=0;
 }
 //-------------------------------------------------------------------------------------------------------
-//zz: ÕâÀïÊ¹ÓÃÒ»¸ö¶ÓÁĞÀ´±£´æËùÓĞµÄudp·¢ËÍ¼ÇÂ¼...
+//zz: è¿™é‡Œä½¿ç”¨ä¸€ä¸ªé˜Ÿåˆ—æ¥ä¿å­˜æ‰€æœ‰çš„udpå‘é€è®°å½•...
 void ReliabilityLayer::AddFirstToDatagramHistory(DatagramSequenceNumberType datagramNumber, CCTimeType timeSent)
 {
 	(void) datagramNumber;
@@ -4070,7 +4070,7 @@ void ReliabilityLayer::AddFirstToDatagramHistory(DatagramSequenceNumberType data
 }
 
 //-------------------------------------------------------------------------------------------------------
-//±¨ÎÄ´Ó0¿ªÊ¼£¬¼´ÎªÏÂ±ê£º
+//æŠ¥æ–‡ä»0å¼€å§‹ï¼Œå³ä¸ºä¸‹æ ‡ï¼š
 ReliabilityLayer::MessageNumberNode* ReliabilityLayer::AddFirstToDatagramHistory(DatagramSequenceNumberType datagramNumber, DatagramSequenceNumberType messageNumber, CCTimeType timeSent)
 {
 	(void) datagramNumber;
@@ -4093,7 +4093,7 @@ ReliabilityLayer::MessageNumberNode* ReliabilityLayer::AddFirstToDatagramHistory
 }
 
 //-------------------------------------------------------------------------------------------------------
-//¹¹ÔìÒ»´®·¢ËÍÇåµ¥: 
+//æ„é€ ä¸€ä¸²å‘é€æ¸…å•: 
 ReliabilityLayer::MessageNumberNode* ReliabilityLayer::AddSubsequentToDatagramHistory(MessageNumberNode *messageNumberNode, DatagramSequenceNumberType messageNumber)
 {
 	messageNumberNode->next=datagramHistoryMessagePool.Allocate(_FILE_AND_LINE_);

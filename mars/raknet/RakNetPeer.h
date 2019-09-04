@@ -5,7 +5,7 @@
 using namespace RakNet;
 namespace RakNet
 {
-    //ÊµÏÖÒ»ÖÖ
+    //å®ç°ä¸€ç§
     class RakNetPeer
     {
 	public:
@@ -70,7 +70,7 @@ namespace RakNet
                 Startup(_host_ip, _host_port, _max_connections);
             }
 
-            //¶ÔÓÚ¿Í»§¶ËÀ´Ëµ£¬renewºó£¬Á¬½ÓÈ«²¿Ê§Ğ§¡£¡£
+            //å¯¹äºå®¢æˆ·ç«¯æ¥è¯´ï¼Œrenewåï¼Œè¿æ¥å…¨éƒ¨å¤±æ•ˆã€‚ã€‚
             ClearConnections();
         }
 
@@ -144,8 +144,8 @@ namespace RakNet
             const static int ID_CONNECTION_ATTEMPT_FAILED = 17;
             const static int ID_ALREADY_CONNECTED = 18;
             const static int ID_NEW_INCOMING_CONNECTION = 19;
-            const static int ID_DISCONNECTION_NOTIFICATION = 21; //·şÎñÆ÷close me¡£¡£¡£DeadConnection
-            const static int ID_CONNECTION_LOST = 22;            //ÎÒ¶ªÊ§·şÎñÆ÷Á¬½Ó.. DeadConnection
+            const static int ID_DISCONNECTION_NOTIFICATION = 21; //æœåŠ¡å™¨close meã€‚ã€‚ã€‚DeadConnection
+            const static int ID_CONNECTION_LOST = 22;            //æˆ‘ä¸¢å¤±æœåŠ¡å™¨è¿æ¥.. DeadConnection
             const static int ID_CONNECTION_BANNED = 23;
             const static int ID_INVALID_PASSWORD = 24;
             const static int ID_INCOMPATIBLE_PROTOCOL_VERSION = 25;
@@ -181,7 +181,7 @@ namespace RakNet
             }
 
             RakNetPeer *peer = new RakNetPeerUDP();
-            peer->_handle = RkN_CreatePeer();  //´´½¨Ò»¸öpeer:
+            peer->_handle = RkN_CreatePeer();  //åˆ›å»ºä¸€ä¸ªpeer:
             if (peer->_handle >= 0)
                 return peer;
 
@@ -189,7 +189,7 @@ namespace RakNet
         }
 
 
-        //Æô¶¯
+        //å¯åŠ¨
         virtual StartupResult Startup(string ip, ushort port, uint maxConnections)
         {
             if (!_started)
@@ -209,7 +209,7 @@ namespace RakNet
             return StartupResult::RAKNET_ALREADY_STARTED;
         }
 
-        //´Ó
+        //ä»
         ConnectionState GetConnectionState(int index)
         {
             if (index >= 0 && index < _connectionList.size())
@@ -382,8 +382,8 @@ namespace RakNet
             return false;
         }
 
-        //·µ»Øbyte Êı×éÖ¸Õë£¬´óÔ¼¼ÆËãÒ»ÏÂÃ¿sËù²úÉúµÄ±¨ÎÄ¶àÉÙ£¿ 
-        //Ê¹ÓÃc-c#½»»»»º´æ½øĞĞ¿ìËÙ°ü½»»»´¦Àí..
+        //è¿”å›byte æ•°ç»„æŒ‡é’ˆï¼Œå¤§çº¦è®¡ç®—ä¸€ä¸‹æ¯sæ‰€äº§ç”Ÿçš„æŠ¥æ–‡å¤šå°‘ï¼Ÿ 
+        //ä½¿ç”¨c-c#äº¤æ¢ç¼“å­˜è¿›è¡Œå¿«é€ŸåŒ…äº¤æ¢å¤„ç†..
         void ReceiveCycle(OnPacketReceived cb)
         {
             if (_started)
@@ -424,7 +424,7 @@ namespace RakNet
         static void FlushCppImmediatePackBuffer(void* packBufferPtr)
         {
             byte* ptr = (byte*)packBufferPtr;
-            int num = *(int*)ptr;
+            //int num = *(int*)ptr;
             ptr += 4;
             //SGW.wrapperFuncs[num](ref ptr);
         }
@@ -434,7 +434,7 @@ namespace RakNet
         //    FileStream fs = new FileStream("LogPacket.dat", FileMode.OpenOrCreate);
         //    if(fs!=null)
         //    {
-        //        //Êı¾İ±£´æµ½´ÅÅÌÖĞ
+        //        //æ•°æ®ä¿å­˜åˆ°ç£ç›˜ä¸­
         //        BinaryWriter bw = new BinaryWriter(fs);
         //        if(bw!=null)
         //        {
@@ -460,7 +460,7 @@ namespace RakNet
                 //UnityEngine.Profiler.EndSample();
                 if (ptr!=null)
                 {
-                    int left = (result & 0xFFFF) >> 16;
+                    //int left = (result & 0xFFFF) >> 16;
                     int amount = (result & 0xFFFF);
                     int i = 0;
                     if(amount > 0)
@@ -475,7 +475,7 @@ namespace RakNet
                             _PacketHead_t* pkt = (_PacketHead_t*)ptr;
                             //UnityEngine.Profiler.EndSample();
 
-                           // UnityEngine.Profiler.BeginSample("ProcessPacket");  //376B,0.11ms;44B = ÉÏ²ã£»call½øÈ¥Ö®ºó£¬¼´ËğÊ§24B
+                           // UnityEngine.Profiler.BeginSample("ProcessPacket");  //376B,0.11ms;44B = ä¸Šå±‚ï¼›callè¿›å»ä¹‹åï¼Œå³æŸå¤±24B
                             ProcessPacket(pkt, ptr + sizeof(_PacketHead_t));
                           //  UnityEngine.Profiler.EndSample();
 
@@ -493,8 +493,8 @@ namespace RakNet
         }
 
         /// <summary>
-        /// [EDITOR]zzTODO:²»È·¶¨ÊÇ·ñÒòÎªunsafeµÄ¹ØÏµ£¬»áµ¼ÖÂ±¾º¯ÊıµÄcall Ôö¼Ó20B
-        /// 1. int×ªobject,ËğÊ§20B
+        /// [EDITOR]zzTODO:ä¸ç¡®å®šæ˜¯å¦å› ä¸ºunsafeçš„å…³ç³»ï¼Œä¼šå¯¼è‡´æœ¬å‡½æ•°çš„call å¢åŠ 20B
+        /// 1. intè½¬object,æŸå¤±20B
         /// 2. 
         /// </summary>
         /// <param name="pkt"></param>
@@ -570,7 +570,7 @@ namespace RakNet
                 //UnityEngine.Profiler.EndSample();
             }
         }//end 
-        static byte s_data[512];   //ÁÙÊ±fix mem:
+        static byte s_data[512];   //ä¸´æ—¶fix mem:
 
 	};//end class     
 }

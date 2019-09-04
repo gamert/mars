@@ -1,13 +1,8 @@
 #!/usr/bin/env python
-import os
-import sys
-import glob
-import time
-import shutil
 import platform
+import sys
 
 from mars_utils import *
-
 
 SCRIPT_PATH = os.path.split(os.path.realpath(__file__))[0]
 
@@ -161,7 +156,7 @@ if __name__ == '__main__':
             break
         else:
             archs = set(['armeabi-v7a'])
-            num = raw_input('Enter menu:\n1. Clean && build mars.\n2. Build incrementally mars.\n3. Clean && build xlog.\n4. Exit\n')
+            num = input('Enter menu:\n1. Clean && build mars.\n2. Build incrementally mars.\n3. Clean && build xlog.\n4. Exit\n')
             if num == '1':
                 main(False, archs)
                 break

@@ -199,7 +199,7 @@ void CCRakNetSlidingWindow::OnNAK(CCTimeType curTime, DatagramSequenceNumberType
 
 		// CC PRINTF
 #ifdef RAKNET_LOG_ZZ
-		RAKNET_LOG("OnNAK£º - %.0f (NAK) Set congestion avoidance.\n", cwnd);
+		RAKNET_LOG("OnNAK:- %.0f (NAK) Set congestion avoidance.\n", cwnd);
 #endif
 	}
 }

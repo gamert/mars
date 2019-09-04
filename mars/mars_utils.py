@@ -316,7 +316,7 @@ def gen_mars_revision_file(version_file_path, tag=''):
 #endif
 ''' % (revision, path, url, build_time, tag)
 
-    with open('%s/verinfo.h' % version_file_path, 'wb') as f:
+    with open('%s/verinfo.h' % version_file_path, 'w') as f:
         f.write(contents)
         f.flush()
 

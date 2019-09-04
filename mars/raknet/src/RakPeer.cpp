@@ -5319,9 +5319,9 @@ bool ProcessOfflineNetworkPacket( SystemAddress systemAddress, const char *data,
 			bool connectionAttemptCancelled=false;
 			unsigned i;
 
+#if 0
 			RakPeer::RemoteSystemStruct *remoteSystem = NULL;
 			//如果已经重连? 可能需要重建?
-#if 0
 			if ((unsigned char)(data)[0] == (MessageID)ID_ALREADY_CONNECTED)
 			{
 				//xinfo2(TSF"(data)[0] = %_ \n", (data)[0]);
@@ -5895,7 +5895,7 @@ bool RakPeer::RunUpdateCycle(BitStream &updateBitStream )
 	SystemAddress systemAddress;
 	BufferedCommandStruct *bcs;
 	bool callerDataAllocationUsed;
-	RakNetStatistics *rnss;
+	//RakNetStatistics *rnss;
 	RakNet::TimeUS timeNS=0;
 	RakNet::Time timeMS=0;
 
