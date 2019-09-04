@@ -1,0 +1,5 @@
+//settings.gradle
+println 'This is executed during the initialization phase.'
+
+include ':app'//, ':extras:mars_xlog_sdk'
+
