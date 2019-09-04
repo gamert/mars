@@ -66,7 +66,7 @@ Java_com_tencent_mars_xlogsample_MainActivity_stringFromJNI(
         id = RkN_CreatePeer();
         __android_log_print(ANDROID_LOG_INFO, "test", "RkN_CreatePeer:%d", id);
         //	LOGI("test", "2222");
-        int res = RkN_Startup(id,NULL,0,4);
+        int res = RkN_Startup(id,"0.0.0.0", 0, 1);
         __android_log_print(ANDROID_LOG_INFO, "test", "RkN_Startup,id=%d, res=%d", id,res);
     }
 
