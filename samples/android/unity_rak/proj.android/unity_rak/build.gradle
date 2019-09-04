@@ -24,7 +24,7 @@ allprojects {
 apply plugin: 'com.android.application'
 
 dependencies {
-	compile fileTree(dir: 'libs', include: ['*.jar'])
+	implementation fileTree(dir: 'libs', include: ['*.jar'])
 	implementation 'com.android.support:appcompat-v7:26.1.0'
 }
 
@@ -36,6 +36,10 @@ android {
 		minSdkVersion 16
 		targetSdkVersion 26
 		applicationId 'com.dw.raknet'
+		ndk {
+			abiFilters "armeabi-v7a"
+			abiFilters "x86"
+		}
 	}
 
 	lintOptions {
@@ -46,6 +50,12 @@ android {
 		noCompress '.unity3d', '.ress', '.resource', '.obb'
 	}
 
+	sourceSets {
+		main {
+			//jniLibs.srcDirs = ["jniLibs/jni"]
+			jniLibs.srcDirs = ['libs']
+		}
+	}
 
 	buildTypes {
   		debug {
