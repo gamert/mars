@@ -1170,7 +1170,8 @@ void RakPeer::Shutdown( unsigned int blockDuration, unsigned char orderingChanne
 
 		// Remove any remaining packets
 		RakAssert(remoteSystemList[ i ].MTUSize <= MAXIMUM_MTU_SIZE);
-		remoteSystemList[ i ].reliabilityLayer.Reset(false, remoteSystemList[ i ].MTUSize, false);
+		remoteSystemList[i].reliabilityLayer.doStatistics();
+		remoteSystemList[i].reliabilityLayer.Reset(false, remoteSystemList[ i ].MTUSize, false);
 		remoteSystemList[ i ].rakNetSocket = 0;
 	}
 
@@ -4338,10 +4339,9 @@ void RakPeer::CloseConnectionInternal( const AddressOrGUID& systemIdentifier, bo
 			unsigned int index = GetRemoteSystemIndex(target);
 			if (index!=(unsigned int) -1 && remoteSystemList[index].isActive)
 			{
-				//zzAdd: 统计...
-				remoteSystemList[index].reliabilityLayer.doStatistics();
-				//
-
+				////zzAdd: 统计...
+				//remoteSystemList[index].reliabilityLayer.doStatistics();
+				////
 				RemoveFromActiveSystemList(target);
 
 				// Found the index to stop

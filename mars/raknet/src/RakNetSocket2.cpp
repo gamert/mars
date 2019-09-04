@@ -506,8 +506,14 @@ RNS2SendResult RNS2_Windows::Send( RNS2_SendParameters *sendParameters, const ch
 	} 
 	//RAKNET_LOG("[%d]RNS2_Windows::Send(length=%d)\n\n", (unsigned int)(RakNet::GetTimeUS() / 1000), sendParameters->length);
 
-	return Send_Windows_Linux_360NoVDP(rns2Socket,sendParameters, file, line);
+	int len = Send_Windows_Linux_360NoVDP(rns2Socket, sendParameters, file, line);
+	if (len > (MAXIMUM_MTU_SIZE - 32))
+	{
+		CCLOG(1, "[w]RNS2_Windows::Send: length =%d \n", len);
+	}
+	return len;
 }
+
 void RNS2_Windows::GetMyIP( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] ) {return GetMyIP_Windows_Linux(addresses);}
 //void RNS2_Windows::SetSocketLayerOverride(SocketLayerOverride *_slo) {slo = _slo;}
 //SocketLayerOverride* RNS2_Windows::GetSocketLayerOverride(void) {return slo;}

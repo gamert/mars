@@ -33,7 +33,7 @@
 //和帧尾CRC校验部分4Bytes那么剩下承载上层协议的地方也就是Data域最大就只能有1500字节这个值我们就把它称之为MTU。
 //鉴于Internet上的标准MTU值为576字节，所以建议在进行Internet的UDP编程时，最好将UDP的数据长度控制在(576 - 8 - 20)548字节以内。
 
-#define MAXIMUM_MTU_SIZE 576 //1492//
+#define MAXIMUM_MTU_SIZE 576//
 
 //ethernet head 12+2
 //ip head : 20

@@ -28,6 +28,9 @@
 
 using namespace RakNet;
 
+#include "CPkgTracer.h"
+
+
 // Can't figure out which library has this function on the PS3
 double Ceil(double d) {if (((double)((int)d))==d) return d; return (int) (d+1.0);}
 
@@ -64,6 +67,9 @@ typedef uint32_t BitstreamLengthEncoding;
 static unsigned int packetNumber=0;
 static FILE *fp=0;
 #endif
+
+
+
 
 //#define FLIP_SEND_ORDER_TEST
 //#define LOG_TRIVIAL_NOTIFICATIONS
@@ -251,7 +257,6 @@ static int waitFlag=-1;
 using namespace RakNet;
 
 
-
 int RakNet::SplitPacketChannelComp( SplitPacketIdType const &key, SplitPacketChannel* const &data )
 {
 #if PREALLOCATE_LARGE_MESSAGES==1
@@ -381,6 +386,13 @@ inline void outputQueue_Push(DataStructures::Queue<InternalPacket*> &outputQueue
 
 void ReliabilityLayer::doStatistics()
 {
+	xinfo2(TSF"orderingChannelStat: %_ \n\t", "\n");
+	for (int i = 0; i < 32; ++i)
+	{
+		xinfo2(TSF"%_,", orderingChannelStat[i]);
+	}
+	xinfo2(TSF"%_","\n");
+
 	//首先统计...
 	GetStatistics(NULL);
 
@@ -493,6 +505,7 @@ void ReliabilityLayer::InitializeVariables( void )
 	receivedPacketsBaseIndex=0;
 	resetReceivedPackets=true;
 	receivePacketCount=0; 
+	memset(orderingChannelStat, 0, sizeof(orderingChannelStat));
 
 	//	SetPing( 1000 );
 
@@ -877,9 +890,9 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 				MessageNumberNode *messageNumberNode = GetMessageNumberNodeByDatagramIndex(datagramNumber, &whenSent);
 				if (messageNumberNode)
 				{
-//#ifdef RAKNET_LOG_ZZ
-//					RAKNET_LOG("        this[%p] Got ack for datagramNumber[%i]\n", this, datagramNumber.val);
-//#endif
+#ifdef RAKNET_LOG_ZZ
+					RAKNET_LOG("        this[%p] Got ack for datagramNumber[%i]\n", this, datagramNumber.val);
+#endif
 #if INCLUDE_TIMESTAMP_WITH_DATAGRAMS==1
 					congestionManager.OnAck(timeRead, rtt, dhf.hasBAndAS, 0, dhf.AS, totalUserDataBytesAcked, bandwidthExceededStatistic, datagramNumber );
 #else
@@ -897,9 +910,9 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 					while (messageNumberNode)
 					{
 						// TESTING1
-//#ifdef RAKNET_LOG_ZZ
-// 						RAKNET_LOG("        Remove %i on ack for datagramNumber=%i.\n", messageNumberNode->messageNumber.val, datagramNumber.val);
-//#endif
+#ifdef RAKNET_LOG_ZZ
+ 						RAKNET_LOG("        Remove %i on ack for datagramNumber=%i.\n", messageNumberNode->messageNumber.val, datagramNumber.val);
+#endif
 						RemovePacketFromResendListAndDeleteOlderReliableSequenced( messageNumberNode->messageNumber, timeRead, messageHandlerList, systemAddress );
 						messageNumberNode=messageNumberNode->next;
 					}
@@ -963,7 +976,7 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 
 				// REMOVEME : TODO: server需要检查NAK?
 #ifdef RAKNET_LOG_ZZ				
-//				xinfo2(TSF"%_ NAK %_\n", this, dhf.datagramNumber.val); //FFFFFFFFCCCCCCCC=-858993460
+				xinfo2(TSF"%_ NAK %_\n", this, dhf.datagramNumber.val); //FFFFFFFFCCCCCCCC=-858993460
 #endif
 				CCTimeType timeSent;
 				MessageNumberNode *messageNumberNode = GetMessageNumberNodeByDatagramIndex(messageNumber, &timeSent);
@@ -1040,6 +1053,11 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 			}
 #endif
 		}
+		else
+		{
+//			int i = 0;
+//			i++;
+		}
 
 		while ( internalPacket )
 		{
@@ -1085,7 +1103,9 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 
 				// 8/12/09 was previously not checking if the message was reliable. However, on packetloss this would mean you'd eventually exceed the
 				// hole count because unreliable messages were never resent, and you'd stop getting messages
-				if (internalPacket->reliability == RELIABLE || internalPacket->reliability == RELIABLE_SEQUENCED || internalPacket->reliability == RELIABLE_ORDERED )
+				if (internalPacket->reliability == RELIABLE 
+					|| internalPacket->reliability == RELIABLE_SEQUENCED 
+					|| internalPacket->reliability == RELIABLE_ORDERED )
 				{
 					// If the following conditional is true then this either a duplicate packet
 					// or an older out of order packet
@@ -1199,181 +1219,13 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 				if (hasReceivedPacketQueue.AllocationSize() > (unsigned int) DEFAULT_HAS_RECEIVED_PACKET_QUEUE_SIZE && hasReceivedPacketQueue.AllocationSize() > hasReceivedPacketQueue.Size() * 3)
 					hasReceivedPacketQueue.Compress(_FILE_AND_LINE_);
 
-
-				/*
-				if ( internalPacket->reliability == RELIABLE_SEQUENCED || internalPacket->reliability == UNRELIABLE_SEQUENCED )
-				{
-#ifdef _DEBUG
-					RakAssert( internalPacket->orderingChannel < NUMBER_OF_ORDERED_STREAMS );
-#endif
-
-					if ( internalPacket->orderingChannel >= NUMBER_OF_ORDERED_STREAMS )
-					{
-
-						FreeInternalPacketData(internalPacket, _FILE_AND_LINE_ );
-						ReleaseToInternalPacketPool( internalPacket );
-
-						for (unsigned int messageHandlerIndex=0; messageHandlerIndex < messageHandlerList.Size(); messageHandlerIndex++)
-							messageHandlerList[messageHandlerIndex]->OnReliabilityLayerNotification("internalPacket->orderingChannel >= NUMBER_OF_ORDERED_STREAMS", BYTES_TO_BITS(length), systemAddress);			
-
-						bpsMetrics[(int) USER_MESSAGE_BYTES_RECEIVED_IGNORED].Push1(timeRead,BITS_TO_BYTES(internalPacket->dataBitLength));
-
-						goto CONTINUE_SOCKET_DATA_PARSE_LOOP;
-					}
-
-					if ( IsOlderOrderedPacket( internalPacket->orderingIndex, waitingForSequencedPacketReadIndex[ internalPacket->orderingChannel ] ) == false )
-					{
-						// Is this a split packet?
-						if ( internalPacket->splitPacketCount > 0 )
-						{
-							// Generate the split
-							// Verify some parameters to make sure we don't get junk data
-
-
-							// Check for a rebuilt packet
-							InsertIntoSplitPacketList( internalPacket, timeRead );
-							bpsMetrics[(int) USER_MESSAGE_BYTES_RECEIVED_PROCESSED].Push1(timeRead,BITS_TO_BYTES(internalPacket->dataBitLength));
-
-							// Sequenced
-							internalPacket = BuildPacketFromSplitPacketList( internalPacket->splitPacketId, timeRead,
-								s, systemAddress, rnr, remotePortRakNetWasStartedOn_PS3, extraSocketOptions);
-
-							if ( internalPacket )
-							{
-								// Update our index to the newest packet
-								waitingForSequencedPacketReadIndex[ internalPacket->orderingChannel ] = internalPacket->orderingIndex + (OrderingIndexType)1;
-
-								// If there is a rebuilt packet, add it to the output queue
-								outputQueue_Push(outputQueue, internalPacket, _FILE_AND_LINE_  );
-								internalPacket = 0;
-							}
-
-							// else don't have all the parts yet
-						}
-						else
-						{
-							// Update our index to the newest packet
-							waitingForSequencedPacketReadIndex[ internalPacket->orderingChannel ] = internalPacket->orderingIndex + (OrderingIndexType)1;
-
-							// Not a split packet. Add the packet to the output queue
-							bpsMetrics[(int) USER_MESSAGE_BYTES_RECEIVED_PROCESSED].Push1(timeRead,BITS_TO_BYTES(internalPacket->dataBitLength));
-							outputQueue_Push(outputQueue, internalPacket, _FILE_AND_LINE_  );
-							internalPacket = 0;
-						}
-					}
-					else
-					{
-						// Older sequenced packet. Discard it
-						FreeInternalPacketData(internalPacket, _FILE_AND_LINE_ );
-						ReleaseToInternalPacketPool( internalPacket );
-
-						bpsMetrics[(int) USER_MESSAGE_BYTES_RECEIVED_IGNORED].Push1(timeRead,BITS_TO_BYTES(internalPacket->dataBitLength));
-
-					}
-
-					goto CONTINUE_SOCKET_DATA_PARSE_LOOP;
-					}
-
-				// Is this an unsequenced split packet?
-				if ( internalPacket->splitPacketCount > 0 )
-				{
-					// Check for a rebuilt packet
-					if ( internalPacket->reliability != RELIABLE_ORDERED )
-						internalPacket->orderingChannel = 255; // Use 255 to designate not sequenced and not ordered
-
-					InsertIntoSplitPacketList( internalPacket, timeRead );
-
-					internalPacket = BuildPacketFromSplitPacketList( internalPacket->splitPacketId, timeRead,
-						s, systemAddress, rnr, remotePortRakNetWasStartedOn_PS3, extraSocketOptions);
-
-					if ( internalPacket == 0 )
-					{
-
-						// Don't have all the parts yet
-						goto CONTINUE_SOCKET_DATA_PARSE_LOOP;
-					}
-				}
-				*/
-
-				/*
-				if ( internalPacket->reliability == RELIABLE_ORDERED )
-				{
-#ifdef _DEBUG
-					RakAssert( internalPacket->orderingChannel < NUMBER_OF_ORDERED_STREAMS );
-#endif
-
-					if ( internalPacket->orderingChannel >= NUMBER_OF_ORDERED_STREAMS )
-					{
-						// Invalid packet
-						FreeInternalPacketData(internalPacket, _FILE_AND_LINE_ );
-						ReleaseToInternalPacketPool( internalPacket );
-
-						bpsMetrics[(int) USER_MESSAGE_BYTES_RECEIVED_IGNORED].Push1(timeRead,BITS_TO_BYTES(internalPacket->dataBitLength));
-
-						goto CONTINUE_SOCKET_DATA_PARSE_LOOP;
-					}
-
-					bpsMetrics[(int) USER_MESSAGE_BYTES_RECEIVED_PROCESSED].Push1(timeRead,BITS_TO_BYTES(internalPacket->dataBitLength));
-
-					if ( waitingForOrderedPacketReadIndex[ internalPacket->orderingChannel ] == internalPacket->orderingIndex )
-					{
-						// Get the list to hold ordered packets for this stream
-						DataStructures::LinkedList<InternalPacket*> *orderingListAtOrderingStream;
-						unsigned char orderingChannelCopy = internalPacket->orderingChannel;
-
-						// Push the packet for the user to read
-						outputQueue_Push(outputQueue, internalPacket, _FILE_AND_LINE_  );
-						internalPacket = 0; // Don't reference this any longer since other threads access it
-
-						// Wait for the resendNext ordered packet in sequence
-						waitingForOrderedPacketReadIndex[ orderingChannelCopy ] ++; // This wraps
-
-						orderingListAtOrderingStream = GetOrderingListAtOrderingStream( orderingChannelCopy );
-
-						if ( orderingListAtOrderingStream != 0)
-						{
-							while ( orderingListAtOrderingStream->Size() > 0 )
-							{
-								// Cycle through the list until nothing is found
-								orderingListAtOrderingStream->Beginning();
-								indexFound=false;
-								size=orderingListAtOrderingStream->Size();
-								count=0;
-
-								while (count++ < size)
-								{
-									if ( orderingListAtOrderingStream->Peek()->orderingIndex == waitingForOrderedPacketReadIndex[ orderingChannelCopy ] )
-									{
-										outputQueue_Push(outputQueue, orderingListAtOrderingStream->Pop(), _FILE_AND_LINE_  );
-										waitingForOrderedPacketReadIndex[ orderingChannelCopy ]++;
-										indexFound=true;
-									}
-									else
-										(*orderingListAtOrderingStream)++;
-								}
-
-								if (indexFound==false)
-									break;
-							}
-						}
-						internalPacket = 0;
-					}
-					else
-					{
-						// This is a newer ordered packet than we are waiting for. Store it for future use
-						AddToOrderingList( internalPacket );
-					}
-
-
-					goto CONTINUE_SOCKET_DATA_PARSE_LOOP;
-				}
-				*/
-
 				// Is this a split packet? If so then reassemble
 				if ( internalPacket->splitPacketCount > 0 )
 				{
 					// Check for a rebuilt packet
-					if ( internalPacket->reliability != RELIABLE_ORDERED && internalPacket->reliability!=RELIABLE_SEQUENCED && internalPacket->reliability!=UNRELIABLE_SEQUENCED)
+					if ( internalPacket->reliability != RELIABLE_ORDERED 
+						&& internalPacket->reliability!=RELIABLE_SEQUENCED 
+						&& internalPacket->reliability!=UNRELIABLE_SEQUENCED)
 						internalPacket->orderingChannel = 255; // Use 255 to designate not sequenced and not ordered
 
 					InsertIntoSplitPacketList( internalPacket, timeRead );
@@ -1397,6 +1249,12 @@ bool ReliabilityLayer::HandleSocketReceiveFromConnectedPlayer(
 				unsigned char packetId;
 				char *type="UNDEFINED";
 #endif
+
+#ifdef USE_PKGTRACER
+				g_CPkgTracer.DumpLog("    Receive:", internalPacket);
+#endif
+				orderingChannelStat[internalPacket->orderingChannel]++;
+
 				if (internalPacket->reliability == RELIABLE_SEQUENCED ||
 					internalPacket->reliability == UNRELIABLE_SEQUENCED ||
 					internalPacket->reliability == RELIABLE_ORDERED)
@@ -2900,6 +2758,9 @@ BitSize_t ReliabilityLayer::WriteToBitStreamFromInternalPacket( RakNet::BitStrea
 	//	bitStream->PrintBits();
 	}
 
+#ifdef 	USE_PKGTRACER
+	g_CPkgTracer.DumpLog("Send:", internalPacket);
+#endif
 	// Write the actual data.
 	bitStream->WriteAlignedBytes( ( unsigned char* ) internalPacket->data, BITS_TO_BYTES( internalPacket->dataBitLength ) );
 
@@ -2925,6 +2786,9 @@ InternalPacket* ReliabilityLayer::CreateInternalPacketFromBitStream( RakNet::Bit
 	internalPacket = AllocateFromInternalPacketPool();
 	if (internalPacket==0)
 	{
+#ifdef RAKNET_LOG_ZZ
+        xerror2(TSF"ERROR: CreateInternalPacketFromBitStream: Out of memory\n");
+#endif
 		// Out of memory
 		RakAssert(0);
 		return 0;
@@ -2995,6 +2859,10 @@ InternalPacket* ReliabilityLayer::CreateInternalPacketFromBitStream( RakNet::Bit
 		internalPacket->orderingChannel>=32 || 
 		(hasSplitPacket && (internalPacket->splitPacketIndex >= internalPacket->splitPacketCount)))
 	{
+#ifdef RAKNET_LOG_ZZ
+        xerror2(TSF"ERROR: CreateInternalPacketFromBitStream: Encoding is garbage dataBitLength= %_;reliability= %_;orderingChannel= %_;%_/%_;\n",internalPacket->dataBitLength,internalPacket->reliability,internalPacket->orderingChannel,internalPacket->splitPacketIndex , internalPacket->splitPacketCount);
+#endif
+
 		// If this assert hits, encoding is garbage
 		RakAssert("Encoding is garbage" && 0);
 		ReleaseToInternalPacketPool( internalPacket );
@@ -3007,6 +2875,10 @@ InternalPacket* ReliabilityLayer::CreateInternalPacketFromBitStream( RakNet::Bit
 
 	if (internalPacket->data == 0)
 	{
+#ifdef RAKNET_LOG_ZZ
+        xerror2(TSF"ERROR: CreateInternalPacketFromBitStream: internalPacket->data;\n");
+#endif
+
 		RakAssert("Out of memory in ReliabilityLayer::CreateInternalPacketFromBitStream" && 0);
 		notifyOutOfMemory(_FILE_AND_LINE_);
 		ReleaseToInternalPacketPool( internalPacket );
@@ -3021,6 +2893,9 @@ InternalPacket* ReliabilityLayer::CreateInternalPacketFromBitStream( RakNet::Bit
 
 	if ( bitStreamSucceeded == false )
 	{
+#ifdef RAKNET_LOG_ZZ
+        xerror2(TSF"ERROR: CreateInternalPacketFromBitStream: bitStreamSucceeded\n");
+#endif
 		// If this hits, most likely the variable buff is too small in RunUpdateCycle in RakPeer.cpp
 		RakAssert("Couldn't read all the data"  && 0);
 

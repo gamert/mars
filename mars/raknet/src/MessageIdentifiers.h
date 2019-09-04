@@ -427,9 +427,15 @@ enum DefaultMessageIDTypes
 	ID_RESERVED_9,
 
 	// For the user to use.  Start your first enumeration at this value.
-	ID_USER_PACKET_ENUM
+	ID_USER_PACKET_ENUM = 134,		//fff1,2,aotu,space
+	
+	kCustomUserMsg = ID_USER_PACKET_ENUM,
+	kCustomPacketControlCode = 135,	//fff2
+	kCustomUncompressedPacketControlCode = 136,	//fff2
+	kCustomFrameSyncChannelCode = 150,			//fff2
+	kCustomFrameSyncSectionDataCode = 151,		//fff2
+	kCustomENCRYPT_MATCH_END = 153,				//fff2
 	//-------------------------------------------------------------------------------------------------------------
- 
 };
 
 #endif // RAKNET_USE_CUSTOM_PACKET_IDS

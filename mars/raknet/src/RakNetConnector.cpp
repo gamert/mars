@@ -73,9 +73,9 @@ using namespace RakNet;
 	#include <Sensapi.h>  
 	#include <iostream>
 	#pragma comment(lib, "Sensapi.lib") 
-	//#pragma comment(lib,"boost.lib")
-	//#pragma comment(lib,"comm.lib")
-	//#pragma comment(lib,"log.lib")
+	#pragma comment(lib,"boost.lib")
+	#pragma comment(lib,"comm.lib")
+	#pragma comment(lib,"log.lib")
 	//#pragma comment(lib,"../win32sample/x64/Debug/stn.lib")
 	//#pragma comment(lib,"../win32sample/x64/Debug/sdt.lib")
 	//#pragma comment(lib,"../win32sample/x64/Debug/baseevent.lib")
@@ -484,7 +484,7 @@ int RkN_ReceiveCycle2(_Rak_Client_Info_t *pClient, unsigned char *buf, int buf_s
 {
     int handled = 0;
     int pos = 0;
-    for (; pClient->lastIndex < pClient->count; ++pClient->lastIndex)
+    for (pClient->lastIndex; pClient->lastIndex < pClient->count; ++pClient->lastIndex)
     {
         RakNet::Packet *pkg = pClient->receiveSwapPool[pClient->lastIndex];
         if (pkg)
@@ -625,7 +625,7 @@ extern "C"
 #endif
 			readCfg();
 
-			xinfo2(TSF"[w]RkN_Initialize2:%_;%_\n",g_dataPath.c_str(),g_persistentDataPath.c_str());
+            xinfo2(TSF"[w]RkN_Initialize2:MTU_SIZE=%_;%_;%_\n",MAXIMUM_MTU_SIZE,g_dataPath.c_str(),g_persistentDataPath.c_str());
             g_initialized = true;
 
 			appender_flush();
@@ -783,6 +783,11 @@ extern "C"
         {
             RakNetGUID uid(guid);
             AddressOrGUID identifier(uid);
+			
+			if (length > MAXIMUM_MTU_SIZE)
+			{
+				xinfo2(TSF"[w]RkN_Send: handle(%_) length =%_ priority=%_\n", handle, length, priority);
+			}
 
             return peer->Send(data, length, (PacketPriority)priority, (PacketReliability)reliability, orderingChannel, identifier, broadcast, forceReceiptNumber);
         }
@@ -1073,6 +1078,10 @@ extern "C"
 #endif
 		return 0;
 	}
+
+
+
+
 
 	//T_DLL int STDCALL RkN_GetIpStack(Bytef *dest, uLongf *destLen, const Bytef *source, uint64_t sourceLen)
 	//{

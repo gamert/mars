@@ -613,6 +613,8 @@ private:
 	long long throughputCapCountdown;
 
 	unsigned receivePacketCount;
+	//接收包channel上的报文统计...
+	int orderingChannelStat[32];
 
 #ifdef _DEBUG
 	struct DataAndTime//<InternalPacket>
