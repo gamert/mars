@@ -221,6 +221,9 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>G:/ToolBase/Unity201741/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="CommonLibs">
+      <HintPath>Assets/Plugins/CommonLibs.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -232,9 +235,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/ProgramData/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonLibs">
-      <HintPath>Assets/Plugins/CommonLibs.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

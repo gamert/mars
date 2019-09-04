@@ -9,5 +9,6 @@ find_library(log-lib log)
 set(XLOG_PATH ../jniLibs/jni/${ANDROID_ABI}/)
 
 find_library(XLOG_LIB xlog PATHS ${XLOG_PATH} NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
+find_library(RAK_LIB 360Nt PATHS ${XLOG_PATH} NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
 
-target_link_libraries(native-lib ${log-lib} ${XLOG_LIB})
+target_link_libraries(native-lib ${log-lib} ${XLOG_LIB} ${RAK_LIB})

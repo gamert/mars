@@ -6,7 +6,7 @@
 
 #define STDCALL __stdcall
 #else
-#define STDCALL
+#define STDCALL 
 #endif
 
 #ifdef _WIN32

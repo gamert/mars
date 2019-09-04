@@ -38,6 +38,17 @@ public class MainActivity extends AppCompatActivity {
 
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
+
+        try
+        {
+            Thread.sleep(5000);
+        }
+        catch(Exception e)
+        {
+
+        }
+        Log.d("test", "准备链接..");
+        connect();
     }
 
     /**
@@ -45,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
+    public native void connect();
 
     // Used to load the 'native-lib' library on application startup.
     static {

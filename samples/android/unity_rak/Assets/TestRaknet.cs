@@ -11,10 +11,7 @@ public class TestRaknet : MonoBehaviour {
     void Start () {
         mCon = new RakNetClientConnector(1);
         mCon.AddCallback_OnConnected(OnConnect);
-
-        BaseConnector.Log("Connect:");
-        //game 战斗服 192.168.85.21  :9822
-        mCon.Connect("192.168.85.21", 9822);
+        BaseConnector.Log("Start");
     }
 
     public void OnConnect(object sender, EventArgs e)
@@ -30,4 +27,14 @@ public class TestRaknet : MonoBehaviour {
             mCon.Update();
         }
 	}
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(20, 40, 80, 20), "点这里！"))
+        {
+            BaseConnector.Log("Connect:");
+            //game 战斗服 192.168.85.21  :9822
+            mCon.Connect("192.168.85.21", 9822);
+            Debug.Log("OK");
+        }
+    }
 }
