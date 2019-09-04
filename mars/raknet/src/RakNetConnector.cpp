@@ -73,9 +73,9 @@ using namespace RakNet;
 	#include <Sensapi.h>  
 	#include <iostream>
 	#pragma comment(lib, "Sensapi.lib") 
-	#pragma comment(lib,"boost.lib")
-	#pragma comment(lib,"comm.lib")
-	#pragma comment(lib,"log.lib")
+	//#pragma comment(lib,"boost.lib")
+	//#pragma comment(lib,"comm.lib")
+	//#pragma comment(lib,"log.lib")
 	//#pragma comment(lib,"../win32sample/x64/Debug/stn.lib")
 	//#pragma comment(lib,"../win32sample/x64/Debug/sdt.lib")
 	//#pragma comment(lib,"../win32sample/x64/Debug/baseevent.lib")

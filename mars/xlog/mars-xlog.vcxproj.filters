@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\src\appender.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\src\formater.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\src\log_buffer.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\crypt\log_crypt.cc">
+      <Filter>crypt</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\crypt\micro-ecc-master\uECC.c">
+      <Filter>crypt\micro-ecc-master</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\src\log_buffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\crypt\log_crypt.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\crypt\micro-ecc-master\types.h">
+      <Filter>crypt\micro-ecc-master</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\crypt\micro-ecc-master\uECC.h">
+      <Filter>crypt\micro-ecc-master</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\crypt\micro-ecc-master\uECC_vli.h">
+      <Filter>crypt\micro-ecc-master</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="crypt">
+      <UniqueIdentifier>{8CE9A5FB-7646-35E2-8F91-3E0D4F16640D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="crypt\micro-ecc-master">
+      <UniqueIdentifier>{66331293-5FE4-389E-B6B9-BBCC863F0ACB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{F9C2FBE5-ED3C-364B-8AC1-0CCC07F6E96B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

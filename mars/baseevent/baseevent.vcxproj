@@ -38,18 +38,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\GitHub\mars_123\mars\baseevent\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)baseevent\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">baseevent.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">baseevent</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\GitHub\mars_123\mars\baseevent\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)..\baseevent\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">baseevent.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">baseevent</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\baseevent\.;G:\GitHub\mars_123\mars\baseevent\src;G:\GitHub\mars_123\mars\baseevent\..;G:\GitHub\mars_123\mars\baseevent\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm;G:\GitHub\mars_123\mars\baseevent\..\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\baseevent\.;$(ProjectDir)..\baseevent\src;$(ProjectDir)..\baseevent\..;$(ProjectDir)..\baseevent\..\..;$(ProjectDir)..\baseevent\..\comm;$(ProjectDir)..\baseevent\..\..\..;$(ProjectDir)..\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -68,10 +68,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::baseevent\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\baseevent\.;G:\GitHub\mars_123\mars\baseevent\src;G:\GitHub\mars_123\mars\baseevent\..;G:\GitHub\mars_123\mars\baseevent\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm;G:\GitHub\mars_123\mars\baseevent\..\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\baseevent\.;$(ProjectDir)..\baseevent\src;$(ProjectDir)..\baseevent\..;$(ProjectDir)..\baseevent\..\..;$(ProjectDir)..\baseevent\..\comm;$(ProjectDir)..\baseevent\..\..\..;$(ProjectDir)..\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\baseevent\.;G:\GitHub\mars_123\mars\baseevent\src;G:\GitHub\mars_123\mars\baseevent\..;G:\GitHub\mars_123\mars\baseevent\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm;G:\GitHub\mars_123\mars\baseevent\..\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\baseevent\.;$(ProjectDir)..\baseevent\src;$(ProjectDir)..\baseevent\..;$(ProjectDir)..\baseevent\..\..;$(ProjectDir)..\baseevent\..\comm;$(ProjectDir)..\baseevent\..\..\..;$(ProjectDir)..\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -84,7 +84,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\baseevent\.;G:\GitHub\mars_123\mars\baseevent\src;G:\GitHub\mars_123\mars\baseevent\..;G:\GitHub\mars_123\mars\baseevent\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm;G:\GitHub\mars_123\mars\baseevent\..\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\baseevent\.;$(ProjectDir)..\baseevent\src;$(ProjectDir)..\baseevent\..;$(ProjectDir)..\baseevent\..\..;$(ProjectDir)..\baseevent\..\comm;$(ProjectDir)..\baseevent\..\..\..;$(ProjectDir)..\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -102,10 +102,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::baseevent\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\baseevent\.;G:\GitHub\mars_123\mars\baseevent\src;G:\GitHub\mars_123\mars\baseevent\..;G:\GitHub\mars_123\mars\baseevent\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm;G:\GitHub\mars_123\mars\baseevent\..\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\baseevent\.;$(ProjectDir)..\baseevent\src;$(ProjectDir)..\baseevent\..;$(ProjectDir)..\baseevent\..\..;$(ProjectDir)..\baseevent\..\comm;$(ProjectDir)..\baseevent\..\..\..;$(ProjectDir)..\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\baseevent\.;G:\GitHub\mars_123\mars\baseevent\src;G:\GitHub\mars_123\mars\baseevent\..;G:\GitHub\mars_123\mars\baseevent\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm;G:\GitHub\mars_123\mars\baseevent\..\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\baseevent\.;$(ProjectDir)..\baseevent\src;$(ProjectDir)..\baseevent\..;$(ProjectDir)..\baseevent\..\..;$(ProjectDir)..\baseevent\..\comm;$(ProjectDir)..\baseevent\..\..\..;$(ProjectDir)..\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -117,10 +117,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\GitHub\mars_123\mars\baseevent\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/GitHub/mars_123/mars/baseevent/CMakeLists.txt</Message>
+    <CustomBuild Include="$(ProjectDir)..\baseevent\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/baseevent/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HG:/GitHub/mars_123/mars -BG:/GitHub/mars_123/mars --check-stamp-file G:/GitHub/mars_123/mars/baseevent/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/baseevent/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -128,12 +128,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/GitHub/mars_123/mars/baseevent/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\GitHub\mars_123\mars\baseevent\CMakeLists.txt;G:\GitHub\mars_123\mars\comm\CMakeExtraFlags.txt;G:\GitHub\mars_123\mars\comm\CMakeUtils.txt;G:\GitHub\mars_123\mars\baseevent\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\GitHub\mars_123\mars\baseevent\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/xProject_dp/SDK/mars/mars/baseevent/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;$(ProjectDir)..\CMakeFiles\3.12.1\CMakeCCompiler.cmake;$(ProjectDir)..\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;$(ProjectDir)..\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;$(ProjectDir)..\CMakeFiles\3.12.1\CMakeSystem.cmake;$(ProjectDir)..\baseevent\CMakeLists.txt;$(ProjectDir)..\comm\CMakeExtraFlags.txt;$(ProjectDir)..\comm\CMakeUtils.txt;$(ProjectDir)..\baseevent\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)..\baseevent\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/GitHub/mars_123/mars/baseevent/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/baseevent/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HG:/GitHub/mars_123/mars -BG:/GitHub/mars_123/mars --check-stamp-file G:/GitHub/mars_123/mars/baseevent/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/baseevent/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -141,18 +141,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/GitHub/mars_123/mars/baseevent/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\GitHub\mars_123\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\GitHub\mars_123\mars\baseevent\CMakeLists.txt;G:\GitHub\mars_123\mars\comm\CMakeExtraFlags.txt;G:\GitHub\mars_123\mars\comm\CMakeUtils.txt;G:\GitHub\mars_123\mars\baseevent\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\GitHub\mars_123\mars\baseevent\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/xProject_dp/SDK/mars/mars/baseevent/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;$(ProjectDir)..\CMakeFiles\3.12.1\CMakeCCompiler.cmake;$(ProjectDir)..\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;$(ProjectDir)..\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;$(ProjectDir)..\CMakeFiles\3.12.1\CMakeSystem.cmake;$(ProjectDir)..\baseevent\CMakeLists.txt;$(ProjectDir)..\comm\CMakeExtraFlags.txt;$(ProjectDir)..\comm\CMakeUtils.txt;$(ProjectDir)..\baseevent\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)..\baseevent\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="G:\GitHub\mars_123\mars\baseevent\src\active_logic.cc" />
-    <ClCompile Include="G:\GitHub\mars_123\mars\baseevent\src\baseprj.cc" />
-    <ClCompile Include="G:\GitHub\mars_123\mars\baseevent\src\baseprjevent.cc" />
+    <ClCompile Include="$(ProjectDir)..\baseevent\src\active_logic.cc" />
+    <ClCompile Include="$(ProjectDir)..\baseevent\src\baseprj.cc" />
+    <ClCompile Include="$(ProjectDir)..\baseevent\src\baseprjevent.cc" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="G:\GitHub\mars_123\mars\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="$(ProjectDir)..\ZERO_CHECK.vcxproj">
       <Project>{F2F50875-7508-3388-B75D-AC980DD8DA81}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>

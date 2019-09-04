@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\app\.;G:\GitHub\mars_123\mars\app\src;G:\GitHub\mars_123\mars\app\..;G:\GitHub\mars_123\mars\app\..\..;G:\GitHub\mars_123\mars\app\..\comm;G:\GitHub\mars_123\mars\app\..\..\..;G:\GitHub\mars_123\mars\app\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\app\.;$(ProjectDir)..\app\src;$(ProjectDir)..\app\..;$(ProjectDir)..\app\..\..;$(ProjectDir)..\app\..\comm;$(ProjectDir)..\app\..\..\..;$(ProjectDir)..\app\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -65,7 +65,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\app\.;G:\GitHub\mars_123\mars\app\src;G:\GitHub\mars_123\mars\app\..;G:\GitHub\mars_123\mars\app\..\..;G:\GitHub\mars_123\mars\app\..\comm;G:\GitHub\mars_123\mars\app\..\..\..;G:\GitHub\mars_123\mars\app\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\app\.;$(ProjectDir)..\app\src;$(ProjectDir)..\app\..;$(ProjectDir)..\app\..\..;$(ProjectDir)..\app\..\comm;$(ProjectDir)..\app\..\..\..;$(ProjectDir)..\app\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -86,7 +86,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\GitHub\mars_123\mars\CMakeFiles\12225db7c100dfe308e401852863a36a\INSTALL_force.rule">
+    <CustomBuild Include="$(ProjectDir)..\CMakeFiles\12225db7c100dfe308e401852863a36a\INSTALL_force.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd .
@@ -97,8 +97,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/GitHub/mars_123/mars/CMakeFiles/12225db7c100dfe308e401852863a36a/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\GitHub\mars_123\mars\app\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/xProject_dp/SDK/mars/mars/CMakeFiles/12225db7c100dfe308e401852863a36a/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)..\app\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
@@ -110,17 +110,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/GitHub/mars_123/mars/CMakeFiles/12225db7c100dfe308e401852863a36a/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\GitHub\mars_123\mars\app\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/xProject_dp/SDK/mars/mars/CMakeFiles/12225db7c100dfe308e401852863a36a/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)..\app\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="G:\GitHub\mars_123\mars\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="$(ProjectDir)..\ZERO_CHECK.vcxproj">
       <Project>{F2F50875-7508-3388-B75D-AC980DD8DA81}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
-    <ProjectReference Include="G:\GitHub\mars_123\mars\app\ALL_BUILD.vcxproj">
+    <ProjectReference Include="$(ProjectDir)..\app\ALL_BUILD.vcxproj">
       <Project>{68278B32-9797-39E3-BFD0-ED40CAD2A37F}</Project>
       <Name>ALL_BUILD</Name>
     </ProjectReference>

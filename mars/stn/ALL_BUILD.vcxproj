@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\stn\.;G:\GitHub\mars_123\mars\stn\src;G:\GitHub\mars_123\mars\stn\..;G:\GitHub\mars_123\mars\stn\..\..;G:\GitHub\mars_123\mars\stn\..\comm;G:\GitHub\mars_123\mars\stn\..\..\..;G:\GitHub\mars_123\mars\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\stn\.;$(ProjectDir)..\stn\src;$(ProjectDir)..\stn\..;$(ProjectDir)..\stn\..\..;$(ProjectDir)..\stn\..\comm;$(ProjectDir)..\stn\..\..\..;$(ProjectDir)..\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -53,7 +53,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\stn\.;G:\GitHub\mars_123\mars\stn\src;G:\GitHub\mars_123\mars\stn\..;G:\GitHub\mars_123\mars\stn\..\..;G:\GitHub\mars_123\mars\stn\..\comm;G:\GitHub\mars_123\mars\stn\..\..\..;G:\GitHub\mars_123\mars\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\stn\.;$(ProjectDir)..\stn\src;$(ProjectDir)..\stn\..;$(ProjectDir)..\stn\..\..;$(ProjectDir)..\stn\..\comm;$(ProjectDir)..\stn\..\..\..;$(ProjectDir)..\stn\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -64,11 +64,11 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="G:\GitHub\mars_123\mars\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="$(ProjectDir)..\ZERO_CHECK.vcxproj">
       <Project>{F2F50875-7508-3388-B75D-AC980DD8DA81}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
-    <ProjectReference Include="G:\GitHub\mars_123\mars\stn\stn.vcxproj">
+    <ProjectReference Include="$(ProjectDir)..\stn\stn.vcxproj">
       <Project>{278A46D9-F477-367B-A5BA-EDCD4F953882}</Project>
       <Name>stn</Name>
     </ProjectReference>

@@ -43,7 +43,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\baseevent\.;G:\GitHub\mars_123\mars\baseevent\src;G:\GitHub\mars_123\mars\baseevent\..;G:\GitHub\mars_123\mars\baseevent\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm;G:\GitHub\mars_123\mars\baseevent\..\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\baseevent\.;$(ProjectDir)..\baseevent\src;$(ProjectDir)..\baseevent\..;$(ProjectDir)..\baseevent\..\..;$(ProjectDir)..\baseevent\..\comm;$(ProjectDir)..\baseevent\..\..\..;$(ProjectDir)..\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -53,7 +53,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>G:\GitHub\mars_123\mars\baseevent\.;G:\GitHub\mars_123\mars\baseevent\src;G:\GitHub\mars_123\mars\baseevent\..;G:\GitHub\mars_123\mars\baseevent\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm;G:\GitHub\mars_123\mars\baseevent\..\..\..;G:\GitHub\mars_123\mars\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\baseevent\.;$(ProjectDir)..\baseevent\src;$(ProjectDir)..\baseevent\..;$(ProjectDir)..\baseevent\..\..;$(ProjectDir)..\baseevent\..\comm;$(ProjectDir)..\baseevent\..\..\..;$(ProjectDir)..\baseevent\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -64,11 +64,11 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="G:\GitHub\mars_123\mars\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="$(ProjectDir)..\ZERO_CHECK.vcxproj">
       <Project>{F2F50875-7508-3388-B75D-AC980DD8DA81}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
-    <ProjectReference Include="G:\GitHub\mars_123\mars\baseevent\baseevent.vcxproj">
+    <ProjectReference Include="$(ProjectDir)..\baseevent\baseevent.vcxproj">
       <Project>{0917FCB0-4CE1-3034-BC4C-FF3779A2B38D}</Project>
       <Name>baseevent</Name>
     </ProjectReference>

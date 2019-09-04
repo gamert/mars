@@ -1,3 +1,5 @@
 /Lib/
 /x64/
 /__pycache__/
+/Debug/
+/Win32/

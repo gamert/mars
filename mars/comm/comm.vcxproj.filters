@@ -1,507 +1,504 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\adler32.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\adler32.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\alarm.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\alarm.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\anr.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\anr.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\autobuffer.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\autobuffer.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\basepacker.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\basepacker.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\boost_exception.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\boost_exception.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\comm_frequency_limit.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\comm_frequency_limit.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\http.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\http.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\md5.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\memdbg.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\memdbg.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\mmap_util.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\mmap_util.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\ptrbuffer.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\ptrbuffer.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\singleton.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\singleton.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\strutil.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\strutil.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\tickcount.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\tickcount.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\time_utils.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\time_utils.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\tinyxml2.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\tinyxml2.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\assert\__assert.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\assert\__assert.c">
       <Filter>assert</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\crypt\ibase64.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\crypt\ibase64.cc">
       <Filter>crypt</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\crypt\pkcs7_padding.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\crypt\pkcs7_padding.c">
       <Filter>crypt</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\network\getaddrinfo_with_timeout.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\network\getaddrinfo_with_timeout.cc">
       <Filter>network</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\network\getdnssvraddrs.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\network\getdnssvraddrs.cc">
       <Filter>network</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\network\getgateway.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\network\getgateway.c">
       <Filter>network</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\network\getifaddrs.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\network\getifaddrs.cc">
       <Filter>network</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\network\netinfo_util.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\network\netinfo_util.cc">
       <Filter>network</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\block_socket.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\block_socket.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\complexconnect.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\complexconnect.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\local_ipstack.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\local_ipstack.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\nat64_prefix_util.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\nat64_prefix_util.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\socket_address.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\socket_address.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\tcpclient.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcpclient.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\tcpclient_fsm.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcpclient_fsm.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\tcpserver.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcpserver.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\tcpserver_fsm.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcpserver_fsm.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\udpclient.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\udpclient.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\udpserver.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\udpserver.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\socket\unix_socket.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\socket\unix_socket.cc">
       <Filter>socket</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\xlogger\loginfo_extract.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\xlogger\loginfo_extract.c">
       <Filter>xlogger</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\xlogger\xloggerbase.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\xlogger\xloggerbase.c">
       <Filter>xlogger</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\corepattern\coreservice_base.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\corepattern\coreservice_base.cc">
       <Filter>corepattern</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\dns\dns.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\dns\dns.cc">
       <Filter>dns</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\messagequeue\message_queue.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\messagequeue\message_queue.cc">
       <Filter>messagequeue</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\TssGC.cpp">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\TssGC.cpp">
       <Filter>windows</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\projdef.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\projdef.cc">
       <Filter>windows</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\unistd.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\unistd.c">
       <Filter>windows</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\uwp_compatible.cpp">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\uwp_compatible.cpp">
       <Filter>windows</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\xlogger_threadinfo.cpp">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\xlogger_threadinfo.cpp">
       <Filter>windows</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\adler32.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\adler32.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\compress.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\compress.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\crc32.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\crc32.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\deflate.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\deflate.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\gzclose.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\gzclose.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\gzlib.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\gzlib.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\gzread.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\gzread.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\gzwrite.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\gzwrite.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\infback.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\infback.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\inffast.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\inffast.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\inflate.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\inflate.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\inftrees.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\inftrees.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\trees.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\trees.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\uncompr.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\uncompr.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\zlib\zutil.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\zutil.c">
       <Filter>windows\zlib</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\win32\NetUtil.cpp">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\win32\NetUtil.cpp">
       <Filter>windows\win32</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\win32\platform_comm.cpp">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\win32\platform_comm.cpp">
       <Filter>windows\win32</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\sys\time.c">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\sys\time.c">
       <Filter>windows\sys</Filter>
     </ClCompile>
-    <ClCompile Include="G:\GitHub\mars_123\mars\comm\windows\SocketSelect\socketselect2.cc">
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\comm\windows\SocketSelect\socketselect2.cc">
       <Filter>windows\SocketSelect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\adler32.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\adler32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\alarm.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\alarm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\anr.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\anr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\autobuffer.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\autobuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\basepacker.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\basepacker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\bootregister.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\bootregister.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\bootrun.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\bootrun.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\comm_data.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\comm_data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\comm_frequency_limit.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\comm_frequency_limit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\compiler_util.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\compiler_util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\has_member.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\has_member.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\http.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\http.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\ini.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\ini.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\marcotoolkit.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\marcotoolkit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\md5.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\memdbg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\memdbg.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\mmap_util.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\mmap_util.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\move_wrapper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\move_wrapper.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\platform_comm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\platform_comm.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\projdef.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\projdef.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\ptrbuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\ptrbuffer.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\scope_recursion_limit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\scope_recursion_limit.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\singleton.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\string_cast.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\string_cast.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\strutil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\strutil.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\tickcount.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\tickcount.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\time_utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\time_utils.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\tinyxml2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\tinyxml2.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\verinfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\verinfo.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\assert\__assert.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\assert\__assert.h">
       <Filter>assert</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\crypt\ibase64.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\crypt\ibase64.h">
       <Filter>crypt</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\crypt\pkcs7_padding.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\crypt\pkcs7_padding.h">
       <Filter>crypt</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\network\getaddrinfo_with_timeout.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\network\getaddrinfo_with_timeout.h">
       <Filter>network</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\network\getdnssvraddrs.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\network\getdnssvraddrs.h">
       <Filter>network</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\network\getgateway.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\network\getgateway.h">
       <Filter>network</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\network\getifaddrs.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\network\getifaddrs.h">
       <Filter>network</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\network\netinfo_util.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\network\netinfo_util.h">
       <Filter>network</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\block_socket.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\block_socket.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\complexconnect.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\complexconnect.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\ipv6_address_utils.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\ipv6_address_utils.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\local_ipstack.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\local_ipstack.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\nat64_prefix_util.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\nat64_prefix_util.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\socket_address.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\socket_address.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\socketbreaker.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\socketbreaker.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\socketpoll.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\socketpoll.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\socketselect.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\socketselect.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\tcp_fsm_handler.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcp_fsm_handler.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\tcpclient.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcpclient.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\tcpclient_fsm.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcpclient_fsm.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\tcpserver.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcpserver.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\tcpserver_fsm.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\tcpserver_fsm.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\udpclient.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\udpclient.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\udpserver.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\udpserver.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\socket\unix_socket.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\socket\unix_socket.h">
       <Filter>socket</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\xlogger\android_xlog.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\xlogger\android_xlog.h">
       <Filter>xlogger</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\xlogger\loginfo_extract.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\xlogger\loginfo_extract.h">
       <Filter>xlogger</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\xlogger\preprocessor.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\xlogger\preprocessor.h">
       <Filter>xlogger</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\xlogger\xlogger.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\xlogger\xlogger.h">
       <Filter>xlogger</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\xlogger\xloggerbase.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\xlogger\xloggerbase.h">
       <Filter>xlogger</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\corepattern\coreservice_base.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\corepattern\coreservice_base.h">
       <Filter>corepattern</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\corepattern\service_base.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\corepattern\service_base.h">
       <Filter>corepattern</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\dns\dns.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\dns\dns.h">
       <Filter>dns</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\messagequeue\message_queue.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\messagequeue\callback.h">
       <Filter>messagequeue</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\TssGC.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\messagequeue\message_queue.h">
+      <Filter>messagequeue</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\TssGC.h">
       <Filter>windows</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\dirent.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\dirent.h">
       <Filter>windows</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\projdef.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\projdef.h">
       <Filter>windows</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\unistd.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\unistd.h">
       <Filter>windows</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\crc32.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\crc32.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\deflate.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\deflate.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\gzguts.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\gzguts.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\inffast.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\inffast.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\inffixed.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\inffixed.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\inflate.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\inflate.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\inftrees.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\inftrees.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\trees.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\trees.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\zconf.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\zconf.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\zlib.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\zlib.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\zlib\zutil.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\zlib\zutil.h">
       <Filter>windows\zlib</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\win32\NetUtil.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\win32\NetUtil.h">
       <Filter>windows\win32</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\win32\winhttp.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\win32\winhttp.h">
       <Filter>windows\win32</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\sys\cdefs.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\sys\cdefs.h">
       <Filter>windows\sys</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\sys\time.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\sys\time.h">
       <Filter>windows\sys</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\SocketSelect\SocketSelect.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\SocketSelect\SocketSelect.h">
       <Filter>windows\SocketSelect</Filter>
     </ClInclude>
-    <ClInclude Include="G:\GitHub\mars_123\mars\comm\windows\SocketSelect\SocketSelect2.h">
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\comm\windows\SocketSelect\SocketSelect2.h">
       <Filter>windows\SocketSelect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\GitHub\mars_123\mars\comm\CMakeLists.txt" />
+    <CustomBuild Include="G:\xProject_dp\SDK\mars\mars\comm\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{2350FCC9-32FF-3772-B271-C598698D88F1}</UniqueIdentifier>
+      <UniqueIdentifier>{E2F967B2-E0BA-38A7-A222-865E553E91F9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{6A6EB411-219B-3984-AFFB-4D44B3DD2AD4}</UniqueIdentifier>
+      <UniqueIdentifier>{229F61F0-E7D4-3C86-AC03-9F47860B07D2}</UniqueIdentifier>
     </Filter>
     <Filter Include="assert">
-      <UniqueIdentifier>{A1399AAD-7784-37CE-9B76-B0BB1BE26F20}</UniqueIdentifier>
+      <UniqueIdentifier>{5B900EB2-DD72-3B32-B835-3F191372D88F}</UniqueIdentifier>
     </Filter>
     <Filter Include="corepattern">
-      <UniqueIdentifier>{074F5453-6207-3789-81DB-348D624FB85D}</UniqueIdentifier>
+      <UniqueIdentifier>{26CD3C53-88CF-3FC7-9F0A-AEEF8BDE4CD9}</UniqueIdentifier>
     </Filter>
     <Filter Include="crypt">
-      <UniqueIdentifier>{E55C5B1C-FB2A-33DF-AC5E-6F95AA319C34}</UniqueIdentifier>
+      <UniqueIdentifier>{8CE9A5FB-7646-35E2-8F91-3E0D4F16640D}</UniqueIdentifier>
     </Filter>
     <Filter Include="dns">
-      <UniqueIdentifier>{E8D3DBCC-8B2B-32F3-A7B0-EC611766D125}</UniqueIdentifier>
+      <UniqueIdentifier>{88A378FA-FEA9-3A26-AD45-27A63CC1ABB1}</UniqueIdentifier>
     </Filter>
     <Filter Include="messagequeue">
-      <UniqueIdentifier>{A0934D63-2108-30CA-85AC-EB1AF1C09DF9}</UniqueIdentifier>
+      <UniqueIdentifier>{5969CA3E-6237-3B14-AE0B-86CAAC09B68E}</UniqueIdentifier>
     </Filter>
     <Filter Include="network">
-      <UniqueIdentifier>{59C01CC9-E311-325E-9568-4607BC11E0C5}</UniqueIdentifier>
+      <UniqueIdentifier>{AFB5F734-7D5C-326C-A80D-05347436B9D9}</UniqueIdentifier>
     </Filter>
     <Filter Include="socket">
-      <UniqueIdentifier>{5203ED7C-669C-3A0F-BE3F-56581A8F94B3}</UniqueIdentifier>
+      <UniqueIdentifier>{06A9E2AF-0958-3074-B678-9D52B8D01131}</UniqueIdentifier>
     </Filter>
     <Filter Include="windows">
-      <UniqueIdentifier>{08DC716D-7655-34F8-91A0-DD4DC0B6C9C5}</UniqueIdentifier>
+      <UniqueIdentifier>{6C986448-307D-3505-84BD-976CBE3C75FA}</UniqueIdentifier>
     </Filter>
     <Filter Include="windows\SocketSelect">
-      <UniqueIdentifier>{4DAAD9EE-CCCA-3E14-ADFC-9C66B7C7FF39}</UniqueIdentifier>
+      <UniqueIdentifier>{D9B55E64-4289-3860-BE73-E200D7C27EAA}</UniqueIdentifier>
     </Filter>
     <Filter Include="windows\sys">
-      <UniqueIdentifier>{BD8F639D-1246-3ED5-9447-7AEDF4CB90FA}</UniqueIdentifier>
+      <UniqueIdentifier>{4F5A675B-B099-335F-9439-4664B5C8AB07}</UniqueIdentifier>
     </Filter>
     <Filter Include="windows\win32">
-      <UniqueIdentifier>{8AAD9248-5B28-37F1-81FF-831EC31632EB}</UniqueIdentifier>
+      <UniqueIdentifier>{51F72C75-9456-3ACA-A480-8A8EE5AC55B9}</UniqueIdentifier>
     </Filter>
     <Filter Include="windows\zlib">
-      <UniqueIdentifier>{500D6DBE-1A7D-3523-B594-4346C3483E16}</UniqueIdentifier>
+      <UniqueIdentifier>{3D1B7A47-ABB3-33BC-9936-E4ECCDFD9E0F}</UniqueIdentifier>
     </Filter>
     <Filter Include="xlogger">
-      <UniqueIdentifier>{1FC919E0-924D-3CBD-8DC0-06D36852C4D2}</UniqueIdentifier>
+      <UniqueIdentifier>{19CA3852-099E-3AB6-B28E-06C8E1D01E17}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

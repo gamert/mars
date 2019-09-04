@@ -1,933 +1,405 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Android|Win32">
-      <Configuration>Android</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Android|x64">
-      <Configuration>Android</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="IPHONE|Win32">
-      <Configuration>IPHONE</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="IPHONE|x64">
-      <Configuration>IPHONE</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="MAC|Win32">
-      <Configuration>MAC</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="MAC|x64">
-      <Configuration>MAC</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
       <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="static|Win32">
-      <Configuration>static</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="static|x64">
-      <Configuration>static</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{143F9B67-C223-4F2D-B8F9-B644CA710CA6}</ProjectGuid>
+    <ProjectGuid>{5962F670-460F-3029-A6DB-43F19B12030A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>libRakNet_vc</RootNamespace>
+    <Platform>Win32</Platform>
+    <ProjectName>raknet</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='IPHONE|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='static|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Android|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MAC|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='IPHONE|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='static|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Android|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MAC|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='IPHONE|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='static|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Android|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='MAC|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='IPHONE|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='static|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Android|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='MAC|x64'" Label="PropertySheets">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IncludePath>$(SolutionDir);$(SolutionDir)..\;$(SolutionDir)comm;$(SolutionDir)comm\windows;$(SolutionDir)comm\windows\zlib;$(ProjectDir)src;$(IncludePath)</IncludePath>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='IPHONE|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet_d</TargetName>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='static|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet_d</TargetName>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Android|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet_d</TargetName>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)Lib</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IncludePath>$(SolutionDir);$(SolutionDir)..\;$(SolutionDir)comm;$(SolutionDir)comm\windows;$(SolutionDir)comm\windows\zlib;$(ProjectDir)src;$(IncludePath)</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='IPHONE|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IncludePath>$(SolutionDir);$(SolutionDir)..\;$(SolutionDir)comm;$(SolutionDir)comm\windows;$(SolutionDir)comm\windows\zlib;$(ProjectDir)src;$(IncludePath)</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='static|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IncludePath>$(SolutionDir);$(SolutionDir)..\;$(SolutionDir)comm;$(SolutionDir)comm\windows;$(SolutionDir)comm\windows\zlib;$(ProjectDir)src;$(IncludePath)</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Android|x64'">
-    <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IncludePath>$(SolutionDir);$(SolutionDir)..\;$(SolutionDir)comm;$(SolutionDir)comm\windows;$(SolutionDir)comm\windows\zlib;$(ProjectDir)src;$(IncludePath)</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MAC|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IncludePath>$(SolutionDir);$(SolutionDir)..\;$(SolutionDir)comm;$(SolutionDir)comm\windows;$(SolutionDir)comm\windows\zlib;$(ProjectDir)src;$(IncludePath)</IncludePath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MAC|x64'">
-    <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(Platform)\$(Configuration)\</OutDir>
-    <TargetName>libRakNet</TargetName>
-    <IncludePath>$(SolutionDir);$(SolutionDir)..\;$(SolutionDir)comm;$(SolutionDir)comm\windows;$(SolutionDir)comm\windows\zlib;$(ProjectDir)src;$(IncludePath)</IncludePath>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\xProject_dp\SDK\mars\mars\raknet\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">raknet.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">raknet</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">raknet</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\xProject_dp\SDK\mars\mars\raknet\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">raknet.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">raknet</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">raknet</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4003;4819;4996;4244;4101</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;ws2_32.lib;boost.lib;comm.lib;log.lib;Sensapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lib;$(SolutionDir)Debug\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <OutputFile>$(OutDir)libRakNet$(TargetExt)</OutputFile>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='IPHONE|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;XLOGGER_TAG="mars::raknet";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <OutputFile>$(OutDir)libRakNet$(TargetExt)</OutputFile>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='static|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <OutputFile>$(OutDir)libRakNet$(TargetExt)</OutputFile>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Android|Win32'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <OutputFile>$(OutDir)libRakNet$(TargetExt)</OutputFile>
-    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::raknet\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4003;4819;4996;4244;4101</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;_CRT_SECURE_NO_WARNINGS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>mars/comm/projdef.h</ForcedIncludeFiles>
-      <DisableSpecificWarnings>4819</DisableSpecificWarnings>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)libRakNet$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>..\$(Platform);..\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='IPHONE|x64'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../Sockets-2.3.9.9</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>mars/comm/projdef.h</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;XLOGGER_TAG="mars::raknet";_WIN32;UNICODE;_UNICODE;NOMINMAX;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;Sockets_$(Platform).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)libRakNet$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>../Lib;../Sockets-2.3.9.9\Project.net\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='static|x64'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>
-      </AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>mars/comm/projdef.h</ForcedIncludeFiles>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;Sockets_$(Platform).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)libRakNet$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>../Lib;../Sockets-2.3.9.9\Project.net\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::raknet\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
     <Lib>
-      <OutputFile>../lib/$(TargetName)_$(Platform)$(TargetExt)</OutputFile>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
     </Lib>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Android|x64'">
-    <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../Sockets-2.3.9.9</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>mars/comm/projdef.h</ForcedIncludeFiles>
-    </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;Sockets_$(Platform).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)libRakNet$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>../Lib;../Sockets-2.3.9.9\Project.net\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4003;4819;4996;4244;4101</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MAC|Win32'">
-    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::raknet";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::raknet\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4003;4819;4996;4244;4101</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../Sockets-2.3.9.9</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>mars/comm/projdef.h</ForcedIncludeFiles>
-    </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;Sockets_$(Platform).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lib;../Sockets-2.3.9.9\Project.net\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>MSVCRTD.lib</IgnoreSpecificDefaultLibraries>
-    </Link>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MAC|x64'">
-    <ClCompile>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;LIBRAKNET_VC_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <AdditionalIncludeDirectories>../Sockets-2.3.9.9</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>mars/comm/projdef.h</ForcedIncludeFiles>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::raknet";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
-    <Link>
-      <SubSystem>Windows</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;ws2_32.lib;zlibstat.lib;Sockets_$(Platform).lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>../Lib;../Sockets-2.3.9.9\Project.net\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>MSVCRTD.lib</IgnoreSpecificDefaultLibraries>
-    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::raknet\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include=".\src\Base64Encoder.cpp" />
-    <ClCompile Include=".\src\BitStream.cpp" />
-    <ClCompile Include=".\src\CCRakNetSlidingWindow.cpp" />
-    <ClCompile Include=".\src\CCRakNetUDT.cpp" />
-    <ClCompile Include=".\src\CheckSum.cpp" />
-    <ClCompile Include=".\src\CloudClient.cpp" />
-    <ClCompile Include=".\src\CloudCommon.cpp" />
-    <ClCompile Include=".\src\CloudServer.cpp" />
-    <ClCompile Include=".\src\CommandParserInterface.cpp" />
-    <ClCompile Include=".\src\ConnectionGraph2.cpp" />
-    <ClCompile Include=".\src\ConsoleServer.cpp" />
-    <ClCompile Include=".\src\DataCompressor.cpp" />
-    <ClCompile Include=".\src\DirectoryDeltaTransfer.cpp" />
-    <ClCompile Include=".\src\DR_SHA1.cpp" />
-    <ClCompile Include=".\src\DS_BytePool.cpp" />
-    <ClCompile Include=".\src\DS_ByteQueue.cpp" />
-    <ClCompile Include=".\src\DS_HuffmanEncodingTree.cpp" />
-    <ClCompile Include=".\src\DS_Table.cpp" />
-    <ClCompile Include=".\src\DynDNS.cpp" />
-    <ClCompile Include=".\src\EmailSender.cpp" />
-    <ClCompile Include=".\src\EpochTimeToString.cpp" />
-    <ClCompile Include=".\src\FileList.cpp" />
-    <ClCompile Include=".\src\FileListTransfer.cpp" />
-    <ClCompile Include=".\src\FileOperations.cpp" />
-    <ClCompile Include=".\src\FormatString.cpp" />
-    <ClCompile Include=".\src\FullyConnectedMesh2.cpp" />
-    <ClCompile Include=".\src\Getche.cpp" />
-    <ClCompile Include=".\src\Gets.cpp" />
-    <ClCompile Include=".\src\GetTime.cpp" />
-    <ClCompile Include=".\src\gettimeofday.cpp" />
-    <ClCompile Include=".\src\GridSectorizer.cpp" />
-    <ClCompile Include=".\src\HTTPConnection.cpp" />
-    <ClCompile Include=".\src\HTTPConnection2.cpp" />
-    <ClCompile Include=".\src\IncrementalReadInterface.cpp" />
-    <ClCompile Include=".\src\Itoa.cpp" />
-    <ClCompile Include=".\src\LinuxStrings.cpp" />
-    <ClCompile Include=".\src\LocklessTypes.cpp" />
-    <ClCompile Include=".\src\LogCommandParser.cpp" />
-    <ClCompile Include=".\src\MessageFilter.cpp" />
-    <ClCompile Include=".\src\NatPunchthroughClient.cpp" />
-    <ClCompile Include=".\src\NatPunchthroughServer.cpp" />
-    <ClCompile Include=".\src\NatTypeDetectionClient.cpp" />
-    <ClCompile Include=".\src\NatTypeDetectionCommon.cpp" />
-    <ClCompile Include=".\src\NatTypeDetectionServer.cpp" />
-    <ClCompile Include=".\src\NetConnector.cpp" />
-    <ClCompile Include=".\src\NetworkIDManager.cpp" />
-    <ClCompile Include=".\src\NetworkIDObject.cpp" />
-    <ClCompile Include=".\src\PacketConsoleLogger.cpp" />
-    <ClCompile Include=".\src\PacketFileLogger.cpp" />
-    <ClCompile Include=".\src\PacketizedTCP.cpp" />
-    <ClCompile Include=".\src\PacketLogger.cpp" />
-    <ClCompile Include=".\src\PacketOutputWindowLogger.cpp" />
-    <ClCompile Include=".\src\PluginInterface2.cpp" />
-    <ClCompile Include=".\src\PS4Includes.cpp" />
-    <ClCompile Include=".\src\Rackspace.cpp" />
-    <ClCompile Include=".\src\RakMemoryOverride.cpp" />
-    <ClCompile Include=".\src\RakNetCommandParser.cpp" />
-    <ClCompile Include=".\src\RakNetConnector.cpp" />
-    <ClCompile Include=".\src\RakNetSocket.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_360_720.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_Berkley.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_Berkley_NativeClient.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_NativeClient.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_PS3_PS4.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_PS4.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_Vita.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_WindowsStore8.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_Windows_Linux.cpp" />
-    <ClCompile Include=".\src\RakNetSocket2_Windows_Linux_360.cpp" />
-    <ClCompile Include=".\src\RakNetStatistics.cpp" />
-    <ClCompile Include=".\src\RakNetTransport2.cpp" />
-    <ClCompile Include=".\src\RakNetTypes.cpp" />
-    <ClCompile Include=".\src\RakPeer.cpp" />
-    <ClCompile Include=".\src\RakSleep.cpp" />
-    <ClCompile Include=".\src\RakString.cpp" />
-    <ClCompile Include=".\src\RakThread.cpp" />
-    <ClCompile Include=".\src\RakWString.cpp" />
-    <ClCompile Include=".\src\Rand.cpp" />
-    <ClCompile Include=".\src\RandSync.cpp" />
-    <ClCompile Include=".\src\ReadyEvent.cpp" />
-    <ClCompile Include=".\src\RelayPlugin.cpp" />
-    <ClCompile Include=".\src\ReliabilityLayer.cpp" />
-    <ClCompile Include=".\src\ReplicaManager3.cpp" />
-    <ClCompile Include=".\src\Router2.cpp" />
-    <ClCompile Include=".\src\RPC4Plugin.cpp" />
-    <ClCompile Include=".\src\SecureHandshake.cpp" />
-    <ClCompile Include=".\src\SendToThread.cpp" />
-    <ClCompile Include=".\src\SignaledEvent.cpp" />
-    <ClCompile Include=".\src\SimpleMutex.cpp" />
-    <ClCompile Include=".\src\SocketLayer.cpp" />
-    <ClCompile Include=".\src\StatisticsHistory.cpp" />
-    <ClCompile Include=".\src\StringCompressor.cpp" />
-    <ClCompile Include=".\src\StringTable.cpp" />
-    <ClCompile Include=".\src\SuperFastHash.cpp" />
-    <ClCompile Include=".\src\TableSerializer.cpp" />
-    <ClCompile Include=".\src\TCPInterface.cpp" />
-    <ClCompile Include=".\src\TeamBalancer.cpp" />
-    <ClCompile Include=".\src\TeamManager.cpp" />
-    <ClCompile Include=".\src\TelnetTransport.cpp" />
-    <ClCompile Include=".\src\ThreadsafePacketLogger.cpp" />
-    <ClCompile Include=".\src\TwoWayAuthentication.cpp" />
-    <ClCompile Include=".\src\UDPForwarder.cpp" />
-    <ClCompile Include=".\src\UDPProxyClient.cpp" />
-    <ClCompile Include=".\src\UDPProxyCoordinator.cpp" />
-    <ClCompile Include=".\src\UDPProxyServer.cpp" />
-    <ClCompile Include=".\src\VariableDeltaSerializer.cpp" />
-    <ClCompile Include=".\src\VariableListDeltaTracker.cpp" />
-    <ClCompile Include=".\src\VariadicSQLParser.cpp" />
-    <ClCompile Include=".\src\VitaIncludes.cpp" />
-    <ClCompile Include=".\src\WSAStartupSingleton.cpp" />
-    <ClCompile Include=".\src\_FindFirst.cpp" />
+    <CustomBuild Include="G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/raknet/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/raknet/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/raknet/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/raknet/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:/xProject_dp/SDK/mars/mars/raknet/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\comm\CMakeExtraFlags.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/xProject_dp/SDK/mars/mars/raknet/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\comm\CMakeExtraFlags.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\xProject_dp\SDK\mars\mars\raknet\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\xProject_dp\SDK\mars\mars\raknet\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/raknet/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/raknet/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/raknet/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/raknet/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:/xProject_dp/SDK/mars/mars/raknet/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\comm\CMakeExtraFlags.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/xProject_dp/SDK/mars/mars/raknet/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\comm\CMakeExtraFlags.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\raknet\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\xProject_dp\SDK\mars\mars\raknet\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\xProject_dp\SDK\mars\mars\raknet\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Source\AutopatcherPatchContext.h" />
-    <ClInclude Include="..\Source\AutopatcherRepositoryInterface.h" />
-    <ClInclude Include="..\Source\Base64Encoder.h" />
-    <ClInclude Include="..\Source\BitStream.h" />
-    <ClInclude Include="..\Source\CCRakNetSlidingWindow.h" />
-    <ClInclude Include="..\Source\CCRakNetUDT.h" />
-    <ClInclude Include="..\Source\CheckSum.h" />
-    <ClInclude Include="..\Source\CloudClient.h" />
-    <ClInclude Include="..\Source\CloudCommon.h" />
-    <ClInclude Include="..\Source\CloudServer.h" />
-    <ClInclude Include="..\Source\CommandParserInterface.h" />
-    <ClInclude Include="..\Source\ConnectionGraph2.h" />
-    <ClInclude Include="..\Source\ConsoleServer.h" />
-    <ClInclude Include="..\Source\DataCompressor.h" />
-    <ClInclude Include="..\Source\DirectoryDeltaTransfer.h" />
-    <ClInclude Include="..\Source\DR_SHA1.h" />
-    <ClInclude Include="..\Source\DS_BinarySearchTree.h" />
-    <ClInclude Include="..\Source\DS_BPlusTree.h" />
-    <ClInclude Include="..\Source\DS_BytePool.h" />
-    <ClInclude Include="..\Source\DS_ByteQueue.h" />
-    <ClInclude Include="..\Source\DS_Hash.h" />
-    <ClInclude Include="..\Source\DS_Heap.h" />
-    <ClInclude Include="..\Source\DS_HuffmanEncodingTree.h" />
-    <ClInclude Include="..\Source\DS_HuffmanEncodingTreeFactory.h" />
-    <ClInclude Include="..\Source\DS_HuffmanEncodingTreeNode.h" />
-    <ClInclude Include="..\Source\DS_LinkedList.h" />
-    <ClInclude Include="..\Source\DS_List.h" />
-    <ClInclude Include="..\Source\DS_Map.h" />
-    <ClInclude Include="..\Source\DS_MemoryPool.h" />
-    <ClInclude Include="..\Source\DS_Multilist.h" />
-    <ClInclude Include="..\Source\DS_OrderedChannelHeap.h" />
-    <ClInclude Include="..\Source\DS_OrderedList.h" />
-    <ClInclude Include="..\Source\DS_Queue.h" />
-    <ClInclude Include="..\Source\DS_QueueLinkedList.h" />
-    <ClInclude Include="..\Source\DS_RangeList.h" />
-    <ClInclude Include="..\Source\DS_Table.h" />
-    <ClInclude Include="..\Source\DS_ThreadsafeAllocatingQueue.h" />
-    <ClInclude Include="..\Source\DS_Tree.h" />
-    <ClInclude Include="..\Source\DS_WeightedGraph.h" />
-    <ClInclude Include="..\Source\DynDNS.h" />
-    <ClInclude Include="..\Source\EmailSender.h" />
-    <ClInclude Include="..\Source\EmptyHeader.h" />
-    <ClInclude Include="..\Source\EpochTimeToString.h" />
-    <ClInclude Include="..\Source\Export.h" />
-    <ClInclude Include="..\Source\FileList.h" />
-    <ClInclude Include="..\Source\FileListNodeContext.h" />
-    <ClInclude Include="..\Source\FileListTransfer.h" />
-    <ClInclude Include="..\Source\FileListTransferCBInterface.h" />
-    <ClInclude Include="..\Source\FileOperations.h" />
-    <ClInclude Include="..\Source\FormatString.h" />
-    <ClInclude Include="..\Source\FullyConnectedMesh2.h" />
-    <ClInclude Include="..\Source\Getche.h" />
-    <ClInclude Include="..\Source\Gets.h" />
-    <ClInclude Include="..\Source\GetTime.h" />
-    <ClInclude Include="..\Source\GridSectorizer.h" />
-    <ClInclude Include="..\Source\HTTPConnection.h" />
-    <ClInclude Include="..\Source\HTTPConnection2.h" />
-    <ClInclude Include="..\Source\IncrementalReadInterface.h" />
-    <ClInclude Include="..\Source\InternalPacket.h" />
-    <ClInclude Include="..\Source\Itoa.h" />
-    <ClInclude Include="..\Source\Kbhit.h" />
-    <ClInclude Include="..\Source\LinuxStrings.h" />
-    <ClInclude Include="..\Source\LocklessTypes.h" />
-    <ClInclude Include="..\Source\LogCommandParser.h" />
-    <ClInclude Include="..\Source\MessageFilter.h" />
-    <ClInclude Include="..\Source\MessageIdentifiers.h" />
-    <ClInclude Include="..\Source\MTUSize.h" />
-    <ClInclude Include="..\Source\NativeFeatureIncludes.h" />
-    <ClInclude Include="..\Source\NativeFeatureIncludesOverrides.h" />
-    <ClInclude Include="..\Source\NativeTypes.h" />
-    <ClInclude Include="..\Source\NatPunchthroughClient.h" />
-    <ClInclude Include="..\Source\NatPunchthroughServer.h" />
-    <ClInclude Include="..\Source\NatTypeDetectionClient.h" />
-    <ClInclude Include="..\Source\NatTypeDetectionCommon.h" />
-    <ClInclude Include="..\Source\NatTypeDetectionServer.h" />
-    <ClInclude Include="..\Source\NetworkIDManager.h" />
-    <ClInclude Include="..\Source\NetworkIDObject.h" />
-    <ClInclude Include="..\Source\PacketConsoleLogger.h" />
-    <ClInclude Include="..\Source\PacketFileLogger.h" />
-    <ClInclude Include="..\Source\PacketizedTCP.h" />
-    <ClInclude Include="..\Source\PacketLogger.h" />
-    <ClInclude Include="..\Source\PacketOutputWindowLogger.h" />
-    <ClInclude Include="..\Source\PacketPool.h" />
-    <ClInclude Include="..\Source\PacketPriority.h" />
-    <ClInclude Include="..\Source\PluginInterface2.h" />
-    <ClInclude Include="..\Source\PS3Includes.h" />
-    <ClInclude Include="..\Source\PS4Includes.h" />
-    <ClInclude Include="..\Source\Rackspace.h" />
-    <ClInclude Include="..\Source\RakAlloca.h" />
-    <ClInclude Include="..\Source\RakAssert.h" />
-    <ClInclude Include="..\Source\RakMemoryOverride.h" />
-    <ClInclude Include="..\Source\RakNetCommandParser.h" />
-    <ClInclude Include="..\Source\RakNetDefines.h" />
-    <ClInclude Include="..\Source\RakNetDefinesOverrides.h" />
-    <ClInclude Include="..\Source\RakNetSmartPtr.h" />
-    <ClInclude Include="..\Source\RakNetSocket.h" />
-    <ClInclude Include="..\Source\RakNetSocket2.h" />
-    <ClInclude Include="..\Source\RakNetStatistics.h" />
-    <ClInclude Include="..\Source\RakNetTime.h" />
-    <ClInclude Include="..\Source\RakNetTransport2.h" />
-    <ClInclude Include="..\Source\RakNetTypes.h" />
-    <ClInclude Include="..\Source\RakNetVersion.h" />
-    <ClInclude Include="..\Source\RakPeer.h" />
-    <ClInclude Include="..\Source\RakPeerInterface.h" />
-    <ClInclude Include="..\Source\RakSleep.h" />
-    <ClInclude Include="..\Source\RakString.h" />
-    <ClInclude Include="..\Source\RakThread.h" />
-    <ClInclude Include="..\Source\RakWString.h" />
-    <ClInclude Include="..\Source\Rand.h" />
-    <ClInclude Include="..\Source\RandSync.h" />
-    <ClInclude Include="..\Source\ReadyEvent.h" />
-    <ClInclude Include="..\Source\RefCountedObj.h" />
-    <ClInclude Include="..\Source\RelayPlugin.h" />
-    <ClInclude Include="..\Source\ReliabilityLayer.h" />
-    <ClInclude Include="..\Source\ReplicaEnums.h" />
-    <ClInclude Include="..\Source\ReplicaManager3.h" />
-    <ClInclude Include="..\Source\Router2.h" />
-    <ClInclude Include="..\Source\RPC4Plugin.h" />
-    <ClInclude Include="..\Source\SecureHandshake.h" />
-    <ClInclude Include="..\Source\SendToThread.h" />
-    <ClInclude Include="..\Source\SignaledEvent.h" />
-    <ClInclude Include="..\Source\SimpleMutex.h" />
-    <ClInclude Include="..\Source\SimpleTCPServer.h" />
-    <ClInclude Include="..\Source\SingleProducerConsumer.h" />
-    <ClInclude Include="..\Source\SocketDefines.h" />
-    <ClInclude Include="..\Source\SocketIncludes.h" />
-    <ClInclude Include="..\Source\SocketLayer.h" />
-    <ClInclude Include=".\src\AutopatcherPatchContext.h" />
-    <ClInclude Include=".\src\AutopatcherRepositoryInterface.h" />
-    <ClInclude Include=".\src\Base64Encoder.h" />
-    <ClInclude Include=".\src\BitStream.h" />
-    <ClInclude Include=".\src\CCRakNetSlidingWindow.h" />
-    <ClInclude Include=".\src\CCRakNetUDT.h" />
-    <ClInclude Include=".\src\CheckSum.h" />
-    <ClInclude Include=".\src\CloudClient.h" />
-    <ClInclude Include=".\src\CloudCommon.h" />
-    <ClInclude Include=".\src\CloudServer.h" />
-    <ClInclude Include=".\src\CommandParserInterface.h" />
-    <ClInclude Include=".\src\ConnectionGraph2.h" />
-    <ClInclude Include=".\src\ConsoleServer.h" />
-    <ClInclude Include=".\src\DataCompressor.h" />
-    <ClInclude Include=".\src\DirectoryDeltaTransfer.h" />
-    <ClInclude Include=".\src\DR_SHA1.h" />
-    <ClInclude Include=".\src\DS_BinarySearchTree.h" />
-    <ClInclude Include=".\src\DS_BPlusTree.h" />
-    <ClInclude Include=".\src\DS_BytePool.h" />
-    <ClInclude Include=".\src\DS_ByteQueue.h" />
-    <ClInclude Include=".\src\DS_Hash.h" />
-    <ClInclude Include=".\src\DS_Heap.h" />
-    <ClInclude Include=".\src\DS_HuffmanEncodingTree.h" />
-    <ClInclude Include=".\src\DS_HuffmanEncodingTreeFactory.h" />
-    <ClInclude Include=".\src\DS_HuffmanEncodingTreeNode.h" />
-    <ClInclude Include=".\src\DS_LinkedList.h" />
-    <ClInclude Include=".\src\DS_List.h" />
-    <ClInclude Include=".\src\DS_Map.h" />
-    <ClInclude Include=".\src\DS_MemoryPool.h" />
-    <ClInclude Include=".\src\DS_Multilist.h" />
-    <ClInclude Include=".\src\DS_OrderedChannelHeap.h" />
-    <ClInclude Include=".\src\DS_OrderedList.h" />
-    <ClInclude Include=".\src\DS_Queue.h" />
-    <ClInclude Include=".\src\DS_QueueLinkedList.h" />
-    <ClInclude Include=".\src\DS_RangeList.h" />
-    <ClInclude Include=".\src\DS_Table.h" />
-    <ClInclude Include=".\src\DS_ThreadsafeAllocatingQueue.h" />
-    <ClInclude Include=".\src\DS_Tree.h" />
-    <ClInclude Include=".\src\DS_WeightedGraph.h" />
-    <ClInclude Include=".\src\DynDNS.h" />
-    <ClInclude Include=".\src\EmailSender.h" />
-    <ClInclude Include=".\src\EmptyHeader.h" />
-    <ClInclude Include=".\src\EpochTimeToString.h" />
-    <ClInclude Include=".\src\Export.h" />
-    <ClInclude Include=".\src\FileList.h" />
-    <ClInclude Include=".\src\FileListNodeContext.h" />
-    <ClInclude Include=".\src\FileListTransfer.h" />
-    <ClInclude Include=".\src\FileListTransferCBInterface.h" />
-    <ClInclude Include=".\src\FileOperations.h" />
-    <ClInclude Include=".\src\FormatString.h" />
-    <ClInclude Include=".\src\FullyConnectedMesh2.h" />
-    <ClInclude Include=".\src\Getche.h" />
-    <ClInclude Include=".\src\Gets.h" />
-    <ClInclude Include=".\src\GetTime.h" />
-    <ClInclude Include=".\src\gettimeofday.h" />
-    <ClInclude Include=".\src\GridSectorizer.h" />
-    <ClInclude Include=".\src\HTTPConnection.h" />
-    <ClInclude Include=".\src\HTTPConnection2.h" />
-    <ClInclude Include=".\src\IncrementalReadInterface.h" />
-    <ClInclude Include=".\src\InternalPacket.h" />
-    <ClInclude Include=".\src\Itoa.h" />
-    <ClInclude Include=".\src\Kbhit.h" />
-    <ClInclude Include=".\src\LinuxStrings.h" />
-    <ClInclude Include=".\src\LocklessTypes.h" />
-    <ClInclude Include=".\src\LogCommandParser.h" />
-    <ClInclude Include=".\src\MessageFilter.h" />
-    <ClInclude Include=".\src\MessageIdentifiers.h" />
-    <ClInclude Include=".\src\MTUSize.h" />
-    <ClInclude Include=".\src\NativeFeatureIncludes.h" />
-    <ClInclude Include=".\src\NativeFeatureIncludesOverrides.h" />
-    <ClInclude Include=".\src\NativeTypes.h" />
-    <ClInclude Include=".\src\NatPunchthroughClient.h" />
-    <ClInclude Include=".\src\NatPunchthroughServer.h" />
-    <ClInclude Include=".\src\NatTypeDetectionClient.h" />
-    <ClInclude Include=".\src\NatTypeDetectionCommon.h" />
-    <ClInclude Include=".\src\NatTypeDetectionServer.h" />
-    <ClInclude Include=".\src\NetConnector.h" />
-    <ClInclude Include=".\src\NetworkIDManager.h" />
-    <ClInclude Include=".\src\NetworkIDObject.h" />
-    <ClInclude Include=".\src\PacketConsoleLogger.h" />
-    <ClInclude Include=".\src\PacketFileLogger.h" />
-    <ClInclude Include=".\src\PacketizedTCP.h" />
-    <ClInclude Include=".\src\PacketLogger.h" />
-    <ClInclude Include=".\src\PacketOutputWindowLogger.h" />
-    <ClInclude Include=".\src\PacketPool.h" />
-    <ClInclude Include=".\src\PacketPriority.h" />
-    <ClInclude Include=".\src\PluginInterface2.h" />
-    <ClInclude Include=".\src\PS3Includes.h" />
-    <ClInclude Include=".\src\PS4Includes.h" />
-    <ClInclude Include=".\src\Rackspace.h" />
-    <ClInclude Include=".\src\RakAlloca.h" />
-    <ClInclude Include=".\src\RakAssert.h" />
-    <ClInclude Include=".\src\RakMemoryOverride.h" />
-    <ClInclude Include=".\src\RakNetCommandParser.h" />
-    <ClInclude Include=".\src\RakNetConnector.h" />
-    <ClInclude Include=".\src\RakNetDefines.h" />
-    <ClInclude Include=".\src\RakNetDefinesOverrides.h" />
-    <ClInclude Include=".\src\RakNetSmartPtr.h" />
-    <ClInclude Include=".\src\RakNetSocket.h" />
-    <ClInclude Include=".\src\RakNetSocket2.h" />
-    <ClInclude Include=".\src\RakNetStatistics.h" />
-    <ClInclude Include=".\src\RakNetTime.h" />
-    <ClInclude Include=".\src\RakNetTransport2.h" />
-    <ClInclude Include=".\src\RakNetTypes.h" />
-    <ClInclude Include=".\src\RakNetVersion.h" />
-    <ClInclude Include=".\src\RakPeer.h" />
-    <ClInclude Include=".\src\RakPeerInterface.h" />
-    <ClInclude Include=".\src\RakSleep.h" />
-    <ClInclude Include=".\src\RakString.h" />
-    <ClInclude Include=".\src\RakThread.h" />
-    <ClInclude Include=".\src\RakWString.h" />
-    <ClInclude Include=".\src\Rand.h" />
-    <ClInclude Include=".\src\RandSync.h" />
-    <ClInclude Include=".\src\ReadyEvent.h" />
-    <ClInclude Include=".\src\RefCountedObj.h" />
-    <ClInclude Include=".\src\RelayPlugin.h" />
-    <ClInclude Include=".\src\ReliabilityLayer.h" />
-    <ClInclude Include=".\src\ReplicaEnums.h" />
-    <ClInclude Include=".\src\ReplicaManager3.h" />
-    <ClInclude Include=".\src\Router2.h" />
-    <ClInclude Include=".\src\RPC4Plugin.h" />
-    <ClInclude Include=".\src\SecureHandshake.h" />
-    <ClInclude Include=".\src\SendToThread.h" />
-    <ClInclude Include=".\src\SignaledEvent.h" />
-    <ClInclude Include=".\src\SimpleMutex.h" />
-    <ClInclude Include=".\src\SimpleTCPServer.h" />
-    <ClInclude Include=".\src\SingleProducerConsumer.h" />
-    <ClInclude Include=".\src\SocketDefines.h" />
-    <ClInclude Include=".\src\SocketIncludes.h" />
-    <ClInclude Include=".\src\SocketLayer.h" />
-    <ClInclude Include=".\src\StatisticsHistory.h" />
-    <ClInclude Include=".\src\StringCompressor.h" />
-    <ClInclude Include=".\src\StringTable.h" />
-    <ClInclude Include=".\src\SuperFastHash.h" />
-    <ClInclude Include=".\src\TableSerializer.h" />
-    <ClInclude Include=".\src\TCPInterface.h" />
-    <ClInclude Include=".\src\TeamBalancer.h" />
-    <ClInclude Include=".\src\TeamManager.h" />
-    <ClInclude Include=".\src\TelnetTransport.h" />
-    <ClInclude Include=".\src\ThreadPool.h" />
-    <ClInclude Include=".\src\ThreadsafePacketLogger.h" />
-    <ClInclude Include=".\src\TransportInterface.h" />
-    <ClInclude Include=".\src\TwoWayAuthentication.h" />
-    <ClInclude Include=".\src\UDPForwarder.h" />
-    <ClInclude Include=".\src\UDPProxyClient.h" />
-    <ClInclude Include=".\src\UDPProxyCommon.h" />
-    <ClInclude Include=".\src\UDPProxyCoordinator.h" />
-    <ClInclude Include=".\src\UDPProxyServer.h" />
-    <ClInclude Include=".\src\VariableDeltaSerializer.h" />
-    <ClInclude Include=".\src\VariableListDeltaTracker.h" />
-    <ClInclude Include=".\src\VariadicSQLParser.h" />
-    <ClInclude Include=".\src\VitaIncludes.h" />
-    <ClInclude Include=".\src\WindowsIncludes.h" />
-    <ClInclude Include=".\src\WSAStartupSingleton.h" />
-    <ClInclude Include=".\src\XBox360Includes.h" />
-    <ClInclude Include=".\src\zconf.h" />
-    <ClInclude Include=".\src\zlib1_2_11.h" />
-    <ClInclude Include=".\src\_FindFirst.h" />
-    <ClInclude Include="..\Source\StatisticsHistory.h" />
-    <ClInclude Include="..\Source\StringCompressor.h" />
-    <ClInclude Include="..\Source\StringTable.h" />
-    <ClInclude Include="..\Source\SuperFastHash.h" />
-    <ClInclude Include="..\Source\TableSerializer.h" />
-    <ClInclude Include="..\Source\TCPInterface.h" />
-    <ClInclude Include="..\Source\TeamBalancer.h" />
-    <ClInclude Include="..\Source\TeamManager.h" />
-    <ClInclude Include="..\Source\TelnetTransport.h" />
-    <ClInclude Include="..\Source\ThreadPool.h" />
-    <ClInclude Include="..\Source\ThreadsafePacketLogger.h" />
-    <ClInclude Include="..\Source\TransportInterface.h" />
-    <ClInclude Include="..\Source\TwoWayAuthentication.h" />
-    <ClInclude Include="..\Source\UDPForwarder.h" />
-    <ClInclude Include="..\Source\UDPProxyClient.h" />
-    <ClInclude Include="..\Source\UDPProxyCommon.h" />
-    <ClInclude Include="..\Source\UDPProxyCoordinator.h" />
-    <ClInclude Include="..\Source\UDPProxyServer.h" />
-    <ClInclude Include="..\Source\VariableDeltaSerializer.h" />
-    <ClInclude Include="..\Source\VariableListDeltaTracker.h" />
-    <ClInclude Include="..\Source\VariadicSQLParser.h" />
-    <ClInclude Include="..\Source\VitaIncludes.h" />
-    <ClInclude Include="..\Source\WindowsIncludes.h" />
-    <ClInclude Include="..\Source\WSAStartupSingleton.h" />
-    <ClInclude Include="..\Source\XBox360Includes.h" />
-    <ClInclude Include="..\Source\_FindFirst.h" />
-    <ClInclude Include="..\Source_mars\Bussiness\CGITask.h" />
-    <ClInclude Include="..\Source_mars\Bussiness\CommandID.h" />
-    <ClInclude Include="..\Source_mars\Bussiness\NetworkDelegate.h" />
-    <ClInclude Include="..\Source_mars\Bussiness\NetworkService.h" />
-    <ClInclude Include="..\Source_mars\Bussiness\NetworkStatus.h" />
-    <ClInclude Include="..\Source_mars\Bussiness\PushNotifyDelegate.h" />
-    <ClInclude Include="..\Source_mars\Bussiness\UINotifyDelegate.h" />
-    <ClInclude Include="..\Source_mars\PublicComponentV2\app_callback.h" />
-    <ClInclude Include="..\Source_mars\PublicComponentV2\log_crypt.h" />
-    <ClInclude Include="..\Source_mars\PublicComponentV2\longlink_packer.h" />
-    <ClInclude Include="..\Source_mars\PublicComponentV2\shortlink_packer.h" />
-    <ClInclude Include="..\Source_mars\PublicComponentV2\stnproto_logic.h" />
-    <ClInclude Include="..\Source_mars\PublicComponentV2\stn_callback.h" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\Base64Encoder.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\BitStream.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\CCRakNetSlidingWindow.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\CCRakNetUDT.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\CheckSum.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\CloudClient.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\CloudCommon.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\CloudServer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\CommandParserInterface.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\ConnectionGraph2.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\ConsoleServer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\DataCompressor.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\DirectoryDeltaTransfer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\DR_SHA1.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\DS_BytePool.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\DS_ByteQueue.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\DS_HuffmanEncodingTree.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\DS_Table.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\DynDNS.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\EmailSender.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\EpochTimeToString.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\FileList.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\FileListTransfer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\FileOperations.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\FormatString.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\FullyConnectedMesh2.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\Getche.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\Gets.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\GetTime.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\gettimeofday.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\GridSectorizer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\HTTPConnection.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\HTTPConnection2.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\IncrementalReadInterface.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\Itoa.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\LinuxStrings.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\LocklessTypes.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\LogCommandParser.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\MessageFilter.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\NatPunchthroughClient.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\NatPunchthroughServer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\NatTypeDetectionClient.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\NatTypeDetectionCommon.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\NatTypeDetectionServer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\NetConnector.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\NetworkIDManager.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\NetworkIDObject.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\PacketConsoleLogger.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\PacketFileLogger.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\PacketizedTCP.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\PacketLogger.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\PacketOutputWindowLogger.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\PluginInterface2.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\PS4Includes.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\Rackspace.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakMemoryOverride.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetCommandParser.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetConnector.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_360_720.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_Berkley.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_Berkley_NativeClient.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_NativeClient.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_PS3_PS4.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_PS4.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_Vita.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_WindowsStore8.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_Windows_Linux.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetSocket2_Windows_Linux_360.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetStatistics.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetTransport2.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakNetTypes.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakPeer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakSleep.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakString.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakThread.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RakWString.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\Rand.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RandSync.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\ReadyEvent.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RelayPlugin.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\ReliabilityLayer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\ReplicaManager3.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\Router2.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\RPC4Plugin.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\SecureHandshake.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\SendToThread.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\SignaledEvent.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\SimpleMutex.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\SocketLayer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\StatisticsHistory.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\StringCompressor.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\StringTable.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\SuperFastHash.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\TableSerializer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\TCPInterface.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\TeamBalancer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\TeamManager.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\TelnetTransport.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\ThreadsafePacketLogger.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\TwoWayAuthentication.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\UDPForwarder.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\UDPProxyClient.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\UDPProxyCoordinator.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\UDPProxyServer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\VariableDeltaSerializer.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\VariableListDeltaTracker.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\VariadicSQLParser.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\VitaIncludes.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\WSAStartupSingleton.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\src\_FindFirst.cpp" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\raknet\RakNetPeer.cpp" />
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\raknet\RakNetPeer.h" />
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\raknet\RakNetWrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\boost\mars-boost.vcxproj">
-      <Project>{598218f4-ab55-3dfd-965a-e57bd79f14e2}</Project>
+      <Project>{c382d719-7ee9-3e9d-b8ae-801db8e2df90}</Project>
     </ProjectReference>
     <ProjectReference Include="..\comm\comm.vcxproj">
-      <Project>{aaaf554c-e94a-3c72-82bd-c61c2ab089b3}</Project>
+      <Project>{dc44641c-f197-3e14-956b-f9dc3abfb6ea}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\xlog\xlog.vcxproj">
-      <Project>{fdbf257b-bae3-3f0e-93d1-5b0a4faa35c4}</Project>
+    <ProjectReference Include="..\xlog\mars-xlog.vcxproj">
+      <Project>{e5dcdd1b-9d54-3158-bbc2-dd1f2ef46073}</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:\xProject_dp\SDK\mars\mars\ZERO_CHECK.vcxproj">
+      <Project>{B63493E6-B865-38C7-BAD9-A1171C52C6DF}</Project>
+      <Name>ZERO_CHECK</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

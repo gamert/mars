@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\comm\.;G:\xProject_dp\SDK\mars\mars\comm\..;G:\xProject_dp\SDK\mars\mars\comm\..\..;G:\xProject_dp\SDK\mars\mars\comm\assert;G:\xProject_dp\SDK\mars\mars\comm\corepattern;G:\xProject_dp\SDK\mars\mars\comm\crypt;G:\xProject_dp\SDK\mars\mars\comm\debugger;G:\xProject_dp\SDK\mars\mars\comm\dns;G:\xProject_dp\SDK\mars\mars\comm\messagequeue;G:\xProject_dp\SDK\mars\mars\comm\network;G:\xProject_dp\SDK\mars\mars\comm\socket;G:\xProject_dp\SDK\mars\mars\comm\thread;G:\xProject_dp\SDK\mars\mars\comm\xlogger;G:\xProject_dp\SDK\mars\mars\comm\windows;G:\xProject_dp\SDK\mars\mars\comm\windows\SocketSelect;G:\xProject_dp\SDK\mars\mars\comm\windows\thread;G:\xProject_dp\SDK\mars\mars\comm\windows\win32;G:\xProject_dp\SDK\mars\mars\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -52,7 +52,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Midl>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\comm\.;G:\xProject_dp\SDK\mars\mars\comm\..;G:\xProject_dp\SDK\mars\mars\comm\..\..;G:\xProject_dp\SDK\mars\mars\comm\assert;G:\xProject_dp\SDK\mars\mars\comm\corepattern;G:\xProject_dp\SDK\mars\mars\comm\crypt;G:\xProject_dp\SDK\mars\mars\comm\debugger;G:\xProject_dp\SDK\mars\mars\comm\dns;G:\xProject_dp\SDK\mars\mars\comm\messagequeue;G:\xProject_dp\SDK\mars\mars\comm\network;G:\xProject_dp\SDK\mars\mars\comm\socket;G:\xProject_dp\SDK\mars\mars\comm\thread;G:\xProject_dp\SDK\mars\mars\comm\xlogger;G:\xProject_dp\SDK\mars\mars\comm\windows;G:\xProject_dp\SDK\mars\mars\comm\windows\SocketSelect;G:\xProject_dp\SDK\mars\mars\comm\windows\thread;G:\xProject_dp\SDK\mars\mars\comm\windows\win32;G:\xProject_dp\SDK\mars\mars\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\raknet\.;G:\xProject_dp\SDK\mars\mars\raknet\src;G:\xProject_dp\SDK\mars\mars\raknet\..;G:\xProject_dp\SDK\mars\mars\raknet\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm;G:\xProject_dp\SDK\mars\mars\raknet\..\..\..;G:\xProject_dp\SDK\mars\mars\raknet\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -67,9 +67,9 @@
       <Project>{B63493E6-B865-38C7-BAD9-A1171C52C6DF}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
-    <ProjectReference Include="G:\xProject_dp\SDK\mars\mars\comm\comm.vcxproj">
-      <Project>{DC44641C-F197-3E14-956B-F9DC3ABFB6EA}</Project>
-      <Name>comm</Name>
+    <ProjectReference Include="G:\xProject_dp\SDK\mars\mars\raknet\raknet.vcxproj">
+      <Project>{5962F670-460F-3029-A6DB-43F19B12030A}</Project>
+      <Name>raknet</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

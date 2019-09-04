@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E5DCDD1B-9D54-3158-BBC2-DD1F2EF46073}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>mars-xlog</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\xProject_dp\SDK\mars\mars\xlog\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mars-xlog.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mars-xlog</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mars-xlog</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\xProject_dp\SDK\mars\mars\xlog\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mars-xlog.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mars-xlog</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mars-xlog</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4003;4819;4996;4244;4101</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;XLOGGER_TAG="mars::mars-xlog";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::mars-xlog\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4003;4819;4996;4244;4101</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;XLOGGER_TAG="mars::mars-xlog";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::mars-xlog\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4003;4819;4996;4244;4101</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::mars-xlog";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::mars-xlog\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4003;4819;4996;4244;4101</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>../../comm/projdef.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::mars-xlog";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::mars-xlog\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\log\.;G:\xProject_dp\SDK\mars\mars\log\src;G:\xProject_dp\SDK\mars\mars\log\..;G:\xProject_dp\SDK\mars\mars\log\..\..;G:\xProject_dp\SDK\mars\mars\log\..\comm;G:\xProject_dp\SDK\mars\mars\log\..\crypt;G:\xProject_dp\SDK\mars\mars\log\..\..\..;G:\xProject_dp\SDK\mars\mars\log\..\crypt\micro-ecc-master;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows;G:\xProject_dp\SDK\mars\mars\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/log/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/log/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/xlog/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/xlog/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:/xProject_dp/SDK/mars/mars/log/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\comm\CMakeExtraFlags.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/xProject_dp/SDK/mars/mars/log/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\comm\CMakeExtraFlags.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\xProject_dp\SDK\mars\mars\xlog\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\xProject_dp\SDK\mars\mars\xlog\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/log/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/log/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/xlog/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/xlog/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:/xProject_dp/SDK/mars/mars/log/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\comm\CMakeExtraFlags.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/xProject_dp/SDK/mars/mars/log/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\comm\CMakeExtraFlags.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\log\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\xProject_dp\SDK\mars\mars\xlog\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\xProject_dp\SDK\mars\mars\xlog\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\src\appender.cc" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\src\formater.cc" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\src\log_buffer.cc" />
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\src\log_buffer.h" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\crypt\log_crypt.cc" />
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\crypt\log_crypt.h" />
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\crypt\micro-ecc-master\types.h" />
+    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\log\crypt\micro-ecc-master\uECC.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsC</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsC</CompileAs>
+    </ClCompile>
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\crypt\micro-ecc-master\uECC.h" />
+    <ClInclude Include="G:\xProject_dp\SDK\mars\mars\log\crypt\micro-ecc-master\uECC_vli.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:\xProject_dp\SDK\mars\mars\ZERO_CHECK.vcxproj">
+      <Project>{B63493E6-B865-38C7-BAD9-A1171C52C6DF}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
