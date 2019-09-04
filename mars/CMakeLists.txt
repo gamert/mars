@@ -30,8 +30,8 @@ if(ANDROID)
     # link_directories(app baseevent log sdt stn raknet comm boost)
     link_directories(log raknet comm boost)
 
-    # marsxlog
-    set(SELF_LIB_NAME marsxlog)
+    # mars-xlog
+    set(SELF_LIB_NAME xlog)
 
     file(GLOB SELF_SRC_FILES libraries/mars_android_sdk/jni/JNI_OnLoad.cc
             libraries/mars_xlog_sdk/jni/import.cc)
@@ -45,7 +45,7 @@ if(ANDROID)
          target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections"
                                 ${log-lib}
                                 ${z-lib}
-                                xlog
+                                mars-xlog
                                 mars-boost
                                 comm)
 
@@ -53,7 +53,7 @@ if(ANDROID)
         target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections -Wl,--version-script=\"${EXPORT_XLOG_EXP_FILE}\""
                                 ${log-lib}
                                 ${z-lib}
-                                xlog
+                                mars-xlog
                                 mars-boost
                                 comm)
     endif()
@@ -71,7 +71,7 @@ if(ANDROID)
                             raknet
                             comm
                             mars-boost
-                            marsxlog)
+                            xlog)
     else()
         target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections -Wl,--version-script=\"${EXPORT_EXP_FILE}\""
                             ${log-lib}
@@ -79,7 +79,7 @@ if(ANDROID)
                             raknet
                             comm
                             mars-boost
-                            marsxlog)
+                            xlog)
     endif()		
 
     # set(SELF_LIB_NAME marsstn)
@@ -97,7 +97,7 @@ if(ANDROID)
                             # baseevent
                             # comm
                             # mars-boost
-                            # marsxlog)
+                            # xlog)
     # else()
         # target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections -Wl,--version-script=\"${EXPORT_EXP_FILE}\""
                             # ${log-lib}
@@ -107,7 +107,7 @@ if(ANDROID)
                             # baseevent
                             # comm
                             # mars-boost
-                            # marsxlog)
+                            # xlog)
     # endif()	
   
 

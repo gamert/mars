@@ -22,7 +22,7 @@ namespace RakNet
 		
 		RakNetWrapper::Connection* FindConnection(ulong guid,bool bRemove = false)
 		{
-			for (int i = 0; i < _connectionList.size(); ++i)
+			for (int i = 0; i < (int)_connectionList.size(); ++i)
 			{
 				if (_connectionList[i]->guid == guid)
 				{
@@ -212,7 +212,7 @@ namespace RakNet
         //从
         ConnectionState GetConnectionState(int index)
         {
-            if (index >= 0 && index < _connectionList.size())
+            if (index >= 0 && index < (int)_connectionList.size())
             {
                 return (ConnectionState)RkN_GetConnectionState(_handle, _connectionList[index]->guid);
             }
@@ -250,7 +250,7 @@ namespace RakNet
 
 		void CloseConnection(int index = 0, bool sendDisconnectionNotification = false, byte orderingChannel = 0, PacketPriority priority = PacketPriority::IMMEDIATE_PRIORITY)
         {
-            if (index >= 0 && index < _connectionList.size())
+            if (index >= 0 && index < (int)_connectionList.size())
             {
                 InternalClose(_connectionList[index], sendDisconnectionNotification, orderingChannel, priority);
             }
@@ -260,7 +260,7 @@ namespace RakNet
         {
             if (_started)
             {
-                for (int ii = 0; ii < _connectionList.size(); ++ii)
+                for (int ii = 0; ii < (int)_connectionList.size(); ++ii)
                     InternalClose(_connectionList[ii], true, orderingChannel, priority);
 
                 RkN_Shutdown(_handle, blockDuration, orderingChannel, (int)priority);
@@ -320,7 +320,7 @@ namespace RakNet
         uint Send(byte *data, int length, int index = 0, PacketPriority priority = PacketPriority::IMMEDIATE_PRIORITY, PacketReliability reliability = PacketReliability::RELIABLE_ORDERED, sbyte orderingChannel = 0, bool broadcast = false, int forceReceiptNumber = 0)
         {
             uint result = 0u;
-            if (_started && index >= 0 && index < _connectionList.size())
+            if (_started && index >= 0 && index < (int)_connectionList.size())
             {
                 RakNetWrapper::Connection *conn = _connectionList[index];
                 result = InternalSend(conn, data, length, priority, reliability, orderingChannel, broadcast, forceReceiptNumber);
