@@ -19,30 +19,30 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{C382D719-7EE9-3E9D-B8AE-801DB8E2DF90}</ProjectGuid>
+    <ProjectGuid>{7A8ED92C-774D-322F-8D6E-9E56B7811F2F}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
-    <Platform>Win32</Platform>
+    <Platform>x64</Platform>
     <ProjectName>mars-boost</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140_xp</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141</PlatformToolset>
@@ -56,22 +56,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\xProject_dp\SDK\mars\mars\boost\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mars-boost.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mars-boost</TargetName>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\cmake_build_x64\boost\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mars-boost.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mars-boost</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">mars-boost</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\xProject_dp\SDK\mars\mars\boost\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mars-boost.dir\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mars-boost</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\cmake_build_x64\boost\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mars-boost.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mars-boost</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">mars-boost</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -79,20 +79,21 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;XLOGGER_TAG="mars::mars-boost";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;XLOGGER_TAG="mars::mars-boost";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::mars-boost\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::mars-boost\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -100,12 +101,12 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -113,6 +114,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -122,11 +124,11 @@
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::mars-boost\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::mars-boost\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -135,62 +137,30 @@
     </Midl>
     <Lib />
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ClCompile>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
-      <AssemblerListingLocation>Release/</AssemblerListingLocation>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::mars-boost";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::mars-boost\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ResourceCompile>
-    <Midl>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
-      <HeaderFileName>%(Filename).h</HeaderFileName>
-      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
-      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
-      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
-    </Midl>
-    <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-    </Lib>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::mars-boost";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::mars-boost";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::mars-boost\";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::mars-boost\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\xProject_dp\SDK\mars\mars\boost\.;G:\xProject_dp\SDK\mars\mars\boost\..;G:\xProject_dp\SDK\mars\mars\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -198,24 +168,49 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Lib>
-      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG="mars::mars-boost";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::mars-boost\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;BOOST_NO_EXCEPTIONS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>..\openssl\include;..\boost\.;..\boost\..;..\boost\..\comm\windows;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/boost/CMakeLists.txt</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/boost/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/boost/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
+    <CustomBuild Include="..\boost\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule ../boost/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule ../boost/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/boost/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -H.. -B../cmake_build_x64 --check-stamp-file ../cmake_build_x64/boost/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -223,25 +218,25 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:/xProject_dp/SDK/mars/mars/boost/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/xProject_dp/SDK/mars/mars/boost/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\xProject_dp\SDK\mars\mars\boost\CMakeFiles\generate.stamp</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\xProject_dp\SDK\mars\mars\boost\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -H.. -B../cmake_build_x64 --check-stamp-file ../cmake_build_x64/boost/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">../boost/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;..\boost\CMakeLists.txt;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeSystem.cmake;..\comm\CMakeUtils.txt;..\boost\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../boost/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;..\boost\CMakeLists.txt;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeSystem.cmake;..\comm\CMakeUtils.txt;..\boost\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\cmake_build_x64\boost\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\cmake_build_x64\boost\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/boost/CMakeLists.txt</Message>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/xProject_dp/SDK/mars/mars/boost/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/boost/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule ../boost/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule ../boost/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HG:/xProject_dp/SDK/mars/mars -BG:/xProject_dp/SDK/mars/mars --check-stamp-file G:/xProject_dp/SDK/mars/mars/boost/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -H.. -B../cmake_build_x64 --check-stamp-file ../cmake_build_x64/boost/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -249,43 +244,52 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:/xProject_dp/SDK/mars/mars/boost/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/xProject_dp/SDK/mars/mars/boost/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;G:\xProject_dp\SDK\mars\mars\CMakeFiles\3.12.1\CMakeSystem.cmake;G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt;G:\xProject_dp\SDK\mars\mars\comm\CMakeUtils.txt;G:\xProject_dp\SDK\mars\mars\boost\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\xProject_dp\SDK\mars\mars\boost\CMakeFiles\generate.stamp</Outputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\xProject_dp\SDK\mars\mars\boost\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -H.. -B../cmake_build_x64 --check-stamp-file ../cmake_build_x64/boost/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../boost/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;..\boost\CMakeLists.txt;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeSystem.cmake;..\comm\CMakeUtils.txt;..\boost\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../boost/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;..\boost\CMakeLists.txt;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;..\cmake_build_x64\CMakeFiles\3.12.1\CMakeSystem.cmake;..\comm\CMakeUtils.txt;..\boost\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\cmake_build_x64\boost\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\cmake_build_x64\boost\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\atomic\src\lockpool.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\date_time\src\gregorian\date_generators.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\date_time\src\gregorian\gregorian_types.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\date_time\src\gregorian\greg_month.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\date_time\src\gregorian\greg_weekday.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\date_time\src\posix_time\posix_time_types.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\exception\src\clone_current_exception_non_intrusive.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\filesystem\src\codecvt_error_category.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\filesystem\src\operations.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\filesystem\src\path.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\filesystem\src\path_traits.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\filesystem\src\portability.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\filesystem\src\unique_path.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\filesystem\src\utf8_codecvt_facet.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\filesystem\src\windows_file_codecvt.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\iostreams\src\file_descriptor.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\iostreams\src\mapped_file.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\smart_ptr\src\sp_collector.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\smart_ptr\src\sp_debug_hooks.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\system\src\error_code.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\thread\src\future.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\thread\src\win32\thread.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\thread\src\win32\tss_dll.cpp" />
-    <ClCompile Include="G:\xProject_dp\SDK\mars\mars\boost\libs\thread\src\win32\tss_pe.cpp" />
+    <ClCompile Include="..\boost\libs\atomic\src\lockpool.cpp" />
+    <ClCompile Include="..\boost\libs\date_time\src\gregorian\date_generators.cpp" />
+    <ClCompile Include="..\boost\libs\date_time\src\gregorian\gregorian_types.cpp" />
+    <ClCompile Include="..\boost\libs\date_time\src\gregorian\greg_month.cpp" />
+    <ClCompile Include="..\boost\libs\date_time\src\gregorian\greg_weekday.cpp" />
+    <ClCompile Include="..\boost\libs\date_time\src\posix_time\posix_time_types.cpp" />
+    <ClCompile Include="..\boost\libs\exception\src\clone_current_exception_non_intrusive.cpp" />
+    <ClCompile Include="..\boost\libs\filesystem\src\codecvt_error_category.cpp" />
+    <ClCompile Include="..\boost\libs\filesystem\src\operations.cpp" />
+    <ClCompile Include="..\boost\libs\filesystem\src\path.cpp" />
+    <ClCompile Include="..\boost\libs\filesystem\src\path_traits.cpp" />
+    <ClCompile Include="..\boost\libs\filesystem\src\portability.cpp" />
+    <ClCompile Include="..\boost\libs\filesystem\src\unique_path.cpp" />
+    <ClCompile Include="..\boost\libs\filesystem\src\utf8_codecvt_facet.cpp" />
+    <ClCompile Include="..\boost\libs\filesystem\src\windows_file_codecvt.cpp" />
+    <ClCompile Include="..\boost\libs\iostreams\src\file_descriptor.cpp" />
+    <ClCompile Include="..\boost\libs\iostreams\src\mapped_file.cpp" />
+    <ClCompile Include="..\boost\libs\smart_ptr\src\sp_collector.cpp" />
+    <ClCompile Include="..\boost\libs\smart_ptr\src\sp_debug_hooks.cpp" />
+    <ClCompile Include="..\boost\libs\system\src\error_code.cpp" />
+    <ClCompile Include="..\boost\libs\thread\src\future.cpp" />
+    <ClCompile Include="..\boost\libs\thread\src\win32\thread.cpp" />
+    <ClCompile Include="..\boost\libs\thread\src\win32\tss_dll.cpp" />
+    <ClCompile Include="..\boost\libs\thread\src\win32\tss_pe.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="G:\xProject_dp\SDK\mars\mars\ZERO_CHECK.vcxproj">
-      <Project>{B63493E6-B865-38C7-BAD9-A1171C52C6DF}</Project>
+    <ProjectReference Include="..\cmake_build_x64\ZERO_CHECK.vcxproj">
+      <Project>{29B47361-6B21-3E3B-A283-D17BCB0E1A69}</Project>
       <Name>ZERO_CHECK</Name>
     </ProjectReference>
   </ItemGroup>
