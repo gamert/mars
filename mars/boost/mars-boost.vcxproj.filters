@@ -75,9 +75,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\boost\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{28D8AD0D-1358-3D37-ACEE-B4D5B738FEC5}</UniqueIdentifier>
     </Filter>

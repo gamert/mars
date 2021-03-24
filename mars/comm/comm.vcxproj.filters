@@ -455,9 +455,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\comm\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Header Files">
       <UniqueIdentifier>{50415640-7F0B-328F-BB94-B3679DF361F0}</UniqueIdentifier>
     </Filter>

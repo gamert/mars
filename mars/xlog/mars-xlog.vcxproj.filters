@@ -35,9 +35,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="..\log\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="crypt">
       <UniqueIdentifier>{A508AF7F-8EF1-38AB-9C68-0F99E43F4CA0}</UniqueIdentifier>
     </Filter>
