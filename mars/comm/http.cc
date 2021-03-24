@@ -176,8 +176,8 @@ bool RequestLine::FromString(const std::string& _requestline) {
     xassert2(strVer.size() >= 3);
 
     if (strVer.size() < 3) {
-//        xerror2(TSF"requestline:%_, strver:%_", _requestline.c_str(), str.c_str());
-        xassert2(false, "requestline:%s, strver:%s", _requestline.c_str(), str.c_str());
+        xerror2(TSF"requestline:%_, strver:%_", _requestline.c_str(), str.c_str());
+//        xassert2(false, "requestline:%s, strver:%s", _requestline.c_str(), str.c_str());
         return false;
     }
 
