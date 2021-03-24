@@ -79,7 +79,13 @@ private:
 
 static inline void cpu_relax() {
 
-#if defined(__arc__) || defined(__mips__) || defined(__arm__) || defined(__powerpc__)
+#if defined(_WIN32)
+    #if defined(_MSC_VER) && _MSC_VER >= 1310 && ( defined(_M_ARM) )
+        YieldProcessor();
+    #else
+        _mm_pause();
+    #endif
+#elif defined(__arc__) || defined(__mips__) || defined(__arm__) || defined(__powerpc__)
 	asm volatile("" ::: "memory");
 #elif defined(__i386__) || defined(__x86_64__)
 	asm volatile("rep; nop" ::: "memory");
@@ -88,12 +94,6 @@ static inline void cpu_relax() {
 #elif defined(__ia64__)
 	asm volatile ("hint @pause" ::: "memory");
 
-#elif defined(_WIN32)
-#if defined(_MSC_VER) && _MSC_VER >= 1310 && ( defined(_M_ARM) )
-	YieldProcessor();
-#else
-	_mm_pause();
-#endif
 #endif
 
 }

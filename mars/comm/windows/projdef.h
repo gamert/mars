@@ -25,9 +25,9 @@
 extern "C" {
 #endif
 
-	FILE* mars_fopen_utf8(const char* _path, const char* _model);
-	int mars_mkdir_utf8(const char* _path, unsigned short _model);
-	int mars_access_utf8(char const* _path, int _model);
+	FILE* __cdecl mars_fopen_utf8(const char* _path, const char* _model);
+	int __cdecl mars_mkdir_utf8(const char* _path, unsigned short _model);
+	int __cdecl mars_access_utf8(char const* _path, int _model);
 	//int mars_remove_utf8(char const* _path);
 
 #ifdef __cplusplus 

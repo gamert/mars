@@ -72,7 +72,7 @@ class TcpClient {
     void DisconnectAndWait();
 
     bool HaveDataRead() const;
-    ssize_t Read(void* _buf, unsigned int _len);
+	unsigned int Read(void* _buf, unsigned int _len);
 
     bool HaveDataWrite() const;
     int Write(const void* _buf, unsigned int _len);

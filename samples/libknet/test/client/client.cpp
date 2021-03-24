@@ -1,5 +1,5 @@
 #include <thread>
-#include "../../client_helper.h"
+//#include "../../client_helper.h"
 
 #include "../../udpclient.h"
 #include "../../../TimeMeasure.h"
@@ -168,8 +168,8 @@ int main(int argc, char *argv[])
 
 	srand((unsigned)time(NULL));
 
-	boost::asio::io_context io_context;
-	std::shared_ptr<AsioClient> asioClient = InitAsioClient(io_context, "127.0.0.1", "3333");
+	//boost::asio::io_context io_context;
+	//std::shared_ptr<AsioClient> asioClient = InitAsioClient(io_context, "127.0.0.1", "3333");
 
 	//rand
 	udpclient<clitask> c;

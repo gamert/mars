@@ -95,7 +95,7 @@ bool TcpClient::HaveDataRead() const {
     return have_read_data_;
 }
 
-ssize_t TcpClient::Read(void* _buf, unsigned int _len) {
+unsigned int TcpClient::Read(void* _buf, unsigned int _len) {
     if (kTcpConnected != status_) return -1;
 
     xassert2(INVALID_SOCKET != socket_);
