@@ -63,8 +63,10 @@ extern "C" {
 #define stricmp _stricmp
 #define snprintf _snprintf
 #endif
+#if !defined(WIN32)
 #undef access
 #define access mars_access_utf8
+#endif
 #if !defined(WIN32)
     #define sscanf sscanf_s
 #endif
