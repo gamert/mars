@@ -3,6 +3,8 @@ cmake_minimum_required (VERSION 3.6)
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}" CACHE PATH "Installation directory" FORCE)
 message(STATUS "CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}")
 
+include_directories(openssl/include)
+
 add_subdirectory(comm comm)
 add_subdirectory(boost boost)
 add_subdirectory(app app)
@@ -39,12 +41,17 @@ if(ANDROID)
 
     get_filename_component(EXPORT_XLOG_EXP_FILE libraries/mars_android_sdk/jni/export.exp ABSOLUTE)
 
-    target_link_libraries(${SELF_LIB_NAME} "-Wl,--gc-sections -Wl,--version-script=\"${EXPORT_XLOG_EXP_FILE}\""
-                            ${log-lib}
-                            ${z-lib}
+    set(SELF_XLOG_LINKER_FLAG "-Wl,--gc-sections -Wl,--version-script='${EXPORT_XLOG_EXP_FILE}'") 
+    if(ANDROID_ABI STREQUAL "x86_64" OR ANDROID_ABI STREQUAL "x86")
+        set(SELF_XLOG_LINKER_FLAG "-Wl,--gc-sections -Wl,--version-script='${EXPORT_XLOG_EXP_FILE}' -Wl,--no-warn-shared-textrel") 
+    endif()
+    target_link_libraries(${SELF_LIB_NAME} "${SELF_XLOG_LINKER_FLAG}"
                             xlog
                             mars-boost
-                            comm)
+                            comm
+                            ${log-lib}
+                            ${z-lib}
+                            )
  
     set(SELF_LIB_NAME marsstn)
 
