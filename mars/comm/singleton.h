@@ -85,9 +85,30 @@
             ScopedLock    lock(singleton_mutex());\
             if (instance_shared_ptr())\
             {\
-                SignalRelease()(instance_shared_ptr());\
+                SignalRelease()(instance_shared_ptr());    \
+                instance_shared_ptr().reset();              \
+                int waitCnt = 0;                            \
+                while(instance_shared_ptr() && instance_shared_ptr().use_count() > 0 && waitCnt < 40) {    \
+                    usleep(5000);                             \
+                    waitCnt++;                             \
+                }   \
+                SignalReleaseEnd()();\
+            }\
+        }\
+        \
+        static void AsyncRelease()\
+        {\
+            ScopedLock  lock(singleton_mutex());\
+            if (instance_shared_ptr())\
+            {\
+                boost::shared_ptr<classname> tmp_ptr = instance_shared_ptr();\
+                SignalRelease()(tmp_ptr);\
                 instance_shared_ptr().reset();\
                 SignalReleaseEnd()();\
+                std::thread t([=]() mutable {\
+                    tmp_ptr.reset();\
+                });\
+                t.detach();\
             }\
         }\
         \

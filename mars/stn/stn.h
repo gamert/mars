@@ -35,11 +35,19 @@
 namespace mars{
     namespace stn{
 
-static const std::string DEFAULT_LONGLINK_NAME = "default-longlink";
-static const std::string DEFAULT_LONGLINK_GROUP = "default-group";
+#define DEFAULT_LONGLINK_NAME "default-longlink"
+#define DEFAULT_LONGLINK_GROUP "default-group"
 struct TaskProfile;
 struct DnsProfile;
+struct ConnectProfile;
 class LongLinkEncoder;
+
+
+enum PackerEncoderVersion {
+  kOld = 1,
+  kNew = 2,
+};
+
 
 struct Task {
 public:
@@ -99,10 +107,33 @@ public:
     std::string channel_name;   //longlink channel id
     std::string group_name;     //use for select decode method
     std::string user_id;        //use for identify multi users
+    int protocol;
     
     std::vector<std::string> shortlink_host_list;
     std::map<std::string, std::string> headers;
     std::vector<std::string> longlink_host_list;
+};
+    
+struct CgiProfile {
+    CgiProfile() {
+        start_time = 0;
+        start_connect_time = 0;
+        connect_successful_time = 0;
+        start_tls_handshake_time = 0;
+        tls_handshake_successful_time = 0;
+        start_send_packet_time = 0;
+        start_read_packet_time = 0;
+        read_packet_finished_time = 0;
+    }
+    uint64_t start_time;
+    uint64_t start_connect_time;
+    uint64_t connect_successful_time;
+    uint64_t start_tls_handshake_time;
+    uint64_t tls_handshake_successful_time;
+    uint64_t start_send_packet_time;
+    uint64_t start_read_packet_time;
+    uint64_t read_packet_finished_time;
+    
 };
 
 struct LonglinkConfig {
@@ -131,6 +162,7 @@ enum TaskFailHandleType {
     
 	kTaskFailHandleTaskEnd = -14,
 	kTaskFailHandleTaskTimeout = -15,
+    kTaskSlientHandleTaskEnd = -16,
 };
         
 //error type
@@ -258,7 +290,7 @@ extern bool Req2Buf(uint32_t taskid, void* const user_context, const std::string
 //底层回包返回给上层解析 
 extern int Buf2Resp(uint32_t taskid, void* const user_context, const std::string& _user_id, const AutoBuffer& inbuffer, const AutoBuffer& extend, int& error_code, const int channel_select);
 //任务执行结束 
-extern int  OnTaskEnd(uint32_t taskid, void* const user_context, const std::string& _user_id, int error_type, int error_code);
+extern int  OnTaskEnd(uint32_t taskid, void* const user_context, const std::string& _user_id, int error_type, int error_code, const ConnectProfile& _profile);
 
 //上报网络连接状态 
 extern void ReportConnectStatus(int status, int longlink_status);

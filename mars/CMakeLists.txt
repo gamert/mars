@@ -14,6 +14,13 @@ add_subdirectory(log xlog)
 # add_subdirectory(stn stn)
 add_subdirectory(raknet raknet)
 
+# for zstd
+option(ZSTD_BUILD_STATIC "BUILD STATIC LIBRARIES" ON)
+option(ZSTD_BUILD_SHARED "BUILD SHARED LIBRARIES" OFF)
+set(ZSTD_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/zstd")
+set(LIBRARY_DIR ${ZSTD_SOURCE_DIR}/lib)
+include(GNUInstallDirs)
+add_subdirectory(zstd/build/cmake/lib zstd)
 
 project (mars)
 
@@ -30,7 +37,7 @@ if(ANDROID)
     find_library(z-lib z)
 
     # link_directories(app baseevent log sdt stn raknet comm boost)
-    link_directories(log raknet comm boost)
+    link_directories(log raknet comm boost zstd)
 
     # mars-xlog
     set(SELF_LIB_NAME marsxlog)
@@ -51,6 +58,7 @@ if(ANDROID)
                             xlog
                             mars-boost
                             comm
+                            libzstd_static
                             ${log-lib}
                             ${z-lib}
                             )
