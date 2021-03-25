@@ -116,3 +116,4 @@ Debug-iphonesimulator
 cmake_build
 
 /_obj/
+*.lnk
