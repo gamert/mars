@@ -387,7 +387,7 @@ void LongLink::__Run() {
     }
     
     uint64_t cur_time = gettickcount();
-    xinfo_function(TSF"LongLink Rebuild span:%_, net:%_", conn_profile_.disconn_time != 0 ? cur_time - conn_profile_.disconn_time : 0, getNetInfo());
+    xinfo_function(TSF"LongLink Rebuild span:%_, net:%_, channel name:%_", conn_profile_.disconn_time != 0 ? cur_time - conn_profile_.disconn_time : 0, getNetInfo(), config_.name);
     
     ConnectProfile conn_profile;
     conn_profile.start_time = cur_time;
@@ -487,7 +487,8 @@ SOCKET LongLink::__RunConnect(ConnectProfile& _conn_profile) {
     
     socket_address* proxy_addr = NULL;
     
-    if (use_proxy) {
+    //.如果有debugip则不走代理逻辑.
+    if (use_proxy && kIPSourceDebug != _conn_profile.ip_type) {
         std::string proxy_ip = proxy_info.ip;
         if (proxy_info.ip.empty() && !proxy_info.host.empty()) {
             std::vector<std::string> ips;
