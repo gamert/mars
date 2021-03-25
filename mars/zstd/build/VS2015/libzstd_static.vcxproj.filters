@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\zstd\lib\common\debug.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\entropy_common.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\error_private.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\fse_decompress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\pool.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\threading.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\xxhash.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\zstd_common.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\fse_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\hist.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\huf_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_compress_literals.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_compress_sequences.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_double_fast.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_fast.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_lazy.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_ldm.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_opt.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstdmt_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\decompress\huf_decompress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\decompress\zstd_ddict.c" />
+    <ClCompile Include="..\..\..\zstd\lib\decompress\zstd_decompress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\decompress\zstd_decompress_block.c" />
+    <ClCompile Include="..\..\..\zstd\lib\dictBuilder\cover.c" />
+    <ClCompile Include="..\..\..\zstd\lib\dictBuilder\divsufsort.c" />
+    <ClCompile Include="..\..\..\zstd\lib\dictBuilder\fastcover.c" />
+    <ClCompile Include="..\..\..\zstd\lib\dictBuilder\zdict.c" />
+    <ClCompile Include="..\..\..\zstd\lib\deprecated\zbuff_common.c" />
+    <ClCompile Include="..\..\..\zstd\lib\deprecated\zbuff_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\deprecated\zbuff_decompress.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\zstd\lib\zstd.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\bitstream.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\compiler.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\cpu.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\debug.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\error_private.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\fse.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\huf.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\mem.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\pool.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\threading.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\xxhash.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\zstd_errors.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\zstd_internal.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\hist.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_compress_internal.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_compress_literals.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_compress_sequences.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_cwksp.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_double_fast.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_fast.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_lazy.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_ldm.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_opt.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstdmt_compress.h" />
+    <ClInclude Include="..\..\..\zstd\lib\decompress\zstd_ddict.h" />
+    <ClInclude Include="..\..\..\zstd\lib\decompress\zstd_decompress_block.h" />
+    <ClInclude Include="..\..\..\zstd\lib\decompress\zstd_decompress_internal.h" />
+    <ClInclude Include="..\..\..\zstd\lib\dictBuilder\cover.h" />
+    <ClInclude Include="..\..\..\zstd\lib\dictBuilder\divsufsort.h" />
+    <ClInclude Include="..\..\..\zstd\lib\dictBuilder\zdict.h" />
+    <ClInclude Include="..\..\..\zstd\lib\deprecated\zbuff.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\..\zstd\build\cmake\lib\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{50415640-7F0B-328F-BB94-B3679DF361F0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{28D8AD0D-1358-3D37-ACEE-B4D5B738FEC5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -30,7 +30,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v140_xp</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -40,12 +40,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -71,7 +71,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -92,10 +92,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::mars-xlog\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -108,7 +108,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -121,7 +121,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;XLOGGER_TAG="mars::mars-xlog";_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -129,10 +129,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;XLOGGER_TAG=\"mars::mars-xlog\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -143,7 +143,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -163,10 +163,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::mars-xlog\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -179,7 +179,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /Zc:threadSafeInit-</AdditionalOptions>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsCpp</CompileAs>
@@ -199,10 +199,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;XLOGGER_TAG=\"mars::mars-xlog\";_WIN64;WIN64;_WIN32;UNICODE;_UNICODE;NOMINMAX;_LIB;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\openssl\include;..\log\.;..\log\src;..\log\..;..\log\..\..;..\log\..\comm;..\log\..\comm\xlogger;..\log\..\crypt;..\log\..\..\..;..\log\..\crypt\micro-ecc-master;..\log\..\comm\windows;..\log\..\comm\windows\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -216,10 +216,17 @@
   <ItemGroup>
     <ClCompile Include="..\log\src\appender.cc" />
     <ClCompile Include="..\log\src\formater.cc" />
-    <ClCompile Include="..\log\src\log_buffer.cc" />
-    <ClInclude Include="..\log\src\log_buffer.h" />
+    <ClCompile Include="..\log\src\log_base_buffer.cc" />
+    <ClInclude Include="..\log\src\log_base_buffer.h" />
+    <ClCompile Include="..\log\src\log_zlib_buffer.cc" />
+    <ClInclude Include="..\log\src\log_zlib_buffer.h" />
+    <ClCompile Include="..\log\src\log_zstd_buffer.cc" />
+    <ClInclude Include="..\log\src\log_zstd_buffer.h" />
+    <ClInclude Include="..\log\src\xlogger_appender.h" />
+    <ClCompile Include="..\log\src\xlogger_interface.cc" />
     <ClCompile Include="..\log\crypt\log_crypt.cc" />
     <ClInclude Include="..\log\crypt\log_crypt.h" />
+    <ClInclude Include="..\log\crypt\log_magic_num.h" />
     <ClInclude Include="..\log\crypt\micro-ecc-master\types.h" />
     <ClCompile Include="..\log\crypt\micro-ecc-master\uECC.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>

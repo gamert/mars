@@ -110,7 +110,10 @@ static inline void cpu_relax() {
 
 #ifdef _WIN32
 #include <thr/threads.h>
-extern "C" void thrd_yield();
+extern "C" void __cdecl thrd_yield();
+//_C_LIB_DECL
+//_CRTIMP2_PURE void __cdecl _Thrd_yield(void);
+//_END_C_LIB_DECL
 #define sched_yield() thrd_yield()
 #else
 #include <sched.h>

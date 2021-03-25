@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{645B519E-EF5B-3441-A355-B8CDADE5F521}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>comm</ProjectName>
@@ -338,7 +338,10 @@
     </ClCompile>
     <ClInclude Include="..\comm\xlogger\loginfo_extract.h" />
     <ClInclude Include="..\comm\xlogger\preprocessor.h" />
+    <ClCompile Include="..\comm\xlogger\xlogger.cc" />
     <ClInclude Include="..\comm\xlogger\xlogger.h" />
+    <ClCompile Include="..\comm\xlogger\xlogger_category.cc" />
+    <ClInclude Include="..\comm\xlogger\xlogger_category.h" />	
     <ClCompile Include="..\comm\xlogger\xloggerbase.c">
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsC</CompileAs>
       <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsC</CompileAs>

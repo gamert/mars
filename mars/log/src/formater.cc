@@ -127,10 +127,14 @@ void log_formater(const XLoggerInfo* _info, const char* _logbody, PtrBuffer& _lo
 
         if (0 != _info->timeval.tv_sec) {
             time_t sec = _info->timeval.tv_sec;
-            struct tm tm;
-            memset(&tm, 0, sizeof(tm));
+
+#if !_WIN32
+            struct tm tm = { 0 };
             localtime_r((const time_t*)&sec, &tm);
-#if defined(ANDROID) || _WIN32
+#else
+            tm tm = *localtime((const time_t*)&sec);
+#endif
+#if defined(ANDROID)
             std::string gmt = std::to_string(tm.tm_gmtoff / 360);
 #endif
             

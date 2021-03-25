@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="..\log\src\appender.cc">
       <Filter>src</Filter>
@@ -7,7 +7,16 @@
     <ClCompile Include="..\log\src\formater.cc">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\log\src\log_buffer.cc">
+    <ClCompile Include="..\log\src\log_base_buffer.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\log\src\log_zlib_buffer.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\log\src\log_zstd_buffer.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\log\src\xlogger_interface.cc">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\log\crypt\log_crypt.cc">
@@ -18,10 +27,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\log\src\log_buffer.h">
+    <ClInclude Include="..\log\src\log_base_buffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\log\src\log_zlib_buffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\log\src\log_zstd_buffer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\log\src\xlogger_appender.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\log\crypt\log_crypt.h">
+      <Filter>crypt</Filter>
+    </ClInclude>
+    <ClInclude Include="..\log\crypt\log_magic_num.h">
       <Filter>crypt</Filter>
     </ClInclude>
     <ClInclude Include="..\log\crypt\micro-ecc-master\types.h">

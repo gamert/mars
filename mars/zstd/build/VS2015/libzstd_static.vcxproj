@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1862DEF2-816F-3BD3-B4F1-C9C52236B587}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>libzstd_static</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\cmake_build_x64\zstd\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">libzstd_static.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">zstd_static</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">zstd_static</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\cmake_build_x64\zstd\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">libzstd_static.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">zstd_static</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">zstd_static</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;ZSTD_HEAPMODE=0;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>..\..\..\cmake_build_x64\zstd;..\..\..\zstd\build\cmake\lib;..\..\..\openssl\include;..\..\..\zstd\lib;..\..\..\zstd\lib\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\..\zstd\build\cmake\lib\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule ..\..\../zstd/build/cmake/lib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule ..\..\../zstd/build/cmake/lib/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -H..\..\.. -B..\..\../cmake_build_x64 --check-stamp-file ..\..\../cmake_build_x64/zstd/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -H..\..\.. -B..\..\../cmake_build_x64 --check-stamp-file ..\..\../cmake_build_x64/zstd/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\../zstd/build/cmake/lib/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeSystem.cmake;..\..\..\zstd\build\cmake\lib\CMakeLists.txt;..\..\..\zstd\build\cmake\lib\cmake_uninstall.cmake.in;..\..\..\zstd\build\cmake\lib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\../zstd/build/cmake/lib/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeSystem.cmake;..\..\..\zstd\build\cmake\lib\CMakeLists.txt;..\..\..\zstd\build\cmake\lib\cmake_uninstall.cmake.in;..\..\..\zstd\build\cmake\lib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\..\cmake_build_x64\zstd\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\..\cmake_build_x64\zstd\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule ..\..\../zstd/build/cmake/lib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule ..\..\../zstd/build/cmake/lib/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -H..\..\.. -B..\..\../cmake_build_x64 --check-stamp-file ..\..\../cmake_build_x64/zstd/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -H..\..\.. -B..\..\../cmake_build_x64 --check-stamp-file ..\..\../cmake_build_x64/zstd/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\../zstd/build/cmake/lib/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeSystem.cmake;..\..\..\zstd\build\cmake\lib\CMakeLists.txt;..\..\..\zstd\build\cmake\lib\cmake_uninstall.cmake.in;..\..\..\zstd\build\cmake\lib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\../zstd/build/cmake/lib/CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeCXXCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeRCCompiler.cmake;..\..\..\cmake_build_x64\CMakeFiles\3.12.1\CMakeSystem.cmake;..\..\..\zstd\build\cmake\lib\CMakeLists.txt;..\..\..\zstd\build\cmake\lib\cmake_uninstall.cmake.in;..\..\..\zstd\build\cmake\lib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\cmake_build_x64\zstd\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\..\cmake_build_x64\zstd\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\zstd\lib\common\debug.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\entropy_common.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\error_private.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\fse_decompress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\pool.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\threading.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\xxhash.c" />
+    <ClCompile Include="..\..\..\zstd\lib\common\zstd_common.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\fse_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\hist.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\huf_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_compress_literals.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_compress_sequences.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_double_fast.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_fast.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_lazy.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_ldm.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstd_opt.c" />
+    <ClCompile Include="..\..\..\zstd\lib\compress\zstdmt_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\decompress\huf_decompress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\decompress\zstd_ddict.c" />
+    <ClCompile Include="..\..\..\zstd\lib\decompress\zstd_decompress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\decompress\zstd_decompress_block.c" />
+    <ClCompile Include="..\..\..\zstd\lib\dictBuilder\cover.c" />
+    <ClCompile Include="..\..\..\zstd\lib\dictBuilder\divsufsort.c" />
+    <ClCompile Include="..\..\..\zstd\lib\dictBuilder\fastcover.c" />
+    <ClCompile Include="..\..\..\zstd\lib\dictBuilder\zdict.c" />
+    <ClCompile Include="..\..\..\zstd\lib\deprecated\zbuff_common.c" />
+    <ClCompile Include="..\..\..\zstd\lib\deprecated\zbuff_compress.c" />
+    <ClCompile Include="..\..\..\zstd\lib\deprecated\zbuff_decompress.c" />
+    <ClInclude Include="..\..\..\zstd\lib\zstd.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\bitstream.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\compiler.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\cpu.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\debug.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\error_private.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\fse.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\huf.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\mem.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\pool.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\threading.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\xxhash.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\zstd_errors.h" />
+    <ClInclude Include="..\..\..\zstd\lib\common\zstd_internal.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\hist.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_compress_internal.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_compress_literals.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_compress_sequences.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_cwksp.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_double_fast.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_fast.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_lazy.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_ldm.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstd_opt.h" />
+    <ClInclude Include="..\..\..\zstd\lib\compress\zstdmt_compress.h" />
+    <ClInclude Include="..\..\..\zstd\lib\decompress\zstd_ddict.h" />
+    <ClInclude Include="..\..\..\zstd\lib\decompress\zstd_decompress_block.h" />
+    <ClInclude Include="..\..\..\zstd\lib\decompress\zstd_decompress_internal.h" />
+    <ClInclude Include="..\..\..\zstd\lib\dictBuilder\cover.h" />
+    <ClInclude Include="..\..\..\zstd\lib\dictBuilder\divsufsort.h" />
+    <ClInclude Include="..\..\..\zstd\lib\dictBuilder\zdict.h" />
+    <ClInclude Include="..\..\..\zstd\lib\deprecated\zbuff.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\cmake_build_x64\ZERO_CHECK.vcxproj">
+      <Project>{29B47361-6B21-3E3B-A283-D17BCB0E1A69}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
